@@ -1,0 +1,1551 @@
+{
+	"routines": [
+		{
+			"id": "1",
+			"name": "Start Bodyweight Basic Routine",
+			"url": "http://www.startbodyweight.com/p/start-bodyweight-basic-routine.html",
+			"author": "Nick Janvier",
+			"steps": {
+				"warmup": [
+					{
+						"id": "1",
+						"name": "Skip Rope",
+						"img": "http://1.bp.blogspot.com/-KgZ3Q7FnRCE/Um-CkbuoBSI/AAAAAAAABQU/-kcETZlM-2Y/s200/skipping.jpg",
+						"type": "Duration",
+						"qty": "5 min",
+						"desc": "Run on the spot or skip rope",
+						"video": ""
+					},
+					{
+						"id": "2",
+						"name": "Shoulder Rotations",
+						"img": "http://4.bp.blogspot.com/-TXObO0OGyxQ/Um-C5c3sSVI/AAAAAAAABQY/muyBo2rnjvI/s200/shoulder+rotations.jpg",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "3",
+						"name": "Arm Raises",
+						"img": "http://3.bp.blogspot.com/-4noJxB-TxAo/Um-DWe8ofMI/AAAAAAAABQg/C-1XdG7icLY/s200/arm+raises.jpg",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "4",
+						"name": "Torso Rotations",
+						"img": "http://2.bp.blogspot.com/-7v9wOqMxqAs/Um-DkPwtIXI/AAAAAAAABQo/l6KlUbufhfo/s200/torso+rotations.jpg",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "5",
+						"name": "Chest Expansions",
+						"img": "http://3.bp.blogspot.com/-aPgAWGMeDXU/Um-EA7iZjhI/AAAAAAAABQw/_puZsMTJA1U/s200/chest+expansions.JPG",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "Expand chest with palms facing upwards",
+						"video": ""
+					},
+					{
+						"id": "6",
+						"name": "Neck Rotations",
+						"img": "http://3.bp.blogspot.com/-760fGngaxbo/Um-ESZjnfFI/AAAAAAAABQ4/-OS9DOsSSoU/s200/neck+circles.jpg",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "7",
+						"name": "Hip Rotations (Each Leg)",
+						"img": "http://4.bp.blogspot.com/-jT5pA_qTrUo/Um-EuiRlJvI/AAAAAAAABRA/TVN5M5HRFCs/s200/hip+rotation.JPG",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "Standing in a staggered stance, bring your back knee up in front of you, then to the side, before lowering your leg back down in the starting position",
+						"video": ""
+					},
+					{
+						"id": "8",
+						"name": "Reverse Hip Rotations (Each Leg)",
+						"img": "http://3.bp.blogspot.com/-v9VizXhSa9E/Um-FPtzz1hI/AAAAAAAABRI/92FggIXHMRY/s200/hip+rotation2.JPG",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "Reverse the previous motion by first bringing your back knee up to your side, then rotating your upper leg until your knee is in front of you before bringing it back down to the starting position.",
+						"video": ""
+					},
+					{
+						"id": "9",
+						"name": "Front Leg Raises (Each Leg)",
+						"img": "http://1.bp.blogspot.com/-VH_pu6kbVvc/Um-FuQZEanI/AAAAAAAABRU/QegY5Bs94l8/s200/leg+raises.jpg",
+						"type": "Reps",
+						"qty": "5",
+						"desc": "Bring your leg up to your outstretched hand. This should be a controled leg raise, rather than a swinging motion.",
+						"video": ""
+					}
+				],
+				"exercise": [
+					{
+						"id": "1",
+						"name": "Squats",
+						"url": "http://www.startbodyweight.com/p/squat-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Assisted Squat",
+							"img": "http://2.bp.blogspot.com/-i0AEuk34ICY/Um-XmYHD8_I/AAAAAAAABR0/GmNlYXXuNYY/s200/assisted+squats.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "Rest your hands on the back of a chair in front you. Lower yourself till your thighs are parallel with the floor, and come back up, using the chair as a support.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Assisted Squat",
+								"img": "http://2.bp.blogspot.com/-i0AEuk34ICY/Um-XmYHD8_I/AAAAAAAABR0/GmNlYXXuNYY/s200/assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Rest your hands on the back of a chair in front you. Lower yourself till your thighs are parallel with the floor, and come back up, using the chair as a support.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Deep Assisted Squat",
+								"img": "http://4.bp.blogspot.com/-kHnx4C87568/Um-X5umptsI/AAAAAAAABR8/ybqTP8FeQ5I/s200/deep+assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as above, but squat through the full range of motion.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Squat",
+								"img": "http://2.bp.blogspot.com/-MUShfZ1RvXQ/Um-YImISkSI/AAAAAAAABSE/nn8mQvjOa8M/s200/squats.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Without any help, lower yourself till your thighs are parallel with the floor, and come back up.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Deep Squat",
+								"img": "http://2.bp.blogspot.com/-HpBgMfptmhQ/Um-ZwoPZybI/AAAAAAAABSM/x7WoqkDIuXE/s200/deep+squats.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as above, but squat through the full range of motion.",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Bulgarian Split Squat",
+								"img": "http://3.bp.blogspot.com/-pOKZL4-r-dI/Um-Z6nZadjI/AAAAAAAABSU/O95A3praemc/s200/bulgarian+split+squats.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Rest your back foot on an elevated platform, with the sole pointing up. Keep your weight over your front leg as you lower yourself.",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Beginner Shrimps",
+								"img": "http://2.bp.blogspot.com/-XAzPVFco0OU/Um-aLvUOAeI/AAAAAAAABSc/-egoyKsacok/s200/beginner+shrimps.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Lower yourself on one leg until the knee and toes of the leg that was bent under you touch the floor at the same time. This must be a slow controlled movement. Then come back up, trying to lift your knee and toes at the same time.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Assisted One-legged Squat",
+								"img": "http://3.bp.blogspot.com/-xY0zcblDaSk/Um-cd24sslI/AAAAAAAABSo/x6obkVL8bnU/s200/assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Performed with a bench or a chair next to you, extend one leg straight in front of you, and lower yourself all the way down, till your butt touches your heel. The heel must remain on the floor however. Help yourself back up by pushing on the chair.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Balance Assisted One-legged Squat",
+								"img": "http://3.bp.blogspot.com/-V_3fVCDGMZo/Um-dHEt3khI/AAAAAAAABSw/V0Yr1FAuQKw/s200/balance+assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as above, but using a door, door frame, or any vertical structure, mainly for support and balance.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Weighted One-legged Squat",
+								"img": "http://4.bp.blogspot.com/-gLUfxKxIwXU/Um-dlnRC88I/AAAAAAAABS4/cfp9sLrU2cI/s200/weighted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "This is somewhat counter-intuitive, but weighted one legged squats are actually easier than standard ones, as the object you hold in front of you acts as a counter-weight. You can use dumbbells if you have some, but any heavy object such as a dictionary will do. Start with a 5kg weight and move down in weight progressively in 1 kg increments until you can do unassisted pistols.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "One-legged Squat",
+								"img": "http://4.bp.blogspot.com/-locfl0MRB58/Um-e7prSU9I/AAAAAAAABTE/1M89vp8lcgo/s200/one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "A.k.a. pistol squats. Same as above, but without any assitance.",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Renegade Pistol",
+								"img": "http://4.bp.blogspot.com/-pFvtLICTk08/Um-fYZ7CfzI/AAAAAAAABTM/bUzhsk2Bq7s/s200/renegade+squat+composite.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Lower yourself on one leg; then switch legs at the bottom (bring the extended leg back next to the other one,into a full squat position), before coming back up.",
+								"video": "http://www.youtube.com/watch?v=Yx7-ywBEIQM"
+							},
+							{
+								"id": "12",
+								"name": "Intermediate Shrimp",
+								"img": "http://2.bp.blogspot.com/-wuwjHnjFUlY/Um-fxNqh2LI/AAAAAAAABTU/b_2LdoKeND0/s200/intermediate+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as shrimp squats, but your back foot must come off the floor before you come back up. This variation shifts the emphasis of the exercise to your quadriceps.",
+								"video": ""
+							},
+							{
+								"id": "13",
+								"name": "Advanced Shrimp",
+								"img": "http://1.bp.blogspot.com/-WHEM_Si1kMY/Um-gYs2LlLI/AAAAAAAABTc/nns6BbyEBYo/s200/advanced+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Hold your back foot in your hand throughout the exercise. Your knee must touch the floor in a controlled manner.",
+								"video": ""
+							}
+						]
+					},
+					{
+						"id": "2",
+						"name": "Pull-ups",
+						"type": "Reps",
+						"url": "http://www.startbodyweight.com/p/pull-up-progression.html",
+						"curProgressions": {
+							"id": "1",
+							"name": "Leg Assisted Pull-up",
+							"img": "http://2.bp.blogspot.com/-emrejEQuDpo/Um-yXDBPhdI/AAAAAAAABT4/4YRbeiPiyjc/s200/chair+assisted+pull+ups.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "Place a chair under your pull up bar, and assist yourself with one leg as you pull your body up. The key here is that you control how much help you get from your assisting leg. Try to reduce this assistance over time. This can be done by placing just the tip of your toes on the chair under you.",
+							"video": "http://www.youtube.com/watch?v=_M8NHO7tb1I"
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Leg Assisted Pull-up",
+								"img": "http://2.bp.blogspot.com/-emrejEQuDpo/Um-yXDBPhdI/AAAAAAAABT4/4YRbeiPiyjc/s200/chair+assisted+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Place a chair under your pull up bar, and assist yourself with one leg as you pull your body up. The key here is that you control how much help you get from your assisting leg. Try to reduce this assistance over time. This can be done by placing just the tip of your toes on the chair under you.",
+								"video": "http://www.youtube.com/watch?v=_M8NHO7tb1I"
+							},
+							{
+								"id": "2",
+								"name": "Jackknife Pull-up",
+								"img": "http://2.bp.blogspot.com/-54-jUyO3LXQ/Um-zDkwT5gI/AAAAAAAABUA/7SLagDV6qis/s200/jackknife+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Place a high object under and in front of your pull up bar (a sturdy chair or -even better- a table). Placement is key for jackknife pull ups to be effective: ideally, the table or chair should be high enough for your legs to rest on it at 90 degrees or less to your torso, with your waist bent. Push with your heels into the chair or table and straighten your waist whilst bringing your chin to the bar.",
+								"video": "http://www.youtube.com/watch?v=0AGflL3itws"
+							},
+							{
+								"id": "3",
+								"name": "Eccentric Pull-up",
+								"img": "http://3.bp.blogspot.com/-vFnrE-Qit3Y/Um-0lDnOUEI/AAAAAAAABUM/beSdTxJDmkU/s200/Eccentric+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Jump up in the pull up position with your chin above the bar, then slowly lower yourself down to the count of 5 seconds.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Half Pull-up (top half)",
+								"img": "http://2.bp.blogspot.com/-tGthbE2HIB0/Um-1AYXoeDI/AAAAAAAABUU/DDxJ4f2bDk0/s200/half+pull+ups+top+half.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Start in mid range, and pull yourself up through half the range of motion, until your chin clears the bar. Then lower yourself back to mid range (elbows bent at 90 degrees).",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Pull-up",
+								"img": "http://3.bp.blogspot.com/-ZkFqikSwb-Q/Um-17Xt1N2I/AAAAAAAABUo/0pcgKhKzePI/s200/pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "From a dead hang, pull yourself up till your chin clears the bar.",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Close Grip Pull-up",
+								"img": "http://2.bp.blogspot.com/-6CgXVd9V348/Um-2QJrlATI/AAAAAAAABUw/I8O5vUzBI9c/s200/close+grip+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as a pull up, but with your hands close together. This variation places added emphasis on your biceps.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Wide Grip Pull-up",
+								"img": "http://1.bp.blogspot.com/-R50Aaz-YT3k/Um-2mFzA_oI/AAAAAAAABU4/PaqWmRRnd9o/s200/wide+grip+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as a pull up, but with your hands further than shoulder width apart. This variation places added emphasis on your latissimus dorsi.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Archer Pull-up",
+								"img": "http://2.bp.blogspot.com/-AJvDDSnxFpo/Um-3BJlzNYI/AAAAAAAABVA/-DTSBY0rO98/s200/archer+pull+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Focus on pulling with one arm, with minimal assistance from the other. The other arm should gradually straighten over the bar during the pulling motion. Only go up to 6 on each arm, alternating each arm, rather than the 8 reps the basic routine calls for. This variation of pull ups is key to working your way to a muscle up. If 4 archer pull ups are too much to begin with, start with 3 on each arm.",
+								"video": "http://www.youtube.com/watch?v=ikKG260TMwU"
+							},
+							{
+								"id": "9",
+								"name": "Sternum Pull-up",
+								"img": "http://1.bp.blogspot.com/-w6H3wMAM304/Um-3v6Ox4NI/AAAAAAAABVI/Xu_GErq1jtg/s200/sternum+pull+up.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "This move shifts the emphasis away from the latissimus dorsi, but it is another key step in the progression towards a muscle up. Perform a pull up until the bar is at chest level. Make sure your elbows remain close to your body throughout the later part of the move, and that they drive back past your shoulders. This move is not to be confused with the 'gironda sternum pull up', through which your back is arched.",
+								"video": "http://www.youtube.com/watch?v=-XXuIwW56Zw"
+							},
+							{
+								"id": "10",
+								"name": "Belly Button Pull-up",
+								"img": "http://3.bp.blogspot.com/-kJyeS6EvR18/Um-4EES2FqI/AAAAAAAABVQ/2qI1r6x5Cw8/s200/belly+button+pull+ups.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as above, but pull more explosively until your belly button is level with the bar. Again, your elbows should brush past your sides, and drive back past your shoulders.",
+								"video": "http://www.youtube.com/watch?v=-XXuIwW56Zw"
+							},
+							{
+								"id": "11",
+								"name": "One-arm Towel-assisted Pull-up",
+								"img": "http://1.bp.blogspot.com/-suHkWAnuuOY/UsgWvvkRPxI/AAAAAAAABug/zoNqhqXRJp0/s200/IMG_20131218_181844.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "The lower your grip is on the towel, the less assistance your other arm will actually provide. Also try to modify your grip on the towel to reduce the assitance (hold with only 2 fingers for instance). Only go up to 6 reps on each arm, alternating each arm, rather than the 8 reps the basic routine calls for.",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "One-arm Towel-assisted Pull-up and Eccentric",
+								"img": "http://4.bp.blogspot.com/-FhalyqC5tTs/UsgXpQdySGI/AAAAAAAABuo/mZW33Cnm2Bs/s200/IMG_20131218_181800.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Let go of the towel once your chin clears the bar, and lower yourself over a count of 5 seconds. Only go up to 6 reps on each arm, alternating each arm, rather than the 8 reps the basic routine calls for",
+								"video": ""
+							},
+							{
+								"id": "13",
+								"name": "Half One-arm Pull-up (top half)",
+								"img": "http://3.bp.blogspot.com/-uZwfPqSEq5Q/UsgYJ23WQZI/AAAAAAAABuw/KMn-Bx5EDDQ/s200/IMG_20131218_181723.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Start in mid range, and pull yourself up through half the range of motion, until your chin clears the bar. Then lower yourself back to mid range (elbows bent at 90 degrees).",
+								"video": ""
+							},
+							{
+								"id": "14",
+								"name": "One-arm Pull-up",
+								"img": "http://4.bp.blogspot.com/-e59NgioFefQ/UsgYkSnUslI/AAAAAAAABu4/d44oNqv2Y_E/s200/IMG_20131218_181312.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "From a dead hang, pull yourself up through the whole range of motion.",
+								"video": ""
+							}
+						]
+					},
+					{
+						"id": "3",
+						"name": "Handstands",
+						"url": "http://www.startbodyweight.com/p/handstand-push-up-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Incline Pike Push-up",
+							"img": "http://4.bp.blogspot.com/-iQ15HXNfluA/Um-9v7CzqJI/AAAAAAAABVk/SAt7W-_uOJI/s200/incline+pike+push+ups.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "(a.k.a. incline military press push ups). Place your hands shoulder-width apart on a raised platform. Bend at the waist keeping a straight back. Your outstretched arms and torso should form a straight line. Bring your head to your hands.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Incline Pike Push-up",
+								"img": "http://4.bp.blogspot.com/-iQ15HXNfluA/Um-9v7CzqJI/AAAAAAAABVk/SAt7W-_uOJI/s200/incline+pike+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a. incline military press push ups). Place your hands shoulder-width apart on a raised platform. Bend at the waist keeping a straight back. Your outstretched arms and torso should form a straight line. Bring your head to your hands.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Incline Pike diamond Push-up",
+								"img": "http://1.bp.blogspot.com/-ee-ODzIzjPQ/Um--pWLfnMI/AAAAAAAABVs/HWhfdFzngug/s200/incline+pike+diamond+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a.incline Chinese push ups). Place your hands with thumbs and index fingers touching each other,  on a raised platform. Bend at the waist keeping a straight back, and bring your head to your hands.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Pike Push-up",
+								"img": "http://2.bp.blogspot.com/-2SZlD-lI6eo/Um-_CoHEt0I/AAAAAAAABV0/9MKf36cZllA/s200/pike+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a. military press push ups). Same as above, without the platform. Make sure that your head travels directly between your arms. Try to keep your head, arms and torso all in the same straight line.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Pike Diamond Push-up",
+								"img": "http://1.bp.blogspot.com/-tZQdLaLborQ/Um-_YEV7OXI/AAAAAAAABV8/tbR8eYGFbEM/s200/pike+diamond+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a.Chinese push ups). Same as above without the platform.",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Decline Pike Push-up",
+								"img": "http://2.bp.blogspot.com/-JHkPEDN2VMg/Um-_oMmC-oI/AAAAAAAABWE/KVAjO1FM83o/s200/decline+pike+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a. decline military press push ups). Same as above with feet on a raised platform, and hands on the floor.",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Decline Pike diamond Push-up",
+								"img": "http://3.bp.blogspot.com/-ZRjBMrBv9M8/Um-_38lSpGI/AAAAAAAABWM/KamKLNNkuQo/s200/decline+pike+diamond+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a.decline Chinese push ups). Same as above with feet on a raised platform, and hands on the floor.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Wall-bent Waist Handstand Push-up",
+								"img": "http://3.bp.blogspot.com/-fskNH91M-Xk/Um_AKjwnGxI/AAAAAAAABWU/r6KyvEdbLaA/s200/wall+bent+waist+handstand+push+up.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Walk your feet up the wall, keep a bent waist (you will need to remain some distance from the wall), then perform a push up. Make sure your head and torso remain in line with your arms.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Wall-bent Waist Handstand Diamond Push-up",
+								"img": "http://3.bp.blogspot.com/-x82T78S6EQ4/UsauRwjwToI/AAAAAAAABuI/yqtkYZF1rkI/s200/CameraZOOM-20131218130528453.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Wall-bent Waist Handstand with hands in 'diamond' position.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Wall Half-handstand Push-up",
+								"img": "http://3.bp.blogspot.com/-TtKMxQOERT8/Um_AeZXKDsI/AAAAAAAABWc/KzF5vqH0Nm8/s1600/half+wall+handstand+push+up.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Facing the wall in a handstand position, lower yourself till your arms are half bent, then come up.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "Wall Handstand Push-up",
+								"img": "http://4.bp.blogspot.com/-SFStMn0D98w/Um_AzMH-gzI/AAAAAAAABWk/RmfQasB2iJA/s200/wall+handstand+push+up.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Lower yourself all the way down, until your head touches the ground.",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Wall Handstand diamond Push-up",
+								"img": "http://1.bp.blogspot.com/-ruqAEGeLiNs/Um_BB2kt3BI/AAAAAAAABWs/eY8wXF1PQ7o/s200/wall+handstand+diamond+push+up.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as wall handstand push ups, but with thumbs and index fingers touching each other",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "Wall Handstand raised Push-up",
+								"img": "http://2.bp.blogspot.com/-eUKvjYP7a_Q/Usax5927SfI/AAAAAAAABuQ/rR1c0lmH_8o/s200/CameraZOOM-20140103105914699.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": " Using parallets, push up handles, or any raised platform such as dictionaries, benches, chairs, etc, to increase the range of motion. For this version of the exercise, you will need to be facing away from the wall, rather than towards it. Gradually build up the height of the platform to increase your range of motion.",
+								"video": ""
+							}
+						]
+					},
+					{
+						"id": "4",
+						"name": "Leg Raises",
+						"url": "http://www.startbodyweight.com/p/leg-raises-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Flat Knee Raise",
+							"img": "http://3.bp.blogspot.com/-echR1u61eHA/Um_JaRWqQnI/AAAAAAAABW8/jkB42BUxI3U/s200/flat+knee+raises.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "Lying on the floor, bring your knees up whilst keeping your legs bent at a 90 degree angle. Make sure to keep breathing throughout the exercise.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Flat Knee Raise",
+								"img": "http://3.bp.blogspot.com/-echR1u61eHA/Um_JaRWqQnI/AAAAAAAABW8/jkB42BUxI3U/s200/flat+knee+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Lying on the floor, bring your knees up whilst keeping your legs bent at a 90 degree angle. Make sure to keep breathing throughout the exercise.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Flat Bent-leg Raise",
+								"img": "http://2.bp.blogspot.com/-3LCfZfMxlJ0/Um_J3bZXArI/AAAAAAAABXE/OmJaeMwzchQ/s200/flat+bent+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Lying on the floor, bring your legs vertical with a slight bend in them, then return without touching the floor.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Flat Straight-leg Raise",
+								"img": "http://1.bp.blogspot.com/-GApTyOXhl6Q/Um_KE1FHKkI/AAAAAAAABXM/i7bk1CNG0_0/s200/flat+straight+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": " Lying on the floor, bring your legs vertical, keeping them straight at all times, then return without touching the floor.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Forearm Knee Raise",
+								"img": "http://1.bp.blogspot.com/-quZQqbZYtrA/Um_KXiMteXI/AAAAAAAABXU/87mLOi5VE54/s200/forearm+knee+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "With your arms resting on parallel bars, raise your knees till they are parallel with the floor, then return your legs to a hanging position.",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Hanging Knee Raise",
+								"img": "http://2.bp.blogspot.com/-EAA7X49ev-o/Um_LTXknjrI/AAAAAAAABXk/c8tuzt1-EVk/s200/hanging+knee+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Forearm Knee Raise but hanging from a pull up bar",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Forearm Bent-leg Raise",
+								"img": "http://3.bp.blogspot.com/-T6BDLIoMDwg/Um_LpPxr2XI/AAAAAAAABXs/odvcrlAwumg/s200/forearm+bent+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": " Similar to knee raises but performed with your legs at a 45 degree angle.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Hanging Bent-leg Raise",
+								"img": "http://3.bp.blogspot.com/-r0DK8vLSmt8/Um_L5S1_aHI/AAAAAAAABX0/qCijnpka5AQ/s200/hanging+bent+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Forearm Bent-leg Raise, but hanging from a pull up bar.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Forearm Straight-leg Raise",
+								"img": "http://4.bp.blogspot.com/-puD9t3XRaXE/Um_MUhOu2jI/AAAAAAAABX8/B9_KgsA5MBo/s200/forearm+straight+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "With your arms resting on the back of 2 chairs or on parallel bars, raise your legs straight till they are parallel with the floor, then return.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Hanging Straight-leg Raise",
+								"img": "http://2.bp.blogspot.com/-lr4oXEV4bB4/Um_Mm7p_zhI/AAAAAAAABYE/7RBBXea1dgo/s200/hanging+straight+leg+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Forearm Straight-leg Raise but hanging from a pull up bar.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "Hanging Bent-leg V-Raise",
+								"img": "http://2.bp.blogspot.com/-0SsXJ1bZtO4/Um_M6G3BRSI/AAAAAAAABYM/aQaEf3LrdqM/s200/hanging+bent+leg+V+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Keeping a 45 degree bend in your legs throughout the motion, raise them till your feet are level with your head or higher. Keep your arms straight throughout the exercise.",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Hanging Straight-leg V-Raise",
+								"img": "http://3.bp.blogspot.com/-HO1VW454-R0/Um_NHQARjbI/AAAAAAAABYU/ylYWDfDdrQo/s200/hanging+straight+leg+V+raises.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a. toes to bar). Hanging from a pull up bar, raise your legs straight, till they touch the bar, then lower under control.",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "Hanging Fan Raise",
+								"img": "http://3.bp.blogspot.com/-vIkAFVSjwJM/Um_Nt8gHT0I/AAAAAAAABYc/zBQP4emu7hg/s200/hanging+fan+raises+composite.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Bring your toes to the bar in between your hands, then bring them back down. That's one rep. Now repeat by bringing your toes up past your right hand, back down, then past your left hand and down. That's 3 reps.",
+								"video": "https://www.youtube.com/watch?v=JOVlyJ19DJ4"
+							},
+							{
+								"id": "13",
+								"name": "Hanging V-Raise Windshield-wipers",
+								"img": "http://1.bp.blogspot.com/-m5eX9MxEeb8/Um_OS-BO05I/AAAAAAAABYk/Xbsb1CMvRtU/s200/Hanging+V+raise+windshield+wipers.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Raise your legs straight untill your toes touch the bar, then twist to one side and the other, before lowering your legs down again. That's one rep.",
+								"video": "http://www.youtube.com/watch?v=6ZKZCxAfPE8&feature=youtu.be"
+							},
+							{
+								"id": "14",
+								"name": "One-arm Hanging Leg Raise",
+								"img": "http://3.bp.blogspot.com/-q5FLF-NGykk/Ure_tcW3KYI/AAAAAAAABrs/tJnCN_FSKI4/s1600/one+arm+hanging+leg+raises.jpg",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "At first, use the other arm for balance, to prevent your body from rotating.",
+								"video": "http://www.youtube.com/watch?v=nDK7Fc_ryck"
+							}
+						]
+					},
+					{
+						"id": "5",
+						"name": "Push-ups",
+						"url": "http://www.startbodyweight.com/p/push-up-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Wall Push-up",
+							"img": "http://2.bp.blogspot.com/-xy1QHg2Nwrs/Um_Z1LmgwFI/AAAAAAAABY0/VFjVw6n937I/s1600/wall+push+ups.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "Performed against a wall. To find the starting position, stand away from the wall and extend your arms in front of you till the tips of your fingers come in contact with the wall. If you find the exercise too hard, come a little closer to the wall.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Wall Push-up",
+								"img": "http://2.bp.blogspot.com/-xy1QHg2Nwrs/Um_Z1LmgwFI/AAAAAAAABY0/VFjVw6n937I/s1600/wall+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Performed against a wall. To find the starting position, stand away from the wall and extend your arms in front of you till the tips of your fingers come in contact with the wall. If you find the exercise too hard, come a little closer to the wall.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Box Push-up",
+								"img": "http://4.bp.blogspot.com/-9JJ06nq5X0Y/Um_agCK8NfI/AAAAAAAABY8/iWIakY9l_OQ/s200/box+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Performed on your knees, with your spine and upper legs at a 90 degrees angle.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Three-quarter Push-up",
+								"img": "http://1.bp.blogspot.com/-WUjdep6X3Zg/Um_awRE5t3I/AAAAAAAABZE/Ji7Ky7ypAmw/s200/three+quarter+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "On your knees, with your spine and thighs in line.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Three-quarter Push-up + 5s eccentrics",
+								"img": "http://4.bp.blogspot.com/-EQ-v5HUpo7o/Um_bBGmo3II/AAAAAAAABZM/S53OQ5g6v48/s200/three+quarter+push+ups+and+eccentrics+composite.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "3/4 push ups on the way up, then get on the balls of your feet and perform the lowering phase of a standard push up to the count of 5 seconds.",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Push-up",
+								"img": "http://3.bp.blogspot.com/-ZR44I_mEAwM/Um_bxANjOAI/AAAAAAAABZY/ztMARkIofPE/s200/push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Your upper arms should form a 45 degree angle with your torso, hands shoulder-width apart. Lower yourself with good form through the whole range of motion untill your chest and your nose almost come into contact with the floor.",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Elbows-in Push-up",
+								"img": "http://1.bp.blogspot.com/-_a1_PXkEny4/Um_caFQSPHI/AAAAAAAABZg/V_sdoi6IzT4/s200/elbows+in+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as a push up, but with your elbows remaining in contact with your sides.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Diamond Push-up",
+								"img": "http://3.bp.blogspot.com/-Fmcy_zT7UlI/Um_crdbTZSI/AAAAAAAABZo/DOtVNsx8y5c/s200/diamond+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Thumb touching thumb, and index to index. Your elbows should brush against your sides. These put proportionally more of an emphasis on your triceps.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Uneven Push-up",
+								"img": "http://2.bp.blogspot.com/-eaeT1VN8rjg/Um_c7ohsxLI/AAAAAAAABZw/Lo_Rj2QVGZU/s200/uneven+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "One hand resting on an object such as a bench, a basket ball, etc. The higher the object, the more the other arm will have to work, and the harder the exercise.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Decline Push-up",
+								"img": "http://4.bp.blogspot.com/-zI7rQPCwx78/Um_dUv2lerI/AAAAAAAABZ4/nYIWsdUmQMA/s200/decline+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Feet on a raised platform.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "Decline Elbows-in Push-up",
+								"img": "http://2.bp.blogspot.com/-nCppQZSnCn8/Um_dvbWZgxI/AAAAAAAABaA/choTc25pt_8/s200/decline+elbows+in+push+ups.JPGv",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Decline Diamond Push-up",
+								"img": "http://1.bp.blogspot.com/-1oVd0ihdxTw/Um_d7PtOfCI/AAAAAAAABaI/5F8pjyI4Utw/s200/decline+diamond+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "Wall One-arm Push-up",
+								"img": "http://4.bp.blogspot.com/-kDoVoE7ID2M/Um_eI_im5TI/AAAAAAAABaQ/M4_ucaZoFkg/s200/wall+one+arm+push+ups+composite.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(the wall should be one arm's length away from you). Just stand facing the wall and reach forward, until you can touch it with your fingertips, then rest your hand against the wall by leaning forward, and perform a push up).",
+								"video": ""
+							},
+							{
+								"id": "13",
+								"name": "Incline One-arm Push-up",
+								"img": "http://1.bp.blogspot.com/-Qa_nnRZTqy4/Um_eYEQqeLI/AAAAAAAABaY/tqTXV7NKsiU/s200/incline+one+arm+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Place one hand under your breastbone, and lower yourself until your chest comes into contact with the bench.",
+								"video": ""
+							},
+							{
+								"id": "14",
+								"name": "One-arm Push-up",
+								"img": "http://3.bp.blogspot.com/-SHmywCYIajg/Um_ezjMiKQI/AAAAAAAABag/g2AVm5gd--c/s200/one+arm+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "15",
+								"name": "Decline One-arm Push-up",
+								"img": "http://3.bp.blogspot.com/-dvWyYdRFrPw/Um_e_d1DCwI/AAAAAAAABao/5Ss3iTbnsDA/s200/declime+one+arm+push+ups.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							}
+						]
+					},
+					{
+						"id": "6",
+						"name": "Dips",
+						"url": "http://www.startbodyweight.com/p/dip-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Bent-knee Dip",
+							"img": "http://2.bp.blogspot.com/-mr_RXs_lVdY/Um_m7sQb1tI/AAAAAAAABa4/5vbUMMCKu5I/s200/bent+knee+bench+dips.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "Place your hands flat on a bench or chair behind you, and lower yourself until your butt nearly touches the floor. Lower yourself over the count of 3 seconds. Breathe out as you push yourself back up. ",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Bent-knee Dip",
+								"img": "http://2.bp.blogspot.com/-mr_RXs_lVdY/Um_m7sQb1tI/AAAAAAAABa4/5vbUMMCKu5I/s200/bent+knee+bench+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Place your hands flat on a bench or chair behind you, and lower yourself until your butt nearly touches the floor. Lower yourself over the count of 3 seconds. Breathe out as you push yourself back up. ",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Straight-leg Dip",
+								"img": "http://3.bp.blogspot.com/-rUxhI0nCbOs/Um_nHlPTVqI/AAAAAAAABbA/u5ehqlBvKms/s200/straight+legs+bench+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Bent-knee Dip but performed with straight legs.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "One Elevated leg, Straight-leg Dip",
+								"img": "http://3.bp.blogspot.com/-3Ti6U42LE9o/Um_nWPE7s0I/AAAAAAAABbI/LlN39mk21iM/s200/one+extended+leg+straight+legs+bench+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Raise one of your legs off the floor.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Elevated legs Dip",
+								"img": "http://4.bp.blogspot.com/-xqX-0YBj3C0/Um_nihO5hlI/AAAAAAAABbQ/6bXOCl2nfoU/s200/elevated+legs+bench+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "http://4.bp.blogspot.com/-xqX-0YBj3C0/Um_nihO5hlI/AAAAAAAABbQ/6bXOCl2nfoU/s200/elevated+legs+bench+dips.JPG",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "One Extended-leg, Elevated-leg Dip",
+								"img": "http://1.bp.blogspot.com/-PN6znMHtHJ8/Um_nu15e79I/AAAAAAAABbY/3zTUFK_dYvQ/s200/one+extended+leg+elevated+legs+bench+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Legs Supported Dip",
+								"img": "http://2.bp.blogspot.com/-rAy0jLs5Pzw/Um_oBnrOQmI/AAAAAAAABbg/ppr4ogSW3YU/s200/legs+supported+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Perform these in between on dip bars. Allow your feet to rest on the floor behind you, and try to use minimal assistance from your legs when pushing yourself back up.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "One-leg Supported Dip",
+								"img": "http://1.bp.blogspot.com/-Eo08R5C8RY0/Um_pLMPxW7I/AAAAAAAABcI/m_QXeRkTqTk/s200/One+leg+supported+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Legs Supported Dip, but reducing the assistance from your legs by using only one leg.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Jumping and 5s Eccentric Dip",
+								"img": "http://2.bp.blogspot.com/-3n0ABuxr4hY/Um_piMRM1SI/AAAAAAAABcU/tb8iuFKZR08/s200/jumping+and+eccentric+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Jump into the dip position, then lower yourself over 5 seconds. When you reach the bottom position, place your feet on the floor and jump back up. You are merely concerned with the eccentric phase of the movement.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Half-Dips (top half)",
+								"img": "http://2.bp.blogspot.com/--Tg52iE2Bsc/Um_pzE-cVEI/AAAAAAAABcg/8X7Y-5Ah1ZA/s200/half+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "From the top position, lower yourself till your upper arms are parallel with the floor, then push yourself back up.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "Dips",
+								"img": "http://4.bp.blogspot.com/-buA9msOZ4Qg/Um_qP_JWBrI/AAAAAAAABco/tR6Y9r0Jfog/s200/dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Lower yourself between two chairs or parallel bars through the whole range of movement, feet off the floor, then push back to the starting position.",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Legs-forward Dip",
+								"img": "http://2.bp.blogspot.com/-aBsZ-LxGxqY/Um_qizNrZhI/AAAAAAAABcw/dksLmLTzLzk/s200/legs+forward+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "This movement slightly changes the mechanics of the exercise, but it is a key step in the progression towards a muscle up: once in the top dip position, raise you knees so that your legs would be in front of you, rather than behind you throughout the dipping motion.",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "Modified Russian Dip",
+								"img": "http://2.bp.blogspot.com/-PALEwmqhh0g/Um_qxhKGiqI/AAAAAAAABc4/nMxsM7o6l8A/s200/modified+russian+dips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Having lowered yourself in the 'legs forward dip' position, carry on getting lower until your forarms are parallel with the floor. This might place a bit of strain on your wrists, but it closely mimicks the middle portion of a muscle up. It also forces you to dip lower than you might have done until now.",
+								"video": "http://www.youtube.com/watch?v=7mB5QbmwIFc"
+							},
+							{
+								"id": "13",
+								"name": "Russian Dip",
+								"img": "http://3.bp.blogspot.com/-HZVlh6kB9iw/Um_rClsGQNI/AAAAAAAABdA/Uy1YvII8HDE/s200/russiandips.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(a.k.a. chicken dips). These will require a set or parallel bars. From the'legs forward dip' position, lower yourself all the way until your upper arms rest on the parallel bars. Then pull yourself back up, helping yourself by bringing your head and torso forward.",
+								"video": "http://www.youtube.com/watch?v=qD60OmbUc9M"
+							}
+						]
+					},
+					{
+						"id": "7",
+						"name": "Pulls",
+						"url": "http://www.startbodyweight.com/p/horizontal-pulls-progression.html",
+						"type": "Reps",
+						"curProgressions": {
+							"id": "1",
+							"name": "Vertical Pull",
+							"img": "http://1.bp.blogspot.com/-Vvxd7I_IYpE/Um_1YfuTC6I/AAAAAAAABdo/66JhO7Srbu4/s200/vertical+pull.JPG",
+							"type": "Reps",
+							"qty": "4 X 4 X 4",
+							"desc": "(also known as door pulls, or let me ins). Place your feet on both sides of a vertical structure, grab hold of the structure on each side, and lean back. Keep your elbows close to your body as you pull, and squeeze your shoulders together on top of the movement. The closer your feet are to the object (or the further they are past it), the harder the exercise. You should breathe in as you lower yourself, and breathe out as you pull.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Vertical Pull",
+								"img": "http://1.bp.blogspot.com/-Vvxd7I_IYpE/Um_1YfuTC6I/AAAAAAAABdo/66JhO7Srbu4/s200/vertical+pull.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "(also known as door pulls, or let me ins). Place your feet on both sides of a vertical structure, grab hold of the structure on each side, and lean back. Keep your elbows close to your body as you pull, and squeeze your shoulders together on top of the movement. The closer your feet are to the object (or the further they are past it), the harder the exercise. You should breathe in as you lower yourself, and breathe out as you pull.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Vertical Pull with a Towel",
+								"img": "http://1.bp.blogspot.com/-XZijo-cJNls/Um_2YahGvqI/AAAAAAAABd4/-qp2K3PErkA/s200/vertical+pulls+with+towel.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "The towel allows you to get lower and makes the exercise harder.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Inverted Rows, Bent Legs",
+								"img": "http://3.bp.blogspot.com/-pysUDQzp044/Um_20WBLxAI/AAAAAAAABeE/VJEaJ_qgpdU/s200/inverted+rows,+legs+bent.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Performed on a low horizontal bar, with bent legs, feet resting on the floor. Lower yourself slowly over 3 seconds. Squeeze your shoulder blades together as you reach the top of the movement to engage your rhomboids.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Inverted Rows, Straight Legs",
+								"img": "http://4.bp.blogspot.com/-Tqo2art42HQ/Um_3d8oQeZI/AAAAAAAABeM/odi8_l6scd0/s200/inverted+rows,+straight+legs.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Performed on a low horizontal bar, with straight legs, feet resting on the floor. These can also be performed on a set of dip bars ",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Inverted Rows, One-leg Extended",
+								"img": "http://4.bp.blogspot.com/-spe3f7vudq0/Um_4mhsN_sI/AAAAAAAABes/t_jfI5S0xgs/s200/inverted+rows,+one+leg+extended.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Inverted Rows, Straight Legs with one leg extended",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Inverted Row, Elevated legs",
+								"img": "http://2.bp.blogspot.com/-ozS4Ee_DtaA/Um_44SlT1CI/AAAAAAAABe0/C8p8lBwsvos/s200/inverted+rows+legs+elevated.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Same as Inverted Rows, Straight Legs with both legs extended",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Inverted Row, Elevated legs, One-leg Extended",
+								"img": "http://4.bp.blogspot.com/-LF2hHXFLLEk/Um_5INkUwdI/AAAAAAAABfA/RHeYr9tEVuw/s200/inverted+rows+legs+elevated+one+leg+extended.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Tuck-knees Front-lever Row",
+								"img": "http://4.bp.blogspot.com/-j71rDum7y1M/Um_5b46iykI/AAAAAAAABfE/5C0zA-xCsvY/s200/tuck+knees+front+lever+rows.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Suspended from a pull up bar, bring your knees under the bar and try to keep your upper body parallel to the floor. Then pull with your arms, bringing your chest towards the bar.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Advanced Tuck-knees Row",
+								"img": "http://3.bp.blogspot.com/-5axxLDZBAy8/Um_5mlTT0-I/AAAAAAAABfM/D-Y-BPIC4ls/s200/advanced+tuck+knees+front+lever+rows.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "Bringing your knees in front of the pull up bar not only increases the leverage of the exercise, it also gets them out of the way, thus allowing for a greater range of motion.",
+								"video": ""
+							},
+							{
+								"id": "10",
+								"name": "One Tuck-knee, One-leg Extended Row",
+								"img": "http://2.bp.blogspot.com/-wbvU-8K4QME/Um_51m5FYZI/AAAAAAAABfU/y1ZfX9GxhK0/s200/one+tuck+knee+one+leg+extended+front+lever+rows.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "",
+								"video": ""
+							},
+							{
+								"id": "11",
+								"name": "Straddle-legs Front-lever row",
+								"img": "http://3.bp.blogspot.com/-hAJbYn1_fa0/Um_6DCETBaI/AAAAAAAABfo/rX_clGn5E_Y/s200/straddle+legs+front+lever+rows.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "The further apart your feet are (the wider your straddle) the easier this variation becomes.",
+								"video": ""
+							},
+							{
+								"id": "12",
+								"name": "Front-lever row",
+								"img": "http://4.bp.blogspot.com/-80yMOxbMfzI/Um_6lCdbsmI/AAAAAAAABf4/vdTwsPjWqO8/s200/IMG_1298.JPG",
+								"type": "Reps",
+								"qty": "4 X 4 X 4",
+								"desc": "The same exercise can be performed on dip bars with a parallel grip.",
+								"video": ""
+							}
+						]
+					},
+					{
+						"id": "8",
+						"name": "Planks",
+						"type": "Duration",
+						"url": "http://www.startbodyweight.com/p/plank-progression.html",
+						"curProgressions": {
+							"id": "1",
+							"name": "Kneeling Plank",
+							"img": "http://4.bp.blogspot.com/-5B3O_MeOnOk/UnAC6wMWhWI/AAAAAAAABgk/flTlcO-kKkk/s200/kneeling+plank.JPG",
+							"type": "Duration",
+							"qty": "30s",
+							"desc": "Performed on your knees, with thighs and spine in line.",
+							"video": ""
+						},
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Kneeling Plank",
+								"img": "http://4.bp.blogspot.com/-5B3O_MeOnOk/UnAC6wMWhWI/AAAAAAAABgk/flTlcO-kKkk/s200/kneeling+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "Performed on your knees, with thighs and spine in line.",
+								"video": ""
+							},
+							{
+								"id": "2",
+								"name": "Kneeling Side Plank",
+								"img": "http://4.bp.blogspot.com/-7p3Kv2ijyEQ/UnADKuLqyaI/AAAAAAAABgs/iLElOcb_7yk/s200/kneeling+side+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "Bend your legs at the knee at a right angle and keep your thighs and torso in line. Your forearm, elbow, knee and lower leg are your points of contact with the ground.",
+								"video": ""
+							},
+							{
+								"id": "3",
+								"name": "Plank",
+								"img": "http://3.bp.blogspot.com/-N9tjvL7HAmo/UnADv5KWa3I/AAAAAAAABhA/6vbeLXUs-nk/s200/plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "With your weight resting on your toes and forearms, keep your core muscles tight and remember to breathe throughout the duration of the exercise.",
+								"video": ""
+							},
+							{
+								"id": "4",
+								"name": "Side Plank",
+								"img": "http://4.bp.blogspot.com/-xOQnxo73h7k/UnAEEJR3dYI/AAAAAAAABhI/dr24w295NSI/s200/side+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "Can be performed with your upper arm at your side, or in the air. Aim for 30 seconds on each side, with a quick transition between the two.",
+								"video": ""
+							},
+							{
+								"id": "5",
+								"name": "Decline Plank",
+								"img": "http://2.bp.blogspot.com/-0GmPJzRld48/UnAEWNAw1NI/AAAAAAAABhQ/EZ9c_aKyezM/s200/decline+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "Performed with feet elevated on a bench. Keep a straight back and remember to breathe throughout the exercise.",
+								"video": ""
+							},
+							{
+								"id": "6",
+								"name": "Leg-lift Plank",
+								"img": "http://4.bp.blogspot.com/-OMgXBSxbYEI/UnAE4hZVd9I/AAAAAAAABho/M_4bzEvVm_U/s200/leg+lift+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "From the plank position, lift a leg straight behind you, parallel with the floor. Hold one side for up to 30 seconds; then change legs for the remaining 30s.",
+								"video": ""
+							},
+							{
+								"id": "7",
+								"name": "Arm and Leg lift Plank",
+								"img": "http://1.bp.blogspot.com/-ZERuKipEA2w/UnAFQ-WeZmI/AAAAAAAABhw/ndg2NrcKIpw/s200/arm+and+leg+lift+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "From the plank position, lift a leg up and its opposite arm. Keep an horizontal back throughout the exercise. Hold one side for up to 30s; then switch arms and legs for the remaining 30s.",
+								"video": ""
+							},
+							{
+								"id": "8",
+								"name": "Arm and Leg lift Side Plank",
+								"img": "http://1.bp.blogspot.com/-cCgoHg3zdpE/UnAFp2GSSrI/AAAAAAAABh4/S9Gc-8sZAPI/s200/arm+and+leg+lift+side+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "From the side plank position, raise your top leg up in the air as well as your top arm. Aim for 30 seconds on each side, with a quick transition between the two.",
+								"video": ""
+							},
+							{
+								"id": "9",
+								"name": "Wall Plank",
+								"img": "http://4.bp.blogspot.com/-etuy7uUCXsg/UnAGEFRMIBI/AAAAAAAABiA/UBx37fpFUGE/s200/wall+plank.JPG",
+								"type": "Duration",
+								"qty": "30s",
+								"desc": "Performed with your feet flat against a wall. Prop yourself hard on your forearms and dig the soles of your feet hard into the wall.",
+								"video": ""
+							}
+						]
+					}
+				],
+				"stretch": [
+					{
+						"id": "1",
+						"name": "Pectorals Stretch",
+						"img": "http://2.bp.blogspot.com/-g4RWrolEDxI/UnANL70l1-I/AAAAAAAABiU/b_IRN9F7i64/s200/pecs.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Performed against a wall. Your hand should be facing up towards the ceiling.",
+						"video": ""
+					},
+					{
+						"id": "2",
+						"name": "Lats strech",
+						"img": "http://1.bp.blogspot.com/-kBtdCwn7VQQ/UnANdrkEm9I/AAAAAAAABic/0yeAKbVRfE4/s200/lats.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Lay your outstretched hand against a wall, and gradually lean into the wall.",
+						"video": ""
+					},
+					{
+						"id": "3",
+						"name": "Triceps and Lats Stretch",
+						"img": "http://1.bp.blogspot.com/-Tou-L40XSkU/UnANui_evTI/AAAAAAAABik/Mjk3a3SEj08/s200/triceps.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "4",
+						"name": "Pecs and Rotator Cuffs Stretch",
+						"img": "http://1.bp.blogspot.com/--1LOZcj4RYM/UnAN50h-y1I/AAAAAAAABis/eHX0kqXIX0M/s200/pecs+and+rotator+cuffs.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Place your forearms flat against both sides of a door and lean foreward gradually to increase the stretch.",
+						"video": ""
+					},
+					{
+						"id": "5",
+						"name": "Calf Stretch (1)",
+						"img": "http://1.bp.blogspot.com/-qwLbuUpu7VE/UnAOR5BurtI/AAAAAAAABi0/u3KCAtA-rv0/s200/gastrocnemius.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "This calf stretch targets principally the gastrocnemius. Keep your heel on the floor and your leg straight, and lean into the wall.",
+						"video": ""
+					},
+					{
+						"id": "6",
+						"name": "Calf Stretch (2)",
+						"img": "http://3.bp.blogspot.com/-LK3X_ciTV9o/UnAOmVPYrHI/AAAAAAAABi8/1gk64obiF3o/s200/soleus+and+achilles+tendon.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "This calf stretch targets the soleus and achilles tendon. Keep your heel on the floor, bend your leg as you bring the knee towards the wall.",
+						"video": ""
+					},
+					{
+						"id": "7",
+						"name": "Quadriceps Stretch",
+						"img": "",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Push your hips forward and bring your knee back to increase the stretch.",
+						"video": ""
+					},
+					{
+						"id": "8",
+						"name": "Hamstrings Stretch",
+						"img": "http://4.bp.blogspot.com/-Z4ULs1Y_jcg/UnAPR979gqI/AAAAAAAABjM/0hzJJdFh_-U/s200/hamstrings.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Keep a straight leg as your bring your weight forward over your knee.",
+						"video": ""
+					},
+					{
+						"id": "9",
+						"name": "Hamstrings and Adductors Stretch",
+						"img": "http://2.bp.blogspot.com/-3DxnGgSlKAs/UnAPih143CI/AAAAAAAABjU/a-BPWv3vwi8/s200/hamstrings+and+adductors.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": " From the previous position, rotate the foot and the floor 90 degrees, and rotate your hips to face sideways. Lean your body towars your outstretched foot to increase the stretch.",
+						"video": ""
+					},
+					{
+						"id": "10",
+						"name": "Adductors and Hamstrings Stretch",
+						"img": "http://3.bp.blogspot.com/-iYLlm9NwUb4/UnAQCTns8QI/AAAAAAAABjg/OUF5c2pEteM/s200/adductors+and+hamstrings.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "",
+						"video": ""
+					},
+					{
+						"id": "11",
+						"name": "Adductors and Calf Stretch",
+						"img": "http://2.bp.blogspot.com/-pVwY9SbKAEM/UnAQNYX_8oI/AAAAAAAABjo/6Z8GzokIXq0/s200/adductors+and+calves.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "This will stretch your adductors and calf muscles. Press with your elbows on the inside of your knees to increase the stretch.",
+						"video": ""
+					},
+					{
+						"id": "12",
+						"name": "Glutes and Adductors Stretch",
+						"img": "http://4.bp.blogspot.com/-G2iiQUhTugs/UnAQjtTHQPI/AAAAAAAABjw/wKuNXXMO6hc/s200/glutes+and+abductors.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "This stretch will target both your glutes and abductors.",
+						"video": ""
+					},
+					{
+						"id": "13",
+						"name": "Cobra Stretch",
+						"img": "http://1.bp.blogspot.com/-ApY-zC7HSxM/UnAQx5g-zoI/AAAAAAAABj4/hC1UkzWkVmI/s200/abdominals.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Arch your back to target your abdominals.",
+						"video": ""
+					},
+					{
+						"id": "14",
+						"name": "Cat Stretch",
+						"img": "http://2.bp.blogspot.com/-bCk3OTnosGA/UnARIijWrlI/AAAAAAAABkA/Q_EyLirlbU4/s200/back.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "The cat stretch increases flexibility in the lower back and core muscles.",
+						"video": ""
+					}
+				]
+			}
+		},
+		{
+			"id": "2",
+			"name": "Reddit Recommended Routine",
+			"url": "https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine",
+			"author": "r/bodyweightfitness",
+			"steps": {
+				"warmup": [
+					{
+						"id": "1",
+						"name": "Skip Rope",
+						"img": "http://1.bp.blogspot.com/-KgZ3Q7FnRCE/Um-CkbuoBSI/AAAAAAAABQU/-kcETZlM-2Y/s200/skipping.jpg",
+						"type": "Duration",
+						"qty": "5 min",
+						"desc": "Run on the spot or skip rope"
+					},
+					{
+						"id": "2",
+						"name": "Skip Rope",
+						"img": "http://1.bp.blogspot.com/-KgZ3Q7FnRCE/Um-CkbuoBSI/AAAAAAAABQU/-kcETZlM-2Y/s200/skipping.jpg",
+						"type": "Duration",
+						"qty": "5 min",
+						"desc": "Run on the spot or skip rope"
+					}
+				],
+				"exercise": [
+					{
+						"id": "1",
+						"name": "Squats",
+						"url": "http://www.startbodyweight.com/p/squat-progression.html",
+						"type": "Reps",
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Assisted squat",
+								"img": "http://2.bp.blogspot.com/-i0AEuk34ICY/Um-XmYHD8_I/AAAAAAAABR0/GmNlYXXuNYY/s200/assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Rest your hands on the back of a chair in front you. Lower yourself till your thighs are parallel with the floor, and come back up, using the chair as a support."
+							},
+							{
+								"id": "2",
+								"name": "Deep assisted squat",
+								"img": "http://4.bp.blogspot.com/-kHnx4C87568/Um-X5umptsI/AAAAAAAABR8/ybqTP8FeQ5I/s200/deep+assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but squat through the full range of motion."
+							},
+							{
+								"id": "3",
+								"name": "Squat",
+								"img": "http://2.bp.blogspot.com/-MUShfZ1RvXQ/Um-YImISkSI/AAAAAAAABSE/nn8mQvjOa8M/s200/squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Without any help, lower yourself till your thighs are parallel with the floor, and come back up."
+							},
+							{
+								"id": "4",
+								"name": "Deep squat",
+								"img": "http://2.bp.blogspot.com/-HpBgMfptmhQ/Um-ZwoPZybI/AAAAAAAABSM/x7WoqkDIuXE/s200/deep+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but squat through the full range of motion."
+							},
+							{
+								"id": "5",
+								"name": "Bulgarian split squat",
+								"img": "http://3.bp.blogspot.com/-pOKZL4-r-dI/Um-Z6nZadjI/AAAAAAAABSU/O95A3praemc/s200/bulgarian+split+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Rest your back foot on an elevated platform, with the sole pointing up. Keep your weight over your front leg as you lower yourself."
+							},
+							{
+								"id": "6",
+								"name": "Beginner shrimps",
+								"img": "http://2.bp.blogspot.com/-XAzPVFco0OU/Um-aLvUOAeI/AAAAAAAABSc/-egoyKsacok/s200/beginner+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Lower yourself on one leg until the knee and toes of the leg that was bent under you touch the floor at the same time. This must be a slow controlled movement. Then come back up, trying to lift your knee and toes at the same time."
+							},
+							{
+								"id": "7",
+								"name": "Assisted one-legged squat",
+								"img": "http://3.bp.blogspot.com/-xY0zcblDaSk/Um-cd24sslI/AAAAAAAABSo/x6obkVL8bnU/s200/assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Performed with a bench or a chair next to you, extend one leg straight in front of you, and lower yourself all the way down, till your butt touches your heel. The heel must remain on the floor however. Help yourself back up by pushing on the chair."
+							},
+							{
+								"id": "8",
+								"name": "Balance assisted one-legged squat",
+								"img": "http://3.bp.blogspot.com/-V_3fVCDGMZo/Um-dHEt3khI/AAAAAAAABSw/V0Yr1FAuQKw/s200/balance+assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but using a door, door frame, or any vertical structure, mainly for support and balance."
+							},
+							{
+								"id": "9",
+								"name": "Weighted one-legged squat",
+								"img": "http://4.bp.blogspot.com/-gLUfxKxIwXU/Um-dlnRC88I/AAAAAAAABS4/cfp9sLrU2cI/s200/weighted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "This is somewhat counter-intuitive, but weighted one legged squats are actually easier than standard ones, as the object you hold in front of you acts as a counter-weight. You can use dumbbells if you have some, but any heavy object such as a dictionary will do. Start with a 5kg weight and move down in weight progressively in 1 kg increments until you can do unassisted pistols."
+							},
+							{
+								"id": "10",
+								"name": "One-legged squat",
+								"img": "http://4.bp.blogspot.com/-locfl0MRB58/Um-e7prSU9I/AAAAAAAABTE/1M89vp8lcgo/s200/one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "A.k.a. pistol squats. Same as above, but without any assitance."
+							},
+							{
+								"id": "11",
+								"name": "Renegade pistol",
+								"img": "http://4.bp.blogspot.com/-pFvtLICTk08/Um-fYZ7CfzI/AAAAAAAABTM/bUzhsk2Bq7s/s200/renegade+squat+composite.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Lower yourself on one leg; then switch legs at the bottom (bring the extended leg back next to the other one,into a full squat position), before coming back up.",
+								"video": "http://www.youtube.com/watch?v=Yx7-ywBEIQM"
+							},
+							{
+								"id": "12",
+								"name": "Intermediate shrimp",
+								"img": "http://2.bp.blogspot.com/-wuwjHnjFUlY/Um-fxNqh2LI/AAAAAAAABTU/b_2LdoKeND0/s200/intermediate+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as shrimp squats, but your back foot must come off the floor before you come back up. This variation shifts the emphasis of the exercise to your quadriceps."
+							},
+							{
+								"id": "13",
+								"name": "Advanced shrimp",
+								"img": "http://1.bp.blogspot.com/-WHEM_Si1kMY/Um-gYs2LlLI/AAAAAAAABTc/nns6BbyEBYo/s200/advanced+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Hold your back foot in your hand throughout the exercise. Your knee must touch the floor in a controlled manner."
+							}
+						]
+					},
+					{
+						"id": "2",
+						"name": "Squats",
+						"url": "http://www.startbodyweight.com/p/squat-progression.html",
+						"type": "Reps",
+						"progressions": [
+							{
+								"id": "1",
+								"name": "Assisted squat",
+								"img": "http://2.bp.blogspot.com/-i0AEuk34ICY/Um-XmYHD8_I/AAAAAAAABR0/GmNlYXXuNYY/s200/assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Rest your hands on the back of a chair in front you. Lower yourself till your thighs are parallel with the floor, and come back up, using the chair as a support."
+							},
+							{
+								"id": "2",
+								"name": "Deep assisted squat",
+								"img": "http://4.bp.blogspot.com/-kHnx4C87568/Um-X5umptsI/AAAAAAAABR8/ybqTP8FeQ5I/s200/deep+assisted+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but squat through the full range of motion."
+							},
+							{
+								"id": "3",
+								"name": "Squat",
+								"img": "http://2.bp.blogspot.com/-MUShfZ1RvXQ/Um-YImISkSI/AAAAAAAABSE/nn8mQvjOa8M/s200/squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Without any help, lower yourself till your thighs are parallel with the floor, and come back up."
+							},
+							{
+								"id": "4",
+								"name": "Deep squat",
+								"img": "http://2.bp.blogspot.com/-HpBgMfptmhQ/Um-ZwoPZybI/AAAAAAAABSM/x7WoqkDIuXE/s200/deep+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but squat through the full range of motion."
+							},
+							{
+								"id": "5",
+								"name": "Bulgarian split squat",
+								"img": "http://3.bp.blogspot.com/-pOKZL4-r-dI/Um-Z6nZadjI/AAAAAAAABSU/O95A3praemc/s200/bulgarian+split+squats.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Rest your back foot on an elevated platform, with the sole pointing up. Keep your weight over your front leg as you lower yourself."
+							},
+							{
+								"id": "6",
+								"name": "Beginner shrimps",
+								"img": "http://2.bp.blogspot.com/-XAzPVFco0OU/Um-aLvUOAeI/AAAAAAAABSc/-egoyKsacok/s200/beginner+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Lower yourself on one leg until the knee and toes of the leg that was bent under you touch the floor at the same time. This must be a slow controlled movement. Then come back up, trying to lift your knee and toes at the same time."
+							},
+							{
+								"id": "7",
+								"name": "Assisted one-legged squat",
+								"img": "http://3.bp.blogspot.com/-xY0zcblDaSk/Um-cd24sslI/AAAAAAAABSo/x6obkVL8bnU/s200/assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Performed with a bench or a chair next to you, extend one leg straight in front of you, and lower yourself all the way down, till your butt touches your heel. The heel must remain on the floor however. Help yourself back up by pushing on the chair."
+							},
+							{
+								"id": "8",
+								"name": "Balance assisted one-legged squat",
+								"img": "http://3.bp.blogspot.com/-V_3fVCDGMZo/Um-dHEt3khI/AAAAAAAABSw/V0Yr1FAuQKw/s200/balance+assisted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as above, but using a door, door frame, or any vertical structure, mainly for support and balance."
+							},
+							{
+								"id": "9",
+								"name": "Weighted one-legged squat",
+								"img": "http://4.bp.blogspot.com/-gLUfxKxIwXU/Um-dlnRC88I/AAAAAAAABS4/cfp9sLrU2cI/s200/weighted+one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "This is somewhat counter-intuitive, but weighted one legged squats are actually easier than standard ones, as the object you hold in front of you acts as a counter-weight. You can use dumbbells if you have some, but any heavy object such as a dictionary will do. Start with a 5kg weight and move down in weight progressively in 1 kg increments until you can do unassisted pistols."
+							},
+							{
+								"id": "10",
+								"name": "One-legged squat",
+								"img": "http://4.bp.blogspot.com/-locfl0MRB58/Um-e7prSU9I/AAAAAAAABTE/1M89vp8lcgo/s200/one+legged+squat.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "A.k.a. pistol squats. Same as above, but without any assitance."
+							},
+							{
+								"id": "11",
+								"name": "Renegade pistol",
+								"img": "http://4.bp.blogspot.com/-pFvtLICTk08/Um-fYZ7CfzI/AAAAAAAABTM/bUzhsk2Bq7s/s200/renegade+squat+composite.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Lower yourself on one leg; then switch legs at the bottom (bring the extended leg back next to the other one,into a full squat position), before coming back up.",
+								"video": "http://www.youtube.com/watch?v=Yx7-ywBEIQM"
+							},
+							{
+								"id": "12",
+								"name": "Intermediate shrimp",
+								"img": "http://2.bp.blogspot.com/-wuwjHnjFUlY/Um-fxNqh2LI/AAAAAAAABTU/b_2LdoKeND0/s200/intermediate+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Same as shrimp squats, but your back foot must come off the floor before you come back up. This variation shifts the emphasis of the exercise to your quadriceps."
+							},
+							{
+								"id": "13",
+								"name": "Advanced shrimp",
+								"img": "http://1.bp.blogspot.com/-WHEM_Si1kMY/Um-gYs2LlLI/AAAAAAAABTc/nns6BbyEBYo/s200/advanced+shrimps.JPG",
+								"type": "Reps",
+								"qty": "",
+								"desc": "Hold your back foot in your hand throughout the exercise. Your knee must touch the floor in a controlled manner."
+							}
+						]
+					}
+				],
+				"stretch": [
+					{
+						"id": "1",
+						"name": "Pectorals Stretch",
+						"img": "http://2.bp.blogspot.com/-g4RWrolEDxI/UnANL70l1-I/AAAAAAAABiU/b_IRN9F7i64/s200/pecs.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Performed against a wall. Your hand should be facing up towards the ceiling."
+					},
+					{
+						"id": "2",
+						"name": "Pectorals Stretch",
+						"img": "http://2.bp.blogspot.com/-g4RWrolEDxI/UnANL70l1-I/AAAAAAAABiU/b_IRN9F7i64/s200/pecs.JPG",
+						"type": "Duration",
+						"qty": "20s",
+						"desc": "Performed against a wall. Your hand should be facing up towards the ceiling."
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,16 @@
+// Override default variables before the import
+// $body-bg: #000;
+
+.react-stopwatch-timer__element {
+	width: 3px !important;
+	height: 3px !important;
+	border-radius: 5px;
+}
+
+.react-stopwatch-timer__table {
+	width: 300px !important;
+	height: 300px !important;
+}
+
+// Import Bootstrap and its default variables
+//@import '~bootstrap/scss/bootstrap.scss';

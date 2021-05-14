@@ -1,0 +1,10 @@
+{
+	"settings": {
+		"prepTimeBeforeSet": "0",
+		"restBetweenSet": "60",
+		"prepTimeAfterSet": "0",
+		"prepTimeBeforeExercise": "5",
+		"restBetweenExercise": "60",
+		"prepTimeAfterExercise": "5"
+	}
+}
