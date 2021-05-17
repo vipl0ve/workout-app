@@ -5,7 +5,7 @@ const BasicExercise = ({ data }) => {
 		<li className='list-group-item'>
 			<div className='d-flex justify-content-between'>
 				<p className='mb-1'>{data.name}</p>
-				{data.type === 'Reps' ? <p>X {data.qty}</p> : <p>{data.qty}</p>}
+				{data.type === 'Reps' ? <p>{data.qty}x</p> : <p>{data.qty}s</p>}
 			</div>
 		</li>
 	)

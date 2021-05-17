@@ -1,7 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faSave, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import Timer from '../utils/Timer'
 import exerciseIcon from '../../asset/exerciseIcon.png'
 
@@ -9,44 +10,40 @@ const WorkoutIntro = ({
 	routineInfo,
 	time,
 	exerciseType,
+	changeCurModule,
 	setPlayStatus,
-	setStartStatus,
 }) => {
 	const history = useHistory()
 	const onPlay = () => {
-		setStartStatus({
-			isIntro: false,
-			isWarmup: true,
-			isExercise: false,
-			isStrech: false,
-			isFinished: false,
-		})
+		changeCurModule('Warmup')
 		setPlayStatus(true)
 	}
 
 	const onFinished = () => {
-		setStartStatus({
-			isIntro: true,
-			isWarmup: false,
-			isExercise: false,
-			isStrech: false,
-			isFinished: false,
-		})
+		const workout = {
+			routineName: routineInfo.name,
+			totalDuration: time,
+			workoutTime: moment(Date.now()).format(),
+		}
+		changeCurModule('Intro')
 		setPlayStatus(false)
-
 		history.push({
 			pathname: '/workoutcompleted',
 			state: {
-				workout: {
-					routineName: routineInfo.name,
-					totalDuration: time,
-					workoutTime: Date.now(),
-				},
+				workout: workout,
 			},
 		})
 	}
 
-	if (exerciseType === 'intro') {
+	const onDiscard = () => {
+		changeCurModule('Intro')
+		setPlayStatus(false)
+		history.push({
+			pathname: '/',
+		})
+	}
+
+	if (exerciseType === 'Intro') {
 		return (
 			<div className='card text-center'>
 				<div className='card-header'>Start Workout</div>
@@ -57,7 +54,7 @@ const WorkoutIntro = ({
 					</div>
 
 					<p className='card-text'>
-						Get Ready to start the workout.
+						Start the routine.
 						<img src={exerciseIcon} className='card-text' alt='exercise' />
 					</p>
 					<button type='button' className='btn btn-primary' onClick={onPlay}>
@@ -66,25 +63,44 @@ const WorkoutIntro = ({
 				</div>
 			</div>
 		)
-	} else if (exerciseType === 'ending') {
+	} else if (exerciseType === 'Ending') {
 		return (
 			<div className='card text-center'>
 				<div className='card-header'>
-					End Workout
-					<Timer data={time} type={'badge'} />
+					<div className='d-flex justify-content-between'>
+						<span>End Workout</span>
+						<Timer
+							className='badge bg-secondary fs-6'
+							data={time}
+							type={'no-badge'}
+						/>
+					</div>
 				</div>
 				<div className='card-body'>
 					<h5 className='card-title'>{routineInfo.name}</h5>
 					<p className='card-text'>
-						You completed all the steps. You can end the workout.
+						Congrats! you have completed all the steps. End workout now.
 					</p>
-					<button
-						type='button'
-						className='btn btn-primary'
-						onClick={onFinished}
-					>
-						End Workout <FontAwesomeIcon icon={faStop} />
-					</button>
+					<div className='row my-3'>
+						<div className='col'>
+							<button
+								type='button'
+								className='btn btn-primary'
+								onClick={onFinished}
+							>
+								Save Log <FontAwesomeIcon icon={faSave} />
+							</button>
+						</div>
+						<div className='col'>
+							<button
+								type='button'
+								className='btn btn-primary'
+								onClick={onDiscard}
+							>
+								Discard Log <FontAwesomeIcon icon={faTrashAlt} />
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		)

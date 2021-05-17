@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,49 @@ import Timer from '../utils/Timer'
 const WorkoutCompleted = (props) => {
 	const history = useHistory()
 	const [workout] = useState(props.location.state.workout)
+	const [events, setEvents] = useState(
+		JSON.parse(localStorage.getItem('bodyworkout')) || []
+	)
+
+	useEffect(() => {
+		let newEvent = {}
+		if (events.length === undefined) {
+			newEvent = {
+				id: 0,
+				title: workout.routineName,
+				duration: workout.totalDuration,
+				start: moment(workout.workoutTime).subtract(
+					workout.totalDuration,
+					'seconds'
+				),
+				end: moment(workout.workoutTime).format(),
+			}
+			setEvents([newEvent])
+		} else if (events.length === 0) {
+			newEvent = {
+				id: 0,
+				title: workout.routineName,
+				duration: workout.totalDuration,
+				start: moment(workout.workoutTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format(),
+				end: moment(workout.workoutTime).format(),
+			}
+			setEvents([newEvent])
+		} else {
+			newEvent = {
+				id: events.length + 1,
+				title: workout.routineName,
+				start: moment(workout.workoutTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format(),
+				end: moment(workout.workoutTime).format(),
+			}
+			events.push(newEvent)
+			setEvents(events)
+		}
+		localStorage.setItem('bodyworkout', JSON.stringify(events))
+	}, [events, workout])
 
 	const goHome = () => {
 		history.push({
@@ -18,8 +61,7 @@ const WorkoutCompleted = (props) => {
 
 	const goWorkoutCalendar = () => {
 		history.push({
-			pathname: '/',
-			state: { workout: workout },
+			pathname: '/calendar',
 		})
 	}
 
@@ -27,10 +69,10 @@ const WorkoutCompleted = (props) => {
 		<div className='container'>
 			<div className='card text-center'>
 				<div className='card-header'>
-					<h5>Completed!</h5>
+					<h5>Workout Summary</h5>
 				</div>
 				<div className='card-body text-start'>
-					<h5 className='card-title text-center'>Workout Summary</h5>
+					<h5 className='card-title text-center'>Completed!</h5>
 					<p className='card-text'>Routine: {workout.routineName}</p>
 					<p className='card-text'>
 						Time:{' '}

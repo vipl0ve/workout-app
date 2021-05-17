@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import BasicExercise from '../exercise/BasicExercise'
 import ProgressionExercise from '../exercise/ProgressionExercise'
+import SettingExercise from '../exercise/SettingExercise'
 
 const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 	const [routine] = useState(data)
@@ -11,6 +12,10 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 	useEffect(() => {
 		setCurRoutine(routine)
 	}, [setCurRoutine, routine])
+
+	useEffect(() => {
+		setCurRoutine(data)
+	}, [setCurRoutine, data])
 
 	const changeCurProgression = (item) => {
 		let newRoutine = routine
@@ -43,14 +48,14 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingOne'>
 						<button
-							className='accordion-button'
+							className='accordion-button collapsed'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseOne'
-							aria-expanded='true'
+							aria-expanded='false'
 							aria-controls='collapseOne'
 						>
-							Warm-up
+							Warm-up Exercise
 							<span className='badge bg-primary ms-3'>
 								{routine.steps.warmup.length}
 							</span>
@@ -58,7 +63,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 					</h2>
 					<div
 						id='collapseOne'
-						className='accordion-collapse collapse show'
+						className='accordion-collapse collapse'
 						aria-labelledby='headingOne'
 						data-bs-parent='#accordionExample'
 					>
@@ -81,7 +86,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 							aria-expanded='false'
 							aria-controls='collapseTwo'
 						>
-							Body Weight Exercise
+							Body-weight Exercise
 							<span className='badge bg-primary ms-3'>
 								{routine.steps.exercise.length}
 							</span>
@@ -161,42 +166,9 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 					>
 						<div className='accordion-body'>
 							<ul className='list-group'>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Prep Time Before Set:</p>
-										<p>{settings.prepTimeBeforeSet}s</p>
-									</div>
-								</li>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Rest Time Between Set:</p>
-										<p>{settings.restBetweenSet}s</p>
-									</div>
-								</li>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Prep Time After Set:</p>
-										<p>{settings.prepTimeAfterSet}s</p>
-									</div>
-								</li>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Prep Time Before Exercise:</p>
-										<p>{settings.prepTimeBeforeExercise}s</p>
-									</div>
-								</li>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Rest Time Between Exercise:</p>
-										<p>{settings.restBetweenExercise}s</p>
-									</div>
-								</li>
-								<li className='list-group-item'>
-									<div className='d-flex justify-content-between'>
-										<p className='mb-1'>Prep Time After Exercise:</p>
-										<p>{settings.prepTimeAfterExercise}s</p>
-									</div>
-								</li>
+								{Object.entries(settings).map(([key, value]) => (
+									<SettingExercise key={key} keyname={key} value={value} />
+								))}
 							</ul>
 						</div>
 					</div>

@@ -7,7 +7,7 @@ const Navbar = () => {
 		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 			<div className='container-fluid'>
 				<Link className='navbar-brand' to='/'>
-					<img src={logo} alt='' width='120' height='40' />
+					<img src={logo} alt='' width='auto' height='50' />
 				</Link>
 				<button
 					className='navbar-toggler'
@@ -33,13 +33,13 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/routines'>
-								Routines
+							<Link className='nav-link' to='/calendar'>
+								Calendar
 							</Link>
 						</li>
 						<li className='nav-item float-end'>
-							<Link className='nav-link' to='/settings'>
-								Settings
+							<Link className='nav-link' to='/breathe'>
+								Breathe
 							</Link>
 						</li>
 					</ul>

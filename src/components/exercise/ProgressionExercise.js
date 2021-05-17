@@ -95,7 +95,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 					{exercise.type === 'Reps' ? (
 						<span>Reps: {prog.qty}</span>
 					) : (
-						<span>Duration: {prog.qty}</span>
+						<span>Duration: {prog.qty}s</span>
 					)}
 					<button
 						className='btn dropdown-toggle px-1'
@@ -124,7 +124,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 											key={item.id}
 											onClick={() => onDurationChange(item.id)}
 										>
-											{item.qty}
+											{item.qty}s
 										</button>
 									</li>
 							  ))}

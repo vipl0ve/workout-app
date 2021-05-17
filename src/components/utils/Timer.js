@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStopwatch } from '@fortawesome/free-solid-svg-icons'
 import { pad } from '../../helper/helperfunctions'
 
-const Timer = ({ data, type }) => {
+const Timer = ({ data, type, className }) => {
 	const [totalTime, setTotalTime] = useState(data)
 	const [formatTime, setformatTime] = useState({
 		hours: '00',
@@ -35,16 +35,16 @@ const Timer = ({ data, type }) => {
 
 	if (type === 'badge') {
 		return (
-			<div>
+			<>
 				<FontAwesomeIcon icon={faStopwatch} />
-				<span className='badge rounded-pill bg-info text-dark'>
+				<span className={className}>
 					{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}
 				</span>
-			</div>
+			</>
 		)
 	} else if (type === 'no-badge') {
 		return (
-			<span>
+			<span className={className}>
 				{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}
 			</span>
 		)

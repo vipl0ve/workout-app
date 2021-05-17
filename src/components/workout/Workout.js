@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { routines } from '../../data/exercise.json'
 import { settings } from '../../data/workoutSettings.json'
@@ -9,6 +9,8 @@ const Workout = () => {
 	const [routinesData] = useState(routines)
 	const [curSettings] = useState(settings)
 	const [curRoutine, setCurRoutine] = useState(routinesData[0])
+
+	useEffect(() => {}, [curRoutine])
 
 	const onChange = (e) => {
 		const newRoutine = routinesData.filter((item) => item.id === e.target.value)
@@ -24,7 +26,8 @@ const Workout = () => {
 	}
 
 	const onResetClick = (e) => {
-		setCurRoutine(routinesData[0])
+		const newRoutine = routinesData.filter((item) => item.id === curRoutine.id)
+		setCurRoutine(newRoutine[0])
 	}
 
 	return (

@@ -1,19 +1,35 @@
-import React from 'react'
-import ReactCountdownClock from 'react-countdown-clock'
+import React, { useState } from 'react'
+import ReactSvgTimer from 'react-svg-timer'
 
-const Stopwatch = ({ data }) => {
-	const myCallback = () => {
-		console.log('Timer Over')
+const Stopwatch = ({ data, timerCompletedStatus }) => {
+	const [resetRequested, setResetRequested] = useState(false)
+	const [logMilliseconds] = useState(false)
+
+	const onComplete = (status) => {
+		console.log('Timer Complete' + status)
+		setResetRequested(true)
+		timerCompletedStatus()
+	}
+
+	const timerValue = (value) => {
+		if (logMilliseconds) {
+			console.log(value)
+		}
 	}
 
 	return (
-		<ReactCountdownClock
-			seconds={parseInt(data)}
-			color='#000'
-			alpha={0.9}
-			size={300}
-			onComplete={myCallback}
-		/>
+		<div style={{ width: '40vh', height: 'auto' }}>
+			<ReactSvgTimer
+				timerCount={parseInt(data)}
+				countdownColor='#847762'
+				innerColor='#ffffff'
+				outerColor='#463e31'
+				resetTimerRequested={resetRequested}
+				completeTimer={onComplete}
+				timerDuration={timerValue}
+				displayCountdown={true}
+			/>
+		</div>
 	)
 }
 
