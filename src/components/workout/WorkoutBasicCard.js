@@ -71,7 +71,7 @@ const WorkoutBasicCard = ({
 				{exerciseType === 'Warmup' ? (
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
-							<span>
+							<span className=''>
 								Warm-up Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
@@ -114,6 +114,7 @@ const WorkoutBasicCard = ({
 								data={exercise.autoPlay}
 								className='text-custom-color6 font-weight-bold'
 								onComplete={nextExercise}
+								onPause={setCardPlayStatus}
 								currentId={exercise.id}
 								settings={'ms'}
 							/>
@@ -150,7 +151,7 @@ const WorkoutBasicCard = ({
 				{exerciseType === 'Warmup' ? (
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
-							<span>
+							<span className='custom-color4'>
 								Warm-up Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
@@ -192,6 +193,7 @@ const WorkoutBasicCard = ({
 							data={exercise.qty}
 							className='text-custom-color6 font-weight-bold'
 							onComplete={nextExercise}
+							onPause={setCardPlayStatus}
 							currentId={exercise.id}
 							settings={'ms'}
 						/>

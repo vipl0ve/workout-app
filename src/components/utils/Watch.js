@@ -7,7 +7,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { pad } from '../../helper/helperfunctions'
 
-const Watch = ({ data, className, onComplete, settings, currentId }) => {
+const Watch = ({
+	data,
+	className,
+	onComplete,
+	onPause,
+	settings,
+	currentId,
+}) => {
 	const [timer, setTimer] = useState(0)
 	const [paused, setPaused] = useState(false)
 	const [totalTime] = useState(parseInt(data))
@@ -55,6 +62,7 @@ const Watch = ({ data, className, onComplete, settings, currentId }) => {
 
 	const timerPaused = () => {
 		setPaused(!paused)
+		onPause(!paused)
 	}
 
 	const formatTimer = (timer) => {

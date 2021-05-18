@@ -38,11 +38,10 @@ const WorkoutCompleted = (props) => {
 			}
 			setEvents([newEvent])
 		} else {
-			if (
-				events.findIndex(
-					(x) => x.end === moment(workout.workoutTime).format()
-				) !== -1
-			) {
+			const eventIndex = events.findIndex(
+				(x) => x.end === moment(workout.workoutTime).format()
+			)
+			if (eventIndex === -1) {
 				newEvent = {
 					id: events.length + 1,
 					title: workout.routineName,
@@ -53,6 +52,8 @@ const WorkoutCompleted = (props) => {
 				}
 				events.push(newEvent)
 				setEvents(events)
+			} else {
+				console.log('Event Already Available')
 			}
 		}
 		localStorage.setItem('bodyworkout', JSON.stringify(events))

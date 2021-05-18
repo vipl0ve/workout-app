@@ -200,6 +200,7 @@ const WorkoutProgressionCard = ({
 									).toString()}
 									className='text-custom-color6 font-weight-bold'
 									onComplete={checkActivity}
+									onPause={setCardPlayStatus}
 									currentId={exercise.id}
 									settings={'ms'}
 								/>
@@ -232,6 +233,7 @@ const WorkoutProgressionCard = ({
 								data={exercise.curProgressions.qty}
 								className='text-custom-color6 font-weight-bold'
 								onComplete={checkActivity}
+								onPause={setCardPlayStatus}
 								currentId={exercise.id}
 								settings={'ms'}
 							/>
