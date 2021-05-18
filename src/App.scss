@@ -1,16 +1,42 @@
-// Override default variables before the import
-// $body-bg: #000;
+// Required
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
 
-.react-stopwatch-timer__element {
-	width: 3px !important;
-	height: 3px !important;
-	border-radius: 5px;
-}
+// Default variable overrides
+// $body-bg: #adb5bd;
 
-.react-stopwatch-timer__table {
-	width: 300px !important;
-	height: 300px !important;
-}
+// $theme-colors: (
+// 	'primary': $primary,
+// );
 
-// Import Bootstrap and its default variables
-//@import '~bootstrap/scss/bootstrap.scss';
+// Create your own map
+$custom-colors: (
+	// Pallet: https://coolors.co/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644
+	'custom-color6': #9c6644,
+	//Brown Sugar
+	'custom-color5': #7f5539,
+	//'Coffee'
+	'custom-color4': #b08968,
+	//Cafe Au Lait
+	'custom-color3': #ddb892,
+	//Tan
+	'custom-color2': #e6ccb2,
+	//Desert Sand
+	'custom-color1': #ede0d4,
+	//Almond
+	'custom-color12': #e6ccb2,
+	//champagne-pink
+	'custom-color11': #fffaf0,
+	//floral-white
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Bootstrap and its default variables
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+// Optional Bootstrap components here
+@import '../node_modules/bootstrap/scss/root';
+@import '../node_modules/bootstrap/scss/reboot';
+@import '../node_modules/bootstrap/scss/type';

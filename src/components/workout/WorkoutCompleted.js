@@ -38,16 +38,22 @@ const WorkoutCompleted = (props) => {
 			}
 			setEvents([newEvent])
 		} else {
-			newEvent = {
-				id: events.length + 1,
-				title: workout.routineName,
-				start: moment(workout.workoutTime)
-					.subtract(workout.totalDuration, 'seconds')
-					.format(),
-				end: moment(workout.workoutTime).format(),
+			if (
+				events.findIndex(
+					(x) => x.end === moment(workout.workoutTime).format()
+				) !== -1
+			) {
+				newEvent = {
+					id: events.length + 1,
+					title: workout.routineName,
+					start: moment(workout.workoutTime)
+						.subtract(workout.totalDuration, 'seconds')
+						.format(),
+					end: moment(workout.workoutTime).format(),
+				}
+				events.push(newEvent)
+				setEvents(events)
 			}
-			events.push(newEvent)
-			setEvents(events)
 		}
 		localStorage.setItem('bodyworkout', JSON.stringify(events))
 	}, [events, workout])
@@ -66,28 +72,39 @@ const WorkoutCompleted = (props) => {
 	}
 
 	return (
-		<div className='container'>
-			<div className='card text-center'>
-				<div className='card-header'>
+		<>
+			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+				<div className='card-header bg-transparent border-custom-color4'>
 					<h5>Workout Summary</h5>
 				</div>
 				<div className='card-body text-start'>
 					<h5 className='card-title text-center'>Completed!</h5>
-					<p className='card-text'>Routine: {workout.routineName}</p>
+					<p className='card-text'>
+						Routine: <u>{workout.routineName}</u>
+					</p>
 					<p className='card-text'>
 						Time:{' '}
-						{moment(workout.workoutTime).format('dddd, MMM Do YY, h:mm:ss A')}
+						<i>
+							{moment(workout.workoutTime).format('dddd, MMM Do YY, h:mm:ss A')}
+						</i>
 					</p>
 					<p className='card-text'>
-						Duration: <Timer data={workout.totalDuration} type={'no-badge'} />
+						Duration:{' '}
+						<i>
+							<Timer data={workout.totalDuration} type={'no-badge'} />
+						</i>
 					</p>
 					<div className='d-flex justify-content-around'>
-						<button type='button' className='btn btn-primary' onClick={goHome}>
+						<button
+							type='button'
+							className='btn btn-custom-color6'
+							onClick={goHome}
+						>
 							Home <FontAwesomeIcon icon={faHome} />
 						</button>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={goWorkoutCalendar}
 						>
 							Workout Calendar <FontAwesomeIcon icon={faCalendarAlt} />
@@ -95,7 +112,7 @@ const WorkoutCompleted = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

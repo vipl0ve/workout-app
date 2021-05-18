@@ -13,6 +13,7 @@ const WorkoutProgress = (props) => {
 	const [play, setPlay] = useState(false)
 	const [curModule, setCurModule] = useState('Intro')
 	const [fillerModule, setFillerModule] = useState('filler')
+	//const [isPrevModule, setIsPrevModule] = useState('')
 	const countRef = useRef(null)
 
 	useEffect(() => {

@@ -1,0 +1,21 @@
+body,
+html {
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+.navbar {
+	min-width: 100vw;
+	min-height: 10vh;
+}
+.container.main {
+	min-width: 100vw;
+	min-height: 85vh;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.footer {
+	min-width: 100vw;
+	min-height: 5vh;
+}

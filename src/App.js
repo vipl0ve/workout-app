@@ -1,4 +1,5 @@
 import './App.css'
+import './App.min.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Layout components
@@ -23,7 +24,7 @@ function App() {
 	return (
 		<Router>
 			<Navbar />
-			<div className='container'>
+			<div className='container main bg-custom-color1'>
 				<Route path='/' exact component={Home} />
 				<Route path='/workout' exact component={Workout} />
 				<Route path='/workoutprogress' exact component={WorkoutProgress} />

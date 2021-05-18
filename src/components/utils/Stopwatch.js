@@ -6,7 +6,6 @@ const Stopwatch = ({ data, timerCompletedStatus }) => {
 	const [logMilliseconds] = useState(false)
 
 	const onComplete = (status) => {
-		console.log('Timer Complete' + status)
 		setResetRequested(true)
 		timerCompletedStatus()
 	}
@@ -21,9 +20,9 @@ const Stopwatch = ({ data, timerCompletedStatus }) => {
 		<div style={{ width: '40vh', height: 'auto' }}>
 			<ReactSvgTimer
 				timerCount={parseInt(data)}
-				countdownColor='#847762'
-				innerColor='#ffffff'
-				outerColor='#463e31'
+				countdownColor='#9c6644'
+				innerColor='#e6ccb2'
+				outerColor='#7f5539'
 				resetTimerRequested={resetRequested}
 				completeTimer={onComplete}
 				timerDuration={timerValue}

@@ -61,14 +61,14 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 	}
 
 	return (
-		<li className='list-group-item'>
+		<li className='list-group-item bg-custom-color3'>
 			<div className='d-flex flex-row align-items-center justify-content-between'>
 				<div className=''>
-					<span>
+					<span className='mb-1 text-light'>
 						{exercise.name}: <ins>{prog.name}</ins>
 					</span>
 					<button
-						className='btn dropdown-toggle px-1'
+						className='btn dropdown-toggle px-1 text-custom-color5'
 						type='button'
 						id='dropdownMenuButtonExercise'
 						data-bs-toggle='dropdown'
@@ -81,7 +81,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 						{exercise.progressions.map((item) => (
 							<li key={item.id}>
 								<button
-									className='dropdown-item'
+									className='dropdown-item text-custom-color4'
 									key={item.id}
 									onClick={() => onChange(item.id)}
 								>
@@ -93,12 +93,16 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 				</div>
 				<div className=''>
 					{exercise.type === 'Reps' ? (
-						<span>Reps: {prog.qty}</span>
+						<span className='mb-1 text-light'>
+							Reps: <ins>{prog.qty}</ins>
+						</span>
 					) : (
-						<span>Duration: {prog.qty}s</span>
+						<span className='mb-1 text-light'>
+							Duration: <ins>{prog.qty}s</ins>
+						</span>
 					)}
 					<button
-						className='btn dropdown-toggle px-1'
+						className='btn dropdown-toggle px-1 text-custom-color5'
 						type='button'
 						id='dropdownMenuButtonQty'
 						data-bs-toggle='dropdown'
@@ -109,7 +113,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 							? reps.map((item) => (
 									<li key={item.id}>
 										<button
-											className='dropdown-item'
+											className='dropdown-item text-custom-color4'
 											key={item.id}
 											onClick={() => onRepsChange(item.id)}
 										>
@@ -120,7 +124,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 							: duration.map((item) => (
 									<li key={item.id}>
 										<button
-											className='dropdown-item'
+											className='dropdown-item text-custom-color4'
 											key={item.id}
 											onClick={() => onDurationChange(item.id)}
 										>

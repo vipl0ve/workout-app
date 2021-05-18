@@ -22,6 +22,7 @@ const WorkoutBasicCard = ({
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
 	const [counter, setCounter] = useState(parseInt(exercise.id))
+
 	useEffect(() => {}, [play, exercise])
 
 	const setCardPlayStatus = () => {
@@ -66,28 +67,28 @@ const WorkoutBasicCard = ({
 
 	if (exercise.type === 'Reps') {
 		return (
-			<div className='card text-center'>
+			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				{exerciseType === 'Warmup' ? (
-					<div className='card-header'>
+					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
 							<span>
 								Warm-up Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
-								className='badge bg-secondary fs-6'
+								className='badge bg-custom-color4 fs-6'
 								data={time}
 								type={'no-badge'}
 							/>
 						</div>
 					</div>
 				) : (
-					<div className='card-header'>
+					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
 							<span>
 								Stretching Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
-								className='badge bg-secondary fs-6'
+								className='badge bg-custom-color4 fs-6'
 								data={time}
 								type={'no-badge'}
 							/>
@@ -105,13 +106,13 @@ const WorkoutBasicCard = ({
 				)}
 				<div className='card-body'>
 					<div className='d-flex justify-content-between'>
-						<h5 className='card-title'>
+						<h5 className='card-title text-custom-color5'>
 							{exercise.name}: {exercise.qty}x
 						</h5>
 						{exercise.autoPlay !== '' ? (
 							<Watch
 								data={exercise.autoPlay}
-								className='text-primary font-weight-bold'
+								className='text-custom-color6 font-weight-bold'
 								onComplete={nextExercise}
 								currentId={exercise.id}
 								settings={'ms'}
@@ -122,12 +123,12 @@ const WorkoutBasicCard = ({
 					</div>
 					<p className='card-text'>{exercise.desc}</p>
 					<div className='btn-group' role='group' aria-label='Basic example'>
-						<button type='button' className='btn btn-primary'>
+						<button type='button' className='btn btn-custom-color6'>
 							<FontAwesomeIcon icon={faBackward} onClick={prevExercise} />
 						</button>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={setCardPlayStatus}
 						>
 							{play ? (
@@ -136,7 +137,7 @@ const WorkoutBasicCard = ({
 								<FontAwesomeIcon icon={faPlay} />
 							)}
 						</button>
-						<button type='button' className='btn btn-primary'>
+						<button type='button' className='btn btn-custom-color6'>
 							<FontAwesomeIcon icon={faForward} onClick={nextExercise} />
 						</button>
 					</div>
@@ -145,28 +146,28 @@ const WorkoutBasicCard = ({
 		)
 	} else if (exercise.type === 'Duration') {
 		return (
-			<div className='card text-center'>
+			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				{exerciseType === 'Warmup' ? (
-					<div className='card-header'>
+					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
 							<span>
 								Warm-up Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
-								className='badge bg-secondary fs-6'
+								className='badge bg-custom-color4 fs-6'
 								data={time}
 								type={'no-badge'}
 							/>
 						</div>
 					</div>
 				) : (
-					<div className='card-header'>
+					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-between'>
 							<span>
 								Stretching Exercise: {counter + '/' + exerciseData.length}
 							</span>
 							<Timer
-								className='badge bg-secondary fs-6'
+								className='badge bg-custom-color4 fs-6'
 								data={time}
 								type={'no-badge'}
 							/>
@@ -184,12 +185,12 @@ const WorkoutBasicCard = ({
 				)}
 				<div className='card-body'>
 					<div className='d-flex justify-content-around'>
-						<h5 className='card-title'>
+						<h5 className='card-title text-custom-color5'>
 							{exercise.name}: {exercise.qty}s
 						</h5>
 						<Watch
 							data={exercise.qty}
-							className='text-primary font-weight-bold'
+							className='text-custom-color6 font-weight-bold'
 							onComplete={nextExercise}
 							currentId={exercise.id}
 							settings={'ms'}
@@ -197,12 +198,12 @@ const WorkoutBasicCard = ({
 					</div>
 					<p className='card-text'>{exercise.desc}</p>
 					<div className='btn-group' role='group' aria-label='Basic example'>
-						<button type='button' className='btn btn-primary'>
+						<button type='button' className='btn btn-custom-color6'>
 							<FontAwesomeIcon icon={faBackward} onClick={prevExercise} />
 						</button>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={setCardPlayStatus}
 						>
 							{play ? (
@@ -211,7 +212,7 @@ const WorkoutBasicCard = ({
 								<FontAwesomeIcon icon={faPlay} />
 							)}
 						</button>
-						<button type='button' className='btn btn-primary'>
+						<button type='button' className='btn btn-custom-color6'>
 							<FontAwesomeIcon icon={faForward} onClick={nextExercise} />
 						</button>
 					</div>

@@ -4,7 +4,7 @@ import logo from '../../asset/appLogo.png'
 
 const Navbar = () => {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+		<nav className='navbar navbar-expand-lg navbar-light bg-custom-color6'>
 			<div className='container-fluid'>
 				<Link className='navbar-brand' to='/'>
 					<img src={logo} alt='' width='auto' height='50' />
@@ -23,22 +23,26 @@ const Navbar = () => {
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li className='nav-item'>
-							<Link className='nav-link active' aria-current='page' to='/'>
+							<Link
+								className='nav-link active text-light'
+								aria-current='page'
+								to='/'
+							>
 								Home
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/workout'>
+							<Link className='nav-link text-light' to='/workout'>
 								Workout
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link' to='/calendar'>
+							<Link className='nav-link text-light' to='/calendar'>
 								Calendar
 							</Link>
 						</li>
 						<li className='nav-item float-end'>
-							<Link className='nav-link' to='/breathe'>
+							<Link className='nav-link text-light' to='/breathe'>
 								Breathe
 							</Link>
 						</li>

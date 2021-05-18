@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import BasicExercise from '../exercise/BasicExercise'
 import ProgressionExercise from '../exercise/ProgressionExercise'
 import SettingExercise from '../exercise/SettingExercise'
@@ -27,28 +27,24 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 	return (
 		<>
 			<div className='text-center'>
-				<span className='h5'>
-					{routine.name}
-					<button
+				<div className='d-flex justify-content-between my-3'>
+					<span className='h4 text-custom-color5'>{routine.name}</span>
+					{/* <button
 						type='button'
 						className='btn'
 						data-toggle='tooltip'
 						data-placement='top'
-						title='Tooltip on top'
+						title='<><p className='h5'>Author: {routine.author}</p><p className='h5'>Website: <Link to={routine.url}>URL</Link></p></>'
 					>
 						<FontAwesomeIcon icon={faInfoCircle} />
-					</button>
-				</span>
+					</button> */}
+				</div>
 			</div>
-			{/* <p className='h5'>Author: {routine.author}</p>
-			<p className='h5'>
-				Website: <Link to={routine.url}>URL</Link>
-			</p> */}
 			<div className='accordion' id='accordionExample'>
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingOne'>
 						<button
-							className='accordion-button collapsed'
+							className='accordion-button bg-custom-color3 text-light collapsed'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseOne'
@@ -56,7 +52,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 							aria-controls='collapseOne'
 						>
 							Warm-up Exercise
-							<span className='badge bg-primary ms-3'>
+							<span className='badge bg-custom-color5 ms-3'>
 								{routine.steps.warmup.length}
 							</span>
 						</button>
@@ -67,7 +63,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 						aria-labelledby='headingOne'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body'>
+						<div className='accordion-body bg-custom-color2'>
 							<ul className='list-group'>
 								{routine.steps.warmup.map((item) => (
 									<BasicExercise key={item.id} data={item} />
@@ -79,7 +75,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingTwo'>
 						<button
-							className='accordion-button collapsed'
+							className='accordion-button bg-custom-color3 text-light collapsed'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseTwo'
@@ -87,7 +83,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 							aria-controls='collapseTwo'
 						>
 							Body-weight Exercise
-							<span className='badge bg-primary ms-3'>
+							<span className='badge bg-custom-color5 ms-3'>
 								{routine.steps.exercise.length}
 							</span>
 						</button>
@@ -98,7 +94,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 						aria-labelledby='headingTwo'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body'>
+						<div className='accordion-body bg-custom-color2'>
 							<ul className='list-group'>
 								{routine.steps.exercise.map((item) => (
 									<ProgressionExercise
@@ -114,7 +110,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingThree'>
 						<button
-							className='accordion-button collapsed'
+							className='accordion-button bg-custom-color3 text-light collapsed'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseThree'
@@ -122,7 +118,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 							aria-controls='collapseThree'
 						>
 							Static Streching
-							<span className='badge bg-primary ms-3'>
+							<span className='badge bg-custom-color5 ms-3'>
 								{routine.steps.stretch.length}
 							</span>
 						</button>
@@ -133,7 +129,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 						aria-labelledby='headingThree'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body'>
+						<div className='accordion-body bg-custom-color2'>
 							<ul className='list-group'>
 								{routine.steps.stretch.map((item) => (
 									<BasicExercise key={item.id} data={item} />
@@ -145,7 +141,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 				<div className='accordion-item'>
 					<h2 className='accordion-header' id='headingFour'>
 						<button
-							className='accordion-button collapsed'
+							className='accordion-button bg-custom-color3 text-light collapsed'
 							type='button'
 							data-bs-toggle='collapse'
 							data-bs-target='#collapseFour'
@@ -153,7 +149,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 							aria-controls='collapseFour'
 						>
 							Default Settings
-							<span className='badge bg-primary ms-3'>
+							<span className='badge bg-custom-color5 ms-3'>
 								{Object.keys(settings).length}
 							</span>
 						</button>
@@ -164,7 +160,7 @@ const WorkoutInfo = ({ data, settings, setCurRoutine }) => {
 						aria-labelledby='headingFour'
 						data-bs-parent='#accordionExample'
 					>
-						<div className='accordion-body'>
+						<div className='accordion-body bg-custom-color2'>
 							<ul className='list-group'>
 								{Object.entries(settings).map(([key, value]) => (
 									<SettingExercise key={key} keyname={key} value={value} />

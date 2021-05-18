@@ -53,17 +53,11 @@ const WorkoutProgressionCard = ({
 	}
 
 	const timerCompleted = () => {
-		console.log('Timer Completed')
 		setActivity('Exercise')
 		checkActivity()
 	}
 
-	const timerPaused = () => {
-		console.log('Timer Paused')
-	}
-
 	const timerSkip = () => {
-		console.log('Timer Skiped')
 		setActivity('Exercise')
 		checkActivity()
 	}
@@ -139,8 +133,8 @@ const WorkoutProgressionCard = ({
 
 	if (showTimer) {
 		return (
-			<div className='card text-center'>
-				<div className='card-header'>
+			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+				<div className='card-header bg-transparent border-custom-color4'>
 					{activity === 'RestSet'
 						? 'Next Set >> Rest ' + settings.betweenSet + 's'
 						: 'Next Exercise >> Rest ' + settings.betweenExercise + 's'}
@@ -152,22 +146,27 @@ const WorkoutProgressionCard = ({
 							: settings.betweenExercise
 					}
 					timerCompletedStatus={timerCompleted}
-					timerPausedStatus={timerPaused}
 				/>
-				<button type='button' className='btn btn-primary' onClick={timerSkip}>
+				<button
+					type='button'
+					className='btn btn-custom-color6'
+					onClick={timerSkip}
+				>
 					Skip Rest <FontAwesomeIcon icon={faStepForward} />
 				</button>
 			</div>
 		)
 	} else {
 		return (
-			<div className='card text-center'>
-				<div className='card-header'>
+			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+				<div className='card-header bg-transparent border-custom-color4'>
 					<div className='d-flex justify-content-between'>
-						Strength Exercise: {exercise.name}{' '}
-						{counter + '/' + exerciseData.length}
+						<span>
+							Strength Exercise: {exercise.name}{' '}
+							{counter + '/' + exerciseData.length}
+						</span>
 						<Timer
-							className='badge bg-secondary fs-6'
+							className='badge bg-custom-color4 fs-6'
 							data={time}
 							type={'no-badge'}
 						/>
@@ -186,9 +185,9 @@ const WorkoutProgressionCard = ({
 					{exercise.curProgressions.type === 'Reps' ? (
 						exercise.autoPlay !== '' ? (
 							<>
-								<h5 className='card-title'>
+								<h5 className='card-title text-custom-color5'>
 									{exercise.curProgressions.name +
-										' [Rep ' +
+										' [' +
 										curSet +
 										'/' +
 										totalSets +
@@ -199,7 +198,7 @@ const WorkoutProgressionCard = ({
 									data={(
 										parseInt(exercise.autoPlay) * parseInt(reps[curSet - 1])
 									).toString()}
-									className='text-primary font-weight-bold'
+									className='text-custom-color6 font-weight-bold'
 									onComplete={checkActivity}
 									currentId={exercise.id}
 									settings={'ms'}
@@ -207,9 +206,9 @@ const WorkoutProgressionCard = ({
 							</>
 						) : (
 							<>
-								<h5 className='card-title'>
+								<h5 className='card-title text-custom-color5'>
 									{exercise.curProgressions.name +
-										' [Rep ' +
+										' [' +
 										curSet +
 										'/' +
 										totalSets +
@@ -220,19 +219,18 @@ const WorkoutProgressionCard = ({
 						)
 					) : (
 						<>
-							<h5 className='card-title'>
+							<h5 className='card-title text-custom-color5'>
 								{exercise.curProgressions.name +
-									' [Rep ' +
+									' [' +
 									curSet +
 									'/' +
 									totalSets +
 									']'}
 								:{' ' + reps[curSet - 1]}s
 							</h5>
-
 							<Watch
 								data={exercise.curProgressions.qty}
-								className='text-primary font-weight-bold'
+								className='text-custom-color6 font-weight-bold'
 								onComplete={checkActivity}
 								currentId={exercise.id}
 								settings={'ms'}
@@ -243,14 +241,14 @@ const WorkoutProgressionCard = ({
 					<div className='btn-group' role='group' aria-label='Basic example'>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={prevElement}
 						>
 							<FontAwesomeIcon icon={faBackward} />
 						</button>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={setCardPlayStatus}
 						>
 							{play ? (
@@ -261,7 +259,7 @@ const WorkoutProgressionCard = ({
 						</button>
 						<button
 							type='button'
-							className='btn btn-primary'
+							className='btn btn-custom-color6'
 							onClick={checkActivity}
 						>
 							<FontAwesomeIcon icon={faForward} />

@@ -32,29 +32,24 @@ const Workout = () => {
 
 	return (
 		<>
-			<div className='container py-4'>
-				<div className='d-flex justify-content-between mb-3 ms-2'>
-					<div className='col-auto'>
-						<label htmlFor='selectRoutine' className='col-form-label'>
-							Select Routine
-						</label>
-					</div>
-					<div className='col-auto'>
-						<select
-							id='selectRoutine'
-							className='form-select form-select-md'
-							required
-							value={curRoutine.id}
-							onChange={onChange}
-						>
-							{routinesData.map((item) => (
-								<option key={item.id} value={item.id}>
-									{item.name}
-								</option>
-							))}
-						</select>
-					</div>
+			<div className='container bg-custom-color1'>
+				<h5 className='text-center'>Select Routine</h5>
+				<div className='d-flex justify-content-between mb-3 mx-1'>
+					<select
+						id='selectRoutine'
+						className='form-select form-select-md bg-custom-color2'
+						required
+						value={curRoutine.id}
+						onChange={onChange}
+					>
+						{routinesData.map((item) => (
+							<option key={item.id} value={item.id}>
+								{item.name}
+							</option>
+						))}
+					</select>
 				</div>
+				<hr />
 
 				<WorkoutInfo
 					data={curRoutine}
@@ -64,14 +59,14 @@ const Workout = () => {
 				<div className='row justify-content-around my-3'>
 					<button
 						type='button'
-						className='btn btn-primary col-auto'
+						className='btn btn-custom-color6 col-auto'
 						onClick={onClick}
 					>
 						Start Workout
 					</button>
 					<button
 						type='button'
-						className='btn btn-success col-auto'
+						className='btn btn-custom-color6 col-auto'
 						onClick={onResetClick}
 					>
 						Reset Workout
