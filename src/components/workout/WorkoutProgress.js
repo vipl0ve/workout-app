@@ -11,14 +11,13 @@ const WorkoutProgress = (props) => {
 	const [settings] = useState(props.location.state.settings)
 	const [timer, setTimer] = useState(0)
 	const [play, setPlay] = useState(false)
-	const [curModule, setCurModule] = useState('Intro')
-	const [fillerModule, setFillerModule] = useState('filler')
-	//const [isPrevModule, setIsPrevModule] = useState('')
+	const [curModule, setCurModule] = useState(-1)
+	const [fillerModule, setFillerModule] = useState(true)
 	const countRef = useRef(null)
 
 	useEffect(() => {
 		if (play) {
-			countRef.current = setInterval(() => setTimer(timer + 1), 1000)
+			countRef.current = setInterval(() => setTimer((timer) => timer + 1), 1000)
 			return () => {
 				clearInterval(countRef.current)
 			}
@@ -27,107 +26,83 @@ const WorkoutProgress = (props) => {
 		}
 	})
 
-	if (curModule === 'Intro') {
+	const prevStep = () => {
+		setCurModule((e) => e - 1)
+	}
+
+	const nextStep = () => {
+		if (curModule < routine.exercises.length - 1) {
+			setCurModule((e) => e + 1)
+		} else if (curModule === routine.exercises.length - 1) {
+			lastStep()
+		}
+	}
+
+	const lastStep = () => {
+		setPlay(false)
+		setCurModule(routine.exercises.length)
+	}
+
+	if (curModule === -1) {
 		return (
 			<WorkoutIntro
 				routineInfo={routine}
 				time={timer}
-				exerciseType={curModule}
-				changeCurModule={setCurModule}
+				curModule={curModule}
+				nextStep={nextStep}
 				setPlayStatus={setPlay}
 			/>
 		)
-	} else if (curModule === 'Warmup') {
-		if (fillerModule === 'nofiller') {
-			return (
-				<WorkoutBasicCard
-					exerciseData={routine.steps.warmup}
-					time={timer}
-					play={play}
-					settings={settings}
-					exerciseType={curModule}
-					changeCurModule={setCurModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
-				/>
-			)
-		} else if (fillerModule === 'filler') {
+	} else if (curModule > -1 && curModule < routine.exercises.length) {
+		if (fillerModule) {
 			return (
 				<FillerCard
-					time={timer}
-					play={play}
 					settings={settings}
-					exerciseType={curModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
+					exercise={routine.exercises[curModule].name}
+					setFillerModule={setFillerModule}
 				/>
 			)
 		} else {
-			return null
+			if (routine.exercises[curModule].type === 'Basic') {
+				return (
+					<WorkoutBasicCard
+						exerciseData={routine.exercises[curModule].steps}
+						time={timer}
+						play={play}
+						settings={settings}
+						nextStep={nextStep}
+						prevStep={prevStep}
+						lastStep={lastStep}
+						setFillerModule={setFillerModule}
+						setPlayStatus={setPlay}
+					/>
+				)
+			} else if (routine.exercises[curModule].type === 'Progressive') {
+				return (
+					<WorkoutProgressionCard
+						exerciseData={routine.exercises[curModule].steps}
+						time={timer}
+						play={play}
+						settings={settings}
+						nextStep={nextStep}
+						prevStep={prevStep}
+						lastStep={lastStep}
+						setFillerModule={setFillerModule}
+						setPlayStatus={setPlay}
+					/>
+				)
+			} else {
+				return null
+			}
 		}
-	} else if (curModule === 'Exercise') {
-		if (fillerModule === 'nofiller') {
-			return (
-				<WorkoutProgressionCard
-					exerciseData={routine.steps.exercise}
-					exerciseType={curModule}
-					time={timer}
-					play={play}
-					settings={settings}
-					changeCurModule={setCurModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
-				/>
-			)
-		} else if (fillerModule === 'filler') {
-			return (
-				<FillerCard
-					time={timer}
-					play={play}
-					settings={settings}
-					exerciseType={curModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
-				/>
-			)
-		} else {
-			return null
-		}
-	} else if (curModule === 'Stretch') {
-		if (fillerModule === 'nofiller') {
-			return (
-				<WorkoutBasicCard
-					exerciseData={routine.steps.stretch}
-					exerciseType={curModule}
-					time={timer}
-					play={play}
-					settings={settings}
-					changeCurModule={setCurModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
-				/>
-			)
-		} else if (fillerModule === 'filler') {
-			return (
-				<FillerCard
-					time={timer}
-					play={play}
-					settings={settings}
-					exerciseType={curModule}
-					changeFillerModule={setFillerModule}
-					setPlayStatus={setPlay}
-				/>
-			)
-		} else {
-			return null
-		}
-	} else if (curModule === 'Ending') {
+	} else if (curModule === routine.exercises.length) {
 		return (
 			<WorkoutIntro
 				routineInfo={routine}
-				exerciseType={curModule}
 				time={timer}
-				changeCurModule={setCurModule}
+				curModule={curModule}
+				nextStep={nextStep}
+				prevStep={prevStep}
 				setPlayStatus={setPlay}
 			/>
 		)

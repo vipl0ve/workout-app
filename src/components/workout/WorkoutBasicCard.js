@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-	faForward,
-	faBackward,
-	faPause,
-	faPlay,
-} from '@fortawesome/free-solid-svg-icons'
-import noImage from '../../asset/noImage.jpg'
-import Timer from '../utils/Timer'
-import Watch from '../utils/Watch'
+import CardImage from '../workoutCards/CardImage'
+import CardTitle from '../workoutCards/CardTitle'
+import CardBtnInfo from '../workoutCards/CardBtnInfo'
+import CardBtnVideo from '../workoutCards/CardBtnVideo'
+import CardFooter from '../workoutCards/CardFooter'
+import CardBtnBackward from '../workoutCards/CardBtnBackward'
+import CardBtnForward from '../workoutCards/CardBtnForward'
+import CardBtnPlay from '../workoutCards/CardBtnPlay'
+import CardWatch from '../workoutCards/CardWatch'
+import CardHeader from '../workoutCards/CardHeader'
+import CardVideo from '../workoutCards/CardVideo'
 
 const WorkoutBasicCard = ({
 	exerciseData,
-	exerciseType,
 	time,
 	play,
 	settings,
-	changeCurModule,
-	changeFillerModule,
+	nextStep,
+	prevStep,
+	lastStep,
+	setFillerModule,
 	setPlayStatus,
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
 	const [counter, setCounter] = useState(parseInt(exercise.id))
+	const [info, setInfo] = useState(false)
+	const [video, setVideo] = useState(false)
+	const [btnDisabled, SetBtnDisabled] = useState({ prev: false, next: false })
 
 	useEffect(() => {}, [play, exercise])
 
@@ -38,11 +43,7 @@ const WorkoutBasicCard = ({
 			)
 			setExercise(newExercise[0])
 		} else if (counter === 1) {
-			if (exerciseType === 'Warmup') {
-				changeCurModule('Intro')
-			} else if (exerciseType === 'Stretch') {
-				changeCurModule('Exercise')
-			}
+			prevStep()
 		}
 	}
 
@@ -55,175 +56,67 @@ const WorkoutBasicCard = ({
 			)
 			setExercise(newExercise[0])
 		} else if (counter === exerciseData.length) {
-			if (exerciseType === 'Warmup') {
-				changeCurModule('Exercise')
-				changeFillerModule('filler')
-			} else if (exerciseType === 'Stretch') {
-				changeCurModule('Ending')
-				changeFillerModule('filler')
-			}
+			nextStep()
+			setFillerModule(true)
 		}
 	}
 
-	if (exercise.type === 'Reps') {
-		return (
-			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				{exerciseType === 'Warmup' ? (
-					<div className='card-header bg-transparent border-custom-color4'>
-						<div className='d-flex justify-content-between'>
-							<span className=''>
-								Warm-up Exercise: {counter + '/' + exerciseData.length}
-							</span>
-							<Timer
-								className='badge bg-custom-color4 fs-6'
-								data={time}
-								type={'no-badge'}
-							/>
-						</div>
-					</div>
-				) : (
-					<div className='card-header bg-transparent border-custom-color4'>
-						<div className='d-flex justify-content-between'>
-							<span>
-								Stretching Exercise: {counter + '/' + exerciseData.length}
-							</span>
-							<Timer
-								className='badge bg-custom-color4 fs-6'
-								data={time}
-								type={'no-badge'}
-							/>
-						</div>
-					</div>
-				)}
-				{exercise.img === '' ? (
-					<img src={noImage} className='card-img-top' alt={exercise.name} />
-				) : (
-					<img
-						src={exercise.img}
-						className='card-img-top'
-						alt={exercise.name}
-					/>
-				)}
-				<div className='card-body'>
-					<div className='d-flex justify-content-between'>
-						<h5 className='card-title text-custom-color5'>
-							{exercise.name}: {exercise.qty}x
-						</h5>
-						{exercise.autoPlay !== '' ? (
-							<Watch
-								data={exercise.autoPlay}
-								className='text-custom-color6 font-weight-bold'
-								onComplete={nextExercise}
-								onPause={setCardPlayStatus}
-								currentId={exercise.id}
-								settings={'ms'}
-							/>
-						) : (
-							<></>
-						)}
-					</div>
-					<p className='card-text'>{exercise.desc}</p>
-					<div className='btn-group' role='group' aria-label='Basic example'>
-						<button type='button' className='btn btn-custom-color6'>
-							<FontAwesomeIcon icon={faBackward} onClick={prevExercise} />
-						</button>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={setCardPlayStatus}
-						>
-							{play ? (
-								<FontAwesomeIcon icon={faPause} />
-							) : (
-								<FontAwesomeIcon icon={faPlay} />
-							)}
-						</button>
-						<button type='button' className='btn btn-custom-color6'>
-							<FontAwesomeIcon icon={faForward} onClick={nextExercise} />
-						</button>
-					</div>
-				</div>
-			</div>
-		)
-	} else if (exercise.type === 'Duration') {
-		return (
-			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				{exerciseType === 'Warmup' ? (
-					<div className='card-header bg-transparent border-custom-color4'>
-						<div className='d-flex justify-content-between'>
-							<span className='custom-color4'>
-								Warm-up Exercise: {counter + '/' + exerciseData.length}
-							</span>
-							<Timer
-								className='badge bg-custom-color4 fs-6'
-								data={time}
-								type={'no-badge'}
-							/>
-						</div>
-					</div>
-				) : (
-					<div className='card-header bg-transparent border-custom-color4'>
-						<div className='d-flex justify-content-between'>
-							<span>
-								Stretching Exercise: {counter + '/' + exerciseData.length}
-							</span>
-							<Timer
-								className='badge bg-custom-color4 fs-6'
-								data={time}
-								type={'no-badge'}
-							/>
-						</div>
-					</div>
-				)}
-				{exercise.img === '' ? (
-					<img src={noImage} className='card-img-top' alt={exercise.name} />
-				) : (
-					<img
-						src={exercise.img}
-						className='card-img-top'
-						alt={exercise.name}
-					/>
-				)}
-				<div className='card-body'>
-					<div className='d-flex justify-content-around'>
-						<h5 className='card-title text-custom-color5'>
-							{exercise.name}: {exercise.qty}s
-						</h5>
-						<Watch
-							data={exercise.qty}
-							className='text-custom-color6 font-weight-bold'
-							onComplete={nextExercise}
-							onPause={setCardPlayStatus}
-							currentId={exercise.id}
-							settings={'ms'}
-						/>
-					</div>
-					<p className='card-text'>{exercise.desc}</p>
-					<div className='btn-group' role='group' aria-label='Basic example'>
-						<button type='button' className='btn btn-custom-color6'>
-							<FontAwesomeIcon icon={faBackward} onClick={prevExercise} />
-						</button>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={setCardPlayStatus}
-						>
-							{play ? (
-								<FontAwesomeIcon icon={faPause} />
-							) : (
-								<FontAwesomeIcon icon={faPlay} />
-							)}
-						</button>
-						<button type='button' className='btn btn-custom-color6'>
-							<FontAwesomeIcon icon={faForward} onClick={nextExercise} />
-						</button>
-					</div>
-				</div>
-			</div>
-		)
-	} else {
-		return null
+	const endWorkout = () => {
+		lastStep()
+		setFillerModule(false)
+		setPlayStatus(false)
 	}
-}
 
+	const showInfo = () => {
+		setInfo(!info)
+	}
+
+	const showVideo = () => {
+		setPlayStatus(!play)
+		SetBtnDisabled({ prev: !btnDisabled.prev, next: !btnDisabled.next })
+		setVideo(!video)
+	}
+
+	return (
+		<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+			<div className='card-header d-flex justify-content-between bg-transparent border-custom-color4'>
+				<CardHeader
+					counter={counter}
+					exerciseData={exerciseData}
+					exercise={exercise}
+				/>
+				<CardWatch
+					exercise={exercise}
+					play={play}
+					nextExercise={nextExercise}
+					setCardPlayStatus={setCardPlayStatus}
+					progression={false}
+				/>
+			</div>
+			{video && <CardVideo url={exercise.video} />}
+			{!video && <CardImage url={exercise.img} alt={exercise.name} />}
+			<div className='card-body'>
+				<CardTitle
+					name={exercise.name}
+					type={exercise.type}
+					qty={exercise.qty}
+					progression={false}
+				/>
+				{info && <p className='card-text'>{exercise.desc}</p>}
+				<hr />
+				<div className='btn-group' role='group' aria-label='Basic example'>
+					<CardBtnInfo data={exercise.desc} onAction={showInfo} />
+					<CardBtnVideo data={exercise.video} onAction={showVideo} />
+					<CardBtnBackward
+						onAction={prevExercise}
+						disabled={btnDisabled.prev}
+					/>
+					<CardBtnPlay play={play} onAction={setCardPlayStatus} />
+					<CardBtnForward onAction={nextExercise} disabled={btnDisabled.next} />
+				</div>
+			</div>
+			<CardFooter time={time} onAction={endWorkout} />
+		</div>
+	)
+}
 export default WorkoutBasicCard

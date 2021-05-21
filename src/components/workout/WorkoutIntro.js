@@ -3,19 +3,20 @@ import { useHistory } from 'react-router-dom'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faSave, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
 import Timer from '../utils/Timer'
 import exerciseIcon from '../../asset/exerciseIcon.png'
 
 const WorkoutIntro = ({
 	routineInfo,
 	time,
-	exerciseType,
-	changeCurModule,
+	curModule,
+	nextStep,
 	setPlayStatus,
 }) => {
 	const history = useHistory()
 	const onPlay = () => {
-		changeCurModule('Warmup')
+		nextStep()
 		setPlayStatus(true)
 	}
 
@@ -23,9 +24,8 @@ const WorkoutIntro = ({
 		const workout = {
 			routineName: routineInfo.name,
 			totalDuration: time,
-			workoutTime: moment(Date.now()).format(),
+			workoutTime: moment().format(),
 		}
-		changeCurModule('Intro')
 		setPlayStatus(false)
 		history.push({
 			pathname: '/workoutcompleted',
@@ -36,19 +36,19 @@ const WorkoutIntro = ({
 	}
 
 	const onDiscard = () => {
-		changeCurModule('Intro')
 		setPlayStatus(false)
 		history.push({
 			pathname: '/',
 		})
 	}
 
-	if (exerciseType === 'Intro') {
+	if (curModule === -1) {
 		return (
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				<div className='card-header bg-transparent border-custom-color4'>
 					Start Workout
 				</div>
+
 				<div className='card-body'>
 					<div className='card-title'>
 						<h5>{routineInfo.name}</h5>
@@ -69,7 +69,7 @@ const WorkoutIntro = ({
 				</div>
 			</div>
 		)
-	} else if (exerciseType === 'Ending') {
+	} else if (curModule === routineInfo.exercises.length) {
 		return (
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				<div className='card-header bg-transparent border-custom-color4'>
@@ -110,6 +110,8 @@ const WorkoutIntro = ({
 				</div>
 			</div>
 		)
+	} else {
+		return null
 	}
 }
 

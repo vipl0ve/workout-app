@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../asset/appLogo.png'
+import NavItem from './NavItem'
 
 const Navbar = () => {
 	return (
@@ -22,30 +23,10 @@ const Navbar = () => {
 				</button>
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-						<li className='nav-item'>
-							<Link
-								className='nav-link active text-light'
-								aria-current='page'
-								to='/'
-							>
-								Home
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link className='nav-link text-light' to='/workout'>
-								Workout
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link className='nav-link text-light' to='/calendar'>
-								Calendar
-							</Link>
-						</li>
-						<li className='nav-item float-end'>
-							<Link className='nav-link text-light' to='/breathe'>
-								Breathe
-							</Link>
-						</li>
+						<NavItem title='Home' to='/' active={true} />
+						<NavItem title='Workout' to='/workout' active={false} />
+						<NavItem title='Calendar' to='/calendar' active={false} />
+						<NavItem title='Breathe' to='/breathe' active={false} />
 					</ul>
 				</div>
 			</div>

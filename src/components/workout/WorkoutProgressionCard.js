@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-	faForward,
-	faBackward,
-	faPause,
-	faPlay,
-	faStepForward,
-} from '@fortawesome/free-solid-svg-icons'
-import noImage from '../../asset/noImage.jpg'
-import Timer from '../utils/Timer'
+import CardHeader from '../workoutCards/CardHeader'
+import CardWatch from '../workoutCards/CardWatch'
+import CardImage from '../workoutCards/CardImage'
+import CardBtnInfo from '../workoutCards/CardBtnInfo'
+import CardFooter from '../workoutCards/CardFooter'
+import CardBtnForward from '../workoutCards/CardBtnForward'
+import CardBtnPlay from '../workoutCards/CardBtnPlay'
+import CardBtnBackward from '../workoutCards/CardBtnBackward'
+import CardBtnVideo from '../workoutCards/CardBtnVideo'
+import CardTitle from '../workoutCards/CardTitle'
+import CardShowTimer from '../workoutCards/CardShowTimer'
 import { getQty } from '../../helper/helperfunctions'
-import Stopwatch from '../utils/Stopwatch'
-import Watch from '../utils/Watch'
+import CardVideo from '../workoutCards/CardVideo'
 
 const WorkoutProgressionCard = ({
 	exerciseData,
-	exerciseType,
 	time,
 	play,
 	settings,
-	changeCurModule,
-	changeFillerModule,
+	nextStep,
+	prevStep,
+	lastStep,
+	setFillerModule,
 	setPlayStatus,
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
@@ -30,6 +31,9 @@ const WorkoutProgressionCard = ({
 	const [curSet, setCurSet] = useState(1)
 	const [activity, setActivity] = useState('Exercise')
 	const [showTimer, setShowTimer] = useState(false)
+	const [info, setInfo] = useState(false)
+	const [video, setVideo] = useState(false)
+	const [btnDisabled, SetBtnDisabled] = useState({ prev: false, next: false })
 
 	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
@@ -107,9 +111,7 @@ const WorkoutProgressionCard = ({
 			)
 			setExercise(newExercise[0])
 		} else if (counter === 1) {
-			if (exerciseType === 'Exercise') {
-				changeCurModule('Warmup')
-			}
+			prevStep()
 		}
 	}
 
@@ -124,150 +126,92 @@ const WorkoutProgressionCard = ({
 			)
 			setExercise(newExercise[0])
 		} else if (counter === exerciseData.length) {
-			if (exerciseType === 'Exercise') {
-				changeCurModule('Stretch')
-				changeFillerModule('filler')
-			}
+			nextStep()
+			setFillerModule(true)
 		}
+	}
+
+	const endWorkout = () => {
+		setFillerModule(false)
+		setPlayStatus(false)
+		lastStep()
+	}
+
+	const showInfo = () => {
+		setInfo(!info)
+	}
+
+	const showVideo = () => {
+		setPlayStatus(!play)
+		SetBtnDisabled({ prev: !btnDisabled.prev, next: !btnDisabled.next })
+		setVideo(!video)
 	}
 
 	if (showTimer) {
 		return (
-			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header bg-transparent border-custom-color4'>
-					{activity === 'RestSet'
-						? 'Next Set >> Rest ' + settings.betweenSet + 's'
-						: 'Next Exercise >> Rest ' + settings.betweenExercise + 's'}
-				</div>
-				<Stopwatch
-					data={
-						activity === 'RestSet'
-							? settings.betweenSet
-							: settings.betweenExercise
-					}
-					timerCompletedStatus={timerCompleted}
-				/>
-				<button
-					type='button'
-					className='btn btn-custom-color6'
-					onClick={timerSkip}
-				>
-					Skip Rest <FontAwesomeIcon icon={faStepForward} />
-				</button>
-			</div>
+			<CardShowTimer
+				activity={activity}
+				settings={settings}
+				timerCompleted={timerCompleted}
+				timerSkip={timerSkip}
+			/>
 		)
 	} else {
 		return (
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header bg-transparent border-custom-color4'>
-					<div className='d-flex justify-content-between'>
-						<span>
-							Strength Exercise: {exercise.name}{' '}
-							{counter + '/' + exerciseData.length}
-						</span>
-						<Timer
-							className='badge bg-custom-color4 fs-6'
-							data={time}
-							type={'no-badge'}
-						/>
-					</div>
+				<div className='card-header d-flex justify-content-between bg-transparent border-custom-color4'>
+					<CardHeader
+						counter={counter}
+						exerciseData={exerciseData}
+						exercise={exercise}
+					/>
+					<CardWatch
+						exercise={exercise}
+						play={play}
+						nextExercise={nextExercise}
+						setCardPlayStatus={setCardPlayStatus}
+						progression={true}
+					/>
 				</div>
-				{exercise.curProgressions.img === '' ? (
-					<img src={noImage} className='card-img-top' alt={exercise.name} />
-				) : (
-					<img
-						src={exercise.curProgressions.img}
-						className='card-img-top'
+				{video && <CardVideo url={exercise.curProgressions.video} />}
+				{!video && (
+					<CardImage
+						url={exercise.curProgressions.img}
 						alt={exercise.curProgressions.name}
 					/>
 				)}
 				<div className='card-body'>
-					{exercise.curProgressions.type === 'Reps' ? (
-						exercise.autoPlay !== '' ? (
-							<>
-								<h5 className='card-title text-custom-color5'>
-									{exercise.curProgressions.name +
-										' [' +
-										curSet +
-										'/' +
-										totalSets +
-										']'}
-									:{' ' + reps[curSet - 1]}x
-								</h5>
-								<Watch
-									data={(
-										parseInt(exercise.autoPlay) * parseInt(reps[curSet - 1])
-									).toString()}
-									className='text-custom-color6 font-weight-bold'
-									onComplete={checkActivity}
-									onPause={setCardPlayStatus}
-									currentId={exercise.id}
-									settings={'ms'}
-								/>
-							</>
-						) : (
-							<>
-								<h5 className='card-title text-custom-color5'>
-									{exercise.curProgressions.name +
-										' [' +
-										curSet +
-										'/' +
-										totalSets +
-										']'}
-									:{' ' + reps[curSet - 1]}x
-								</h5>
-							</>
-						)
-					) : (
-						<>
-							<h5 className='card-title text-custom-color5'>
-								{exercise.curProgressions.name +
-									' [' +
-									curSet +
-									'/' +
-									totalSets +
-									']'}
-								:{' ' + reps[curSet - 1]}s
-							</h5>
-							<Watch
-								data={exercise.curProgressions.qty}
-								className='text-custom-color6 font-weight-bold'
-								onComplete={checkActivity}
-								onPause={setCardPlayStatus}
-								currentId={exercise.id}
-								settings={'ms'}
-							/>
-						</>
-					)}
-					<p className='card-text'>{exercise.curProgressions.desc}</p>
+					<CardTitle
+						name={exercise.curProgressions.name}
+						type={exercise.curProgressions.type}
+						qty={exercise.curProgressions.qty}
+						progression={true}
+						curSet={curSet}
+						totalSets={totalSets}
+						reps={reps}
+					/>
+					{info && <p className='card-text'>{exercise.curProgressions.desc}</p>}
 					<div className='btn-group' role='group' aria-label='Basic example'>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={prevElement}
-						>
-							<FontAwesomeIcon icon={faBackward} />
-						</button>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={setCardPlayStatus}
-						>
-							{play ? (
-								<FontAwesomeIcon icon={faPause} />
-							) : (
-								<FontAwesomeIcon icon={faPlay} />
-							)}
-						</button>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={checkActivity}
-						>
-							<FontAwesomeIcon icon={faForward} />
-						</button>
+						<CardBtnInfo
+							data={exercise.curProgressions.desc}
+							onAction={showInfo}
+						/>
+						<CardBtnVideo
+							data={exercise.curProgressions.video}
+							onAction={showVideo}
+						/>
+						<CardBtnBackward
+							onAction={prevElement}
+							disabled={btnDisabled.prev}
+						/>
+						<CardBtnPlay play={play} onAction={setCardPlayStatus} />
+						<CardBtnForward
+							onAction={checkActivity}
+							disabled={btnDisabled.next}
+						/>
 					</div>
 				</div>
+				<CardFooter time={time} onAction={endWorkout} />
 			</div>
 		)
 	}

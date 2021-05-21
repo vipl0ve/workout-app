@@ -45,6 +45,7 @@ const WorkoutCompleted = (props) => {
 				newEvent = {
 					id: events.length + 1,
 					title: workout.routineName,
+					duration: workout.totalDuration,
 					start: moment(workout.workoutTime)
 						.subtract(workout.totalDuration, 'seconds')
 						.format(),

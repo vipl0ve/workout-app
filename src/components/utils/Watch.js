@@ -1,22 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-	faHourglassStart,
-	faHourglassEnd,
-	faHourglass,
-} from '@fortawesome/free-solid-svg-icons'
+import { faPause } from '@fortawesome/free-solid-svg-icons'
 import { pad } from '../../helper/helperfunctions'
 
 const Watch = ({
 	data,
 	className,
+	play,
 	onComplete,
 	onPause,
 	settings,
 	currentId,
 }) => {
 	const [timer, setTimer] = useState(0)
-	const [paused, setPaused] = useState(false)
 	const [totalTime] = useState(parseInt(data))
 	const countRef = useRef(null)
 	const [formatTime, setformatTime] = useState({
@@ -36,7 +32,7 @@ const Watch = ({
 	}, [currentId])
 
 	useEffect(() => {
-		if (!paused) {
+		if (play) {
 			if (timer > totalTime) {
 				setformatTime({
 					hours: '00',
@@ -58,11 +54,10 @@ const Watch = ({
 		} else {
 			clearInterval(countRef.current)
 		}
-	}, [paused, timer, onComplete, totalTime])
+	}, [play, timer, onComplete, totalTime])
 
 	const timerPaused = () => {
-		setPaused(!paused)
-		onPause(!paused)
+		onPause(!play)
 	}
 
 	const formatTimer = (timer) => {
@@ -79,41 +74,50 @@ const Watch = ({
 		}
 	}
 
-	if (timer === 0) {
-		return <FontAwesomeIcon icon={faHourglassStart} />
-	} else if (timer <= totalTime) {
+	if (timer <= totalTime) {
 		if (settings === 'hms') {
 			return (
 				<span className={className} onClick={timerPaused}>
 					{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}
+					{!play && <FontAwesomeIcon icon={faPause} />}
 				</span>
 			)
 		} else if (settings === 'hm') {
 			return (
 				<span className={className} onClick={timerPaused}>
 					{formatTime.hours}:{formatTime.minutes}
-					{paused && <FontAwesomeIcon icon={faHourglass} />}
+					{!play && <FontAwesomeIcon icon={faPause} />}
 				</span>
 			)
 		} else if (settings === 'ms') {
 			return (
 				<span className={className} onClick={timerPaused}>
 					{formatTime.minutes}:{formatTime.seconds}
-					{paused && <FontAwesomeIcon icon={faHourglass} />}
+					{!play && <FontAwesomeIcon icon={faPause} />}
 				</span>
 			)
 		} else {
 			return (
 				<span className={className} onClick={timerPaused}>
 					{formatTime.seconds}
-					{paused && <FontAwesomeIcon icon={faHourglass} />}
+					{!play && <FontAwesomeIcon icon={faPause} />}
 				</span>
 			)
 		}
 	} else if (isNaN(timer)) {
-		return <FontAwesomeIcon icon={faHourglass} />
+		return (
+			<span className={className} onClick={timerPaused}>
+				00:00
+				{!play && <FontAwesomeIcon icon={faPause} />}
+			</span>
+		)
 	} else {
-		return <FontAwesomeIcon icon={faHourglassEnd} />
+		return (
+			<span className={className} onClick={timerPaused}>
+				{formatTime.minutes}:{formatTime.seconds}
+				{!play && <FontAwesomeIcon icon={faPause} />}
+			</span>
+		)
 	}
 }
 

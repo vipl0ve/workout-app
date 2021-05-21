@@ -17,7 +17,10 @@ const Stopwatch = ({ data, timerCompletedStatus }) => {
 	}
 
 	return (
-		<div style={{ width: '40vh', height: 'auto' }}>
+		<div
+			className={'d-flex justify-content-center'}
+			style={{ width: '40vh', height: 'auto' }}
+		>
 			<ReactSvgTimer
 				timerCount={parseInt(data)}
 				countdownColor='#9c6644'
