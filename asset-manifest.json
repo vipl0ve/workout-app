@@ -1,27 +1,26 @@
 {
   "files": {
-    "main.css": "/workout-app/static/css/main.5fe7af4d.chunk.css",
-    "main.js": "/workout-app/static/js/main.a6f86c09.chunk.js",
-    "main.js.map": "/workout-app/static/js/main.a6f86c09.chunk.js.map",
-    "runtime-main.js": "/workout-app/static/js/runtime-main.316de482.js",
-    "runtime-main.js.map": "/workout-app/static/js/runtime-main.316de482.js.map",
+    "main.css": "/workout-app/static/css/main.7f00dcff.chunk.css",
+    "main.js": "/workout-app/static/js/main.b9c8ca07.chunk.js",
+    "main.js.map": "/workout-app/static/js/main.b9c8ca07.chunk.js.map",
+    "runtime-main.js": "/workout-app/static/js/runtime-main.56c446be.js",
+    "runtime-main.js.map": "/workout-app/static/js/runtime-main.56c446be.js.map",
     "static/css/2.800be05e.chunk.css": "/workout-app/static/css/2.800be05e.chunk.css",
-    "static/js/2.88b1ac98.chunk.js": "/workout-app/static/js/2.88b1ac98.chunk.js",
-    "static/js/2.88b1ac98.chunk.js.map": "/workout-app/static/js/2.88b1ac98.chunk.js.map",
-    "static/js/3.61151181.chunk.js": "/workout-app/static/js/3.61151181.chunk.js",
-    "static/js/3.61151181.chunk.js.map": "/workout-app/static/js/3.61151181.chunk.js.map",
+    "static/js/2.1d4d39ad.chunk.js": "/workout-app/static/js/2.1d4d39ad.chunk.js",
+    "static/js/2.1d4d39ad.chunk.js.map": "/workout-app/static/js/2.1d4d39ad.chunk.js.map",
+    "static/js/3.2a30147c.chunk.js": "/workout-app/static/js/3.2a30147c.chunk.js",
+    "static/js/3.2a30147c.chunk.js.map": "/workout-app/static/js/3.2a30147c.chunk.js.map",
     "index.html": "/workout-app/index.html",
     "static/css/2.800be05e.chunk.css.map": "/workout-app/static/css/2.800be05e.chunk.css.map",
-    "static/css/main.5fe7af4d.chunk.css.map": "/workout-app/static/css/main.5fe7af4d.chunk.css.map",
-    "static/js/2.88b1ac98.chunk.js.LICENSE.txt": "/workout-app/static/js/2.88b1ac98.chunk.js.LICENSE.txt",
-    "static/media/appLogo.b5af2114.png": "/workout-app/static/media/appLogo.b5af2114.png",
+    "static/css/main.7f00dcff.chunk.css.map": "/workout-app/static/css/main.7f00dcff.chunk.css.map",
+    "static/js/2.1d4d39ad.chunk.js.LICENSE.txt": "/workout-app/static/js/2.1d4d39ad.chunk.js.LICENSE.txt",
     "static/media/bgBreathe.bc29687b.jpg": "/workout-app/static/media/bgBreathe.bc29687b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.316de482.js",
+    "static/js/runtime-main.56c446be.js",
     "static/css/2.800be05e.chunk.css",
-    "static/js/2.88b1ac98.chunk.js",
-    "static/css/main.5fe7af4d.chunk.css",
-    "static/js/main.a6f86c09.chunk.js"
+    "static/js/2.1d4d39ad.chunk.js",
+    "static/css/main.7f00dcff.chunk.css",
+    "static/js/main.b9c8ca07.chunk.js"
   ]
 }
