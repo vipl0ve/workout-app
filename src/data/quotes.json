@@ -1,0 +1,124 @@
+{
+	"quotes": [
+		{
+			"id": 1,
+			"quote": "The last three or four reps is what makes the muscle grow. This area of pain divides a champion from someone who is not a champion.",
+			"author": "Arnold Schwarzenegger",
+			"authorInfo": "Seven-time Mr. Olympia"
+		},
+		{
+			"id": 2,
+			"quote": "Success usually comes to those who are too busy to be looking for it.",
+			"author": "Henry David Thoreau",
+			"authorInfo": "Poet and Philosopher"
+		},
+		{
+			"id": 3,
+			"quote": "All progress takes place outside the comfort zone.",
+			"author": "Michael John Bobak",
+			"authorInfo": "Digital Artist"
+		},
+		{
+			"id": 4,
+			"quote": "If you think lifting is dangerous, try being weak. Being weak is dangerous.",
+			"author": "Bret Contreras",
+			"authorInfo": "Sports Scientist"
+		},
+		{
+			"id": 5,
+			"quote": "The only place where success comes before work is in the dictionary.",
+			"author": "Vidal Sassoon",
+			"authorInfo": "Hairstylist and Businessman"
+		},
+		{
+			"id": 6,
+			"quote": "The clock is ticking. Are you becoming the person you want to be?",
+			"author": "Greg Plitt",
+			"authorInfo": "Fitness Model"
+		},
+		{
+			"id": 7,
+			"quote": "Whether you think you can, or you think you can't, you're right.",
+			"author": "Henry Ford",
+			"authorInfo": "Industrialist"
+		},
+		{
+			"id": 8,
+			"quote": "The successful warrior is the average man, with laser-like focus.",
+			"author": "Bruce Lee",
+			"authorInfo": "Actor and Martial Artist"
+		},
+		{
+			"id": 9,
+			"quote": "You must expect great things of yourself before you can do them.",
+			"author": "Michael Jordan",
+			"authorInfo": "Basketball Player"
+		},
+		{
+			"id": 10,
+			"quote": "Action is the foundational key to all success.",
+			"author": "Pablo Picasso",
+			"authorInfo": "Visual Artist"
+		},
+		{
+			"id": 11,
+			"quote": "Things may come to those who wait, but only the things left by those who hustle.",
+			"author": "Abraham Lincoln",
+			"authorInfo": "16th President of the United States"
+		},
+		{
+			"id": 12,
+			"quote": "Well done is better than well said.",
+			"author": "Benjamin Franklin",
+			"authorInfo": "American Founding Father and Inventor"
+		},
+		{
+			"id": 13,
+			"quote": "All our dreams can come true if we have the courage to pursue them.",
+			"author": "Walt Disney",
+			"authorInfo": "Film producer and Entrepreneur"
+		},
+		{
+			"id": 14,
+			"quote": "A champion is someone who gets up when they can't.",
+			"author": "Jack Dempsey",
+			"authorInfo": "Professional Boxer"
+		},
+		{
+			"id": 15,
+			"quote": "What hurts today makes you stronger tomorrow.",
+			"author": "Jay Cutler",
+			"authorInfo": "pro bodybuilder and Four-time Mr. Olympia"
+		},
+		{
+			"id": 16,
+			"quote": "If something stands between you and your success, move it. Never be denied.",
+			"author": "Dwayne 'The Rock' Johnson",
+			"authorInfo": "Actor and Pro wrestler"
+		},
+		{
+			"id": 17,
+			"quote": "If you want something you've never had, you must be willing to do something you've never done.",
+			"author": "Thomas Jefferson",
+			"authorInfo": "Third President of the United States"
+		},
+		{
+			"id": 18,
+			"quote": "You have to think it before you can do it. The mind is what makes it all possible.",
+			"author": "Kai Greene",
+			"authorInfo": "Pro bodybuilder and Artist"
+		},
+		{
+			"id": 19,
+			"quote": "Things work out best for those who make the best of how things work out.",
+			"author": "John Wooden",
+			"authorInfo": "Basketball player and Coach"
+		},
+		{
+			"id": 20,
+			"quote": "Success is walking from failure to failure with no loss of enthusiasm.",
+			"author": "Winston Churchill",
+			"authorInfo": "British statesman and Prime Minister of the United Kingdom"
+		}
+	]
+}

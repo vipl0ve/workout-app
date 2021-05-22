@@ -19,7 +19,7 @@ const Stopwatch = ({ data, timerCompletedStatus }) => {
 	return (
 		<div
 			className={'d-flex justify-content-center'}
-			style={{ width: '40vh', height: 'auto' }}
+			style={{ width: 'auto', height: '450px' }}
 		>
 			<ReactSvgTimer
 				timerCount={parseInt(data)}

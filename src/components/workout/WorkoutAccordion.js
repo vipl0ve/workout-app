@@ -18,7 +18,7 @@ const WorkoutAccordion = ({
 					<div className='accordion-item'>
 						<h2 className='accordion-header' id={'heading' + id}>
 							<button
-								className='accordion-button bg-custom-color2 text-custom-color5 collapsed'
+								className='accordion-button accordion-color-custom-color5 bg-custom-color3 text-custom-color5 collapsed'
 								type='button'
 								data-bs-toggle='collapse'
 								data-bs-target={'#collapse' + id}
@@ -37,7 +37,7 @@ const WorkoutAccordion = ({
 							aria-labelledby={'heading' + id}
 							data-bs-parent='#accordionExample'
 						>
-							<div className='accordion-body bg-custom-color2'>
+							<div className='accordion-body bg-custom-color1 border border-custom-color3 px-2'>
 								<ul className='list-group'>
 									{data.map((item) => (
 										<BasicExercise
@@ -58,7 +58,7 @@ const WorkoutAccordion = ({
 					<div className='accordion-item'>
 						<h2 className='accordion-header' id={'heading' + id}>
 							<button
-								className='accordion-button bg-custom-color2 text-custom-color5 collapsed'
+								className='accordion-button bg-custom-color3 text-custom-color5 collapsed'
 								type='button'
 								data-bs-toggle='collapse'
 								data-bs-target={'#collapse' + id}
@@ -77,7 +77,7 @@ const WorkoutAccordion = ({
 							aria-labelledby={'heading' + id}
 							data-bs-parent='#accordionExample'
 						>
-							<div className='accordion-body bg-custom-color2'>
+							<div className='accordion-body bg-custom-color1 border border-custom-color3 px-2'>
 								<ul className='list-group'>
 									{data.map((item) => (
 										<ProgressionExercise
@@ -99,7 +99,7 @@ const WorkoutAccordion = ({
 					<div className='accordion-item'>
 						<h2 className='accordion-header' id={'heading' + id}>
 							<button
-								className='accordion-button bg-custom-color2 text-custom-color5 collapsed'
+								className='accordion-button bg-custom-color3 text-custom-color5 collapsed'
 								type='button'
 								data-bs-toggle='collapse'
 								data-bs-target={'#collapse' + id}
@@ -118,7 +118,7 @@ const WorkoutAccordion = ({
 							aria-labelledby={'heading' + id}
 							data-bs-parent='#accordionExample'
 						>
-							<div className='accordion-body bg-custom-color2'>
+							<div className='accordion-body bg-custom-color1 border border-custom-color3 px-2'>
 								<ul className='list-group'>
 									{data.map(([key, value]) => (
 										<SettingExercise key={key} keyname={key} data={value} />

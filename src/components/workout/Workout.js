@@ -60,65 +60,65 @@ const Workout = () => {
 
 	return (
 		<>
-			<h5 className='text-center'>Select Routine</h5>
-			<div className='d-flex justify-content-between mb-3 mx-1'>
-				<select
-					id='selectRoutine'
-					className='form-select form-select-md bg-custom-color2'
-					required
-					value={curRoutine.id}
-					onChange={onChange}
-				>
-					{routinesData.map((item) => (
-						<option key={item.id} value={item.id}>
-							{item.name}
-						</option>
-					))}
-				</select>
-			</div>
-			<hr />
+			<div className='container'>
+				<h5 className='text-center'>Select Routine</h5>
+				<div className='d-flex justify-content-between mb-3 mx-1'>
+					<select
+						id='selectRoutine'
+						className='form-select form-select-md bg-custom-color2'
+						required
+						value={curRoutine.id}
+						onChange={onChange}
+					>
+						{routinesData.map((item) => (
+							<option key={item.id} value={item.id}>
+								{item.name}
+							</option>
+						))}
+					</select>
+				</div>
+				<hr />
 
-			<div className='text-center'>
-				<div className='d-flex justify-content-between my-3'>
+				<div className='text-center pb-2'>
 					<span className='h4 text-custom-color5'>{curRoutine.name}</span>
 				</div>
-			</div>
-			<div className='accordion' id='accordionExample'>
-				{curRoutine.exercises.map((item) => (
+				<div className='accordion' id='accordionExample'>
+					{curRoutine.exercises.map((item) => (
+						<WorkoutAccordion
+							key={item.id}
+							id={item.id}
+							name={item.name}
+							data={item.steps}
+							type={item.type}
+							changeQty={changeQty}
+							changeCurProgression={changeCurProgression}
+						/>
+					))}
 					<WorkoutAccordion
-						key={item.id}
-						id={item.id}
-						name={item.name}
-						data={item.steps}
-						type={item.type}
-						changeQty={changeQty}
-						changeCurProgression={changeCurProgression}
+						key={'10'}
+						idName={'10'}
+						name={'Settings'}
+						data={Object.entries(curRoutine.settings)}
+						type={'Settings'}
 					/>
-				))}
-				<WorkoutAccordion
-					key={'10'}
-					idName={'10'}
-					name={'Settings'}
-					data={Object.entries(curRoutine.settings)}
-					type={'Settings'}
-				/>
-			</div>
+				</div>
 
-			<div className='row justify-content-around my-3'>
-				<button
-					type='button'
-					className='btn btn-custom-color6 col-auto'
-					onClick={onClick}
-				>
-					Start Workout
-				</button>
-				<button
-					type='button'
-					className='btn btn-custom-color6 col-auto'
-					onClick={onResetClick}
-				>
-					Reset Workout
-				</button>
+				<div className='row justify-content-around my-3'>
+					<button
+						type='button'
+						className='btn btn-custom-color6 col-auto'
+						onClick={onClick}
+					>
+						Start Workout
+					</button>
+					<button
+						type='button'
+						className='btn btn-custom-color6 col-auto'
+						onClick={onResetClick}
+					>
+						Reset Workout
+					</button>
+				</div>
 			</div>
 		</>
 	)

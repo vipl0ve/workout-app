@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CardHeader from '../workoutCards/CardHeader'
-import CardWatch from '../workoutCards/CardWatch'
+import CardAutoPlay from '../workoutCards/CardAutoPlay'
 import CardImage from '../workoutCards/CardImage'
 import CardBtnInfo from '../workoutCards/CardBtnInfo'
 import CardFooter from '../workoutCards/CardFooter'
@@ -17,12 +17,14 @@ const WorkoutProgressionCard = ({
 	exerciseData,
 	time,
 	play,
+	autoPlay,
 	settings,
 	nextStep,
 	prevStep,
 	lastStep,
 	setFillerModule,
 	setPlayStatus,
+	setAutoPlay,
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
 	const [counter, setCounter] = useState(parseInt(exercise.id))
@@ -33,7 +35,11 @@ const WorkoutProgressionCard = ({
 	const [showTimer, setShowTimer] = useState(false)
 	const [info, setInfo] = useState(false)
 	const [video, setVideo] = useState(false)
-	const [btnDisabled, SetBtnDisabled] = useState({ prev: false, next: false })
+	const [btnDisabled, SetBtnDisabled] = useState({
+		prev: false,
+		next: false,
+		play: false,
+	})
 
 	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
@@ -142,8 +148,18 @@ const WorkoutProgressionCard = ({
 	}
 
 	const showVideo = () => {
-		setPlayStatus(!play)
-		SetBtnDisabled({ prev: !btnDisabled.prev, next: !btnDisabled.next })
+		if (!video) {
+			setPlayStatus(false)
+			setAutoPlay(false)
+		} else {
+			setPlayStatus(true)
+			setAutoPlay(true)
+		}
+		SetBtnDisabled({
+			prev: !btnDisabled.prev,
+			next: !btnDisabled.next,
+			play: !btnDisabled.play,
+		})
 		setVideo(!video)
 	}
 
@@ -158,60 +174,71 @@ const WorkoutProgressionCard = ({
 		)
 	} else {
 		return (
-			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header d-flex justify-content-between bg-transparent border-custom-color4'>
-					<CardHeader
-						counter={counter}
-						exerciseData={exerciseData}
-						exercise={exercise}
-					/>
-					<CardWatch
-						exercise={exercise}
-						play={play}
-						nextExercise={nextExercise}
-						setCardPlayStatus={setCardPlayStatus}
-						progression={true}
-					/>
-				</div>
-				{video && <CardVideo url={exercise.curProgressions.video} />}
-				{!video && (
-					<CardImage
-						url={exercise.curProgressions.img}
-						alt={exercise.curProgressions.name}
-					/>
-				)}
-				<div className='card-body'>
-					<CardTitle
-						name={exercise.curProgressions.name}
-						type={exercise.curProgressions.type}
-						qty={exercise.curProgressions.qty}
-						progression={true}
-						curSet={curSet}
-						totalSets={totalSets}
-						reps={reps}
-					/>
-					{info && <p className='card-text'>{exercise.curProgressions.desc}</p>}
-					<div className='btn-group' role='group' aria-label='Basic example'>
-						<CardBtnInfo
-							data={exercise.curProgressions.desc}
-							onAction={showInfo}
+			<div className='container exercise'>
+				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+					<div className='card-header d-flex flex-row align-items-center justify-content-between bg-transparent border-custom-color4 px-2'>
+						<CardHeader
+							counter={counter}
+							exerciseData={exerciseData}
+							progression={true}
+							curSet={curSet}
+							totalSets={totalSets}
 						/>
-						<CardBtnVideo
-							data={exercise.curProgressions.video}
-							onAction={showVideo}
-						/>
-						<CardBtnBackward
-							onAction={prevElement}
-							disabled={btnDisabled.prev}
-						/>
-						<CardBtnPlay play={play} onAction={setCardPlayStatus} />
-						<CardBtnForward
-							onAction={checkActivity}
-							disabled={btnDisabled.next}
+						<CardAutoPlay
+							exercise={exercise}
+							play={play}
+							autoPlay={autoPlay}
+							nextExercise={nextExercise}
+							setAutoPlay={setAutoPlay}
+							progression={false}
 						/>
 					</div>
+					{video && <CardVideo url={exercise.curProgressions.video} />}
+					{!video && (
+						<CardImage
+							url={exercise.curProgressions.img}
+							alt={exercise.curProgressions.name}
+						/>
+					)}
+					<div className='card-body'>
+						<CardTitle
+							name={exercise.curProgressions.name}
+							type={exercise.curProgressions.type}
+							qty={exercise.curProgressions.qty}
+							exerciseName={exercise.name}
+							progression={true}
+							curSet={curSet}
+							reps={reps}
+						/>
+						{info && (
+							<p className='card-text'>{exercise.curProgressions.desc}</p>
+						)}
+						<div className='btn-group' role='group' aria-label='Basic example'>
+							<CardBtnInfo
+								data={exercise.curProgressions.desc}
+								onAction={showInfo}
+							/>
+							<CardBtnVideo
+								data={exercise.curProgressions.video}
+								onAction={showVideo}
+							/>
+							<CardBtnBackward
+								onAction={prevElement}
+								disabled={btnDisabled.prev}
+							/>
+							<CardBtnPlay
+								play={play}
+								onAction={setCardPlayStatus}
+								disabled={btnDisabled.play}
+							/>
+							<CardBtnForward
+								onAction={checkActivity}
+								disabled={btnDisabled.next}
+							/>
+						</div>
+					</div>
+					<CardFooter time={time} onAction={endWorkout} />
 				</div>
-				<CardFooter time={time} onAction={endWorkout} />
 			</div>
 		)
 	}

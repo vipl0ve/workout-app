@@ -17,15 +17,17 @@ const procesURL = (data) => {
 const CardVideo = ({ url }) => {
 	return (
 		<>
-			<iframe
-				src={procesURL(url)}
-				width='auto'
-				height='200vh'
-				frameBorder='0'
-				allow='autoplay; encrypted-media'
-				allowFullScreen
-				title='video'
-			/>
+			<div className='mt-3'>
+				<iframe
+					src={procesURL(url)}
+					width='auto'
+					height='400px'
+					frameBorder='0'
+					allow='autoplay; encrypted-media'
+					allowFullScreen
+					title='video'
+				/>
+			</div>
 		</>
 	)
 }

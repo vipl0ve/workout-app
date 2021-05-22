@@ -1,28 +1,26 @@
 import moment from 'moment'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt, faDumbbell } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const CalendarCard = ({ data, onAction }) => {
+const WorkoutHistoryCard = ({ data, onAction }) => {
 	return (
 		<>
-			<div className='row row-cols-1 row-cols-md-2 g-4'>
+			<div className='row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 border border-3 bg-custom-color4 p-2 mt-2'>
 				{data.map((item) => (
 					<div key={item.id} className='col'>
-						<div className='card h-100 text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-							<div className='card-header bg-transparent border-custom-color4 d-flex justify-content-between'>
-								<FontAwesomeIcon className='fx-6' icon={faDumbbell} />
-								<h5 className='card-title'>Workout Card</h5>
-								<button
-									type='button'
-									className='btn btn-custom-color6 p-1'
+						<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4 my-2'>
+							<div className='card-header bg-transparent border-custom-color4 d-flex justify-content-end'>
+								<FontAwesomeIcon
+									className='text-custom-color6'
+									icon={faTrash}
 									onClick={() => onAction(item.id)}
-								>
-									<FontAwesomeIcon icon={faTrashAlt} />
-								</button>
+								/>
 							</div>
 							<div className='card-body'>
-								<p className='card-text'>{item.title}</p>
+								<p className='card-text'>
+									<ins>{item.title}</ins>
+								</p>
 								<p className='card-text'>
 									Day: <i>{moment(item.start).format('dddd, MMMM Do YYYY')}</i>
 								</p>
@@ -33,7 +31,7 @@ const CalendarCard = ({ data, onAction }) => {
 									End Time: <i>{moment(item.end).format('h:mm:ss A')}</i>
 								</p>
 								<p className='card-text'>
-									Total Duration:{' '}
+									Duration:{' '}
 									<i>
 										{moment
 											.utc(
@@ -58,4 +56,4 @@ const CalendarCard = ({ data, onAction }) => {
 	)
 }
 
-export default CalendarCard
+export default WorkoutHistoryCard

@@ -3,34 +3,36 @@
 @import '../node_modules/bootstrap/scss/variables';
 @import '../node_modules/bootstrap/scss/mixins';
 
+// Pallet Colors: https://coolors.co/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644
+$pallet-color6: #9c6644; //Brown Sugar
+$pallet-color5: #7f5539; //'Coffee'
+$pallet-color4: #b08968; //Cafe Au Lait
+$pallet-color3: #ddb892; //Tan
+$pallet-color2: #e6ccb2; //Desert Sand
+$pallet-color1: #ede0d4; //Almond
+
+$random-color1: #e6ccb2; //champagne-pink
+$random-color2: #fffaf0; //floral-white
+
 // Default variable overrides
 // $body-bg: #adb5bd;
 
-// $theme-colors: (
-// 	'primary': $primary,
-// );
+$accordion-color: $pallet-color1; // Update accordian button color
+$accordion-button-active-color: $pallet-color1; //accordion-icon-active-color
 
 // Create your own map
 $custom-colors: (
-	// Pallet: https://coolors.co/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644
-	'custom-color6': #9c6644,
-	//Brown Sugar
-	'custom-color5': #7f5539,
-	//'Coffee'
-	'custom-color4': #b08968,
-	//Cafe Au Lait
-	'custom-color3': #ddb892,
-	//Tan
-	'custom-color2': #e6ccb2,
-	//Desert Sand
-	'custom-color1': #ede0d4,
-	//Almond
-	'custom-color12': #e6ccb2,
-	//champagne-pink
-	'custom-color11': #fffaf0,
-	//floral-white
+	'custom-color6': $pallet-color6,
+	'custom-color5': $pallet-color5,
+	'custom-color4': $pallet-color4,
+	'custom-color3': $pallet-color3,
+	'custom-color2': $pallet-color2,
+	'custom-color1': $pallet-color1,
+	'custom-color12': $random-color1,
+	'custom-color11': $random-color2,
 );
 
+// update custom map in theme colors
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Bootstrap and its default variables

@@ -6,16 +6,19 @@ html {
 
 .navbar {
 	min-width: 100vw;
-	min-height: 10vh;
+	min-height: 5vh;
 }
 .container.main {
 	min-width: 100vw;
-	min-height: 85vh;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	min-height: 90vh;
+	padding-top: 5px;
+}
+
+.container.exercise {
+	padding-top: 10px;
 }
 
 .footer {
 	min-width: 100vw;
-	min-height: 5vh;
+	min-height: 3vh;
 }

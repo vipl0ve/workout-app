@@ -69,7 +69,7 @@ const WorkoutCompleted = (props) => {
 
 	const goWorkoutCalendar = () => {
 		history.push({
-			pathname: '/calendar',
+			pathname: '/workouthistory',
 		})
 	}
 

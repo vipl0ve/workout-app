@@ -43,7 +43,6 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 	}
 
 	const onRepsChange = (id) => {
-		console.log('reps')
 		const newReps = reps.filter((item) => item.id === id)
 		setRepsQty(newReps[0].qty)
 	}
@@ -55,126 +54,158 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 
 	if (exercise.type === 'Reps') {
 		return (
-			<li className='list-group-item bg-custom-color3'>
-				<div className='d-flex flex-row align-items-center justify-content-between'>
-					<div className=''>
-						<span className='mb-1 text-light'>
-							{exercise.name}: <ins>{prog.name}</ins>
-						</span>
-						<button
-							className='btn dropdown-toggle px-1 text-custom-color5'
-							type='button'
-							id='dropdownMenuButtonExercise'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						></button>
-						<ul
-							className='dropdown-menu'
-							aria-labelledby='dropdownMenuButtonExercise'
-						>
-							{exercise.progressions.map((item) => (
-								<li key={item.id}>
-									<button
-										className='dropdown-item text-custom-color4'
-										key={item.id}
-										onClick={() => onChange(item.id)}
-									>
-										{item.name}
-									</button>
-								</li>
-							))}
-						</ul>
+			<li className='list-group-item bg-custom-color2 px-2'>
+				<div className='d-flex flex-row align-items-start justify-content-between'>
+					<div className='col col-8 text-start'>
+						<div className='row'>
+							<span className='mb-1 text-custom-color6'>{exercise.name}: </span>
+						</div>
+						<div className='row'>
+							<div className='col col-12 text-start'>
+								<span className='mb-1 text-custom-color6'>
+									<ins>{prog.name}</ins>
+								</span>
+								<button
+									className='btn dropdown-toggle px-1 text-custom-color5'
+									type='button'
+									id='dropdownMenuButtonExercise'
+									data-bs-toggle='dropdown'
+									aria-expanded='false'
+								></button>
+								<ul
+									className='dropdown-menu'
+									aria-labelledby='dropdownMenuButtonExercise'
+								>
+									{exercise.progressions.map((item) => (
+										<li key={item.id}>
+											<button
+												className='dropdown-item text-custom-color4'
+												key={item.id}
+												onClick={() => onChange(item.id)}
+											>
+												{item.name}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div className=''>
-						<span className='mb-1 text-light'>
-							Reps: <ins>{prog.qty}</ins>
-						</span>
-						<button
-							className='btn dropdown-toggle px-1 text-custom-color5'
-							type='button'
-							id='dropdownMenuButtonQty'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						></button>
-						<ul
-							className='dropdown-menu'
-							aria-labelledby='dropdownMenuButtonQty'
-						>
-							{reps.map((item) => (
-								<li key={item.id}>
-									<button
-										className='dropdown-item text-custom-color4'
-										key={item.id}
-										onClick={() => onRepsChange(item.id)}
-									>
-										{item.qty}
-									</button>
-								</li>
-							))}
-						</ul>
+					<div className='col col-4'>
+						<div className='row'>
+							<div className='col col-12 text-center'>
+								<span className='mb-1 text-custom-color6'>Reps: </span>
+							</div>
+						</div>
+						<div className='row'>
+							<div className='col col-12 text-end'>
+								<span className='mb-1 text-custom-color6'>
+									<ins>{prog.qty}</ins>
+								</span>
+								<button
+									className='btn dropdown-toggle px-1 text-custom-color5'
+									type='button'
+									id='dropdownMenuButtonQty'
+									data-bs-toggle='dropdown'
+									aria-expanded='false'
+								></button>
+								<ul
+									className='dropdown-menu'
+									aria-labelledby='dropdownMenuButtonQty'
+								>
+									{reps.map((item) => (
+										<li key={item.id}>
+											<button
+												className='dropdown-item text-custom-color4'
+												key={item.id}
+												onClick={() => onRepsChange(item.id)}
+											>
+												{item.qty}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</li>
 		)
 	} else if (exercise.type === 'Duration') {
 		return (
-			<li className='list-group-item bg-custom-color3'>
-				<div className='d-flex flex-row align-items-center justify-content-between'>
-					<div className=''>
-						<span className='mb-1 text-light'>
-							{exercise.name}: <ins>{prog.name}</ins>
-						</span>
-						<button
-							className='btn dropdown-toggle px-1 text-custom-color5'
-							type='button'
-							id='dropdownMenuButtonExercise'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						></button>
-						<ul
-							className='dropdown-menu'
-							aria-labelledby='dropdownMenuButtonExercise'
-						>
-							{exercise.progressions.map((item) => (
-								<li key={item.id}>
-									<button
-										className='dropdown-item text-custom-color4'
-										key={item.id}
-										onClick={() => onChange(item.id)}
-									>
-										{item.name}
-									</button>
-								</li>
-							))}
-						</ul>
+			<li className='list-group-item bg-custom-color2 px-2'>
+				<div className='d-flex flex-row align-items-start justify-content-between'>
+					<div className='col col-8 text-start'>
+						<div className='row'>
+							<span className='mb-1 text-custom-color6'>{exercise.name}: </span>
+						</div>
+						<div className='row'>
+							<div className='col col-12 text-start'>
+								<span className='mb-1 text-custom-color6'>
+									<ins>{prog.name}</ins>
+								</span>
+								<button
+									className='btn dropdown-toggle px-1 text-custom-color5'
+									type='button'
+									id='dropdownMenuButtonExercise'
+									data-bs-toggle='dropdown'
+									aria-expanded='false'
+								></button>
+								<ul
+									className='dropdown-menu'
+									aria-labelledby='dropdownMenuButtonExercise'
+								>
+									{exercise.progressions.map((item) => (
+										<li key={item.id}>
+											<button
+												className='dropdown-item text-custom-color4'
+												key={item.id}
+												onClick={() => onChange(item.id)}
+											>
+												{item.name}
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
 					</div>
-					<div className=''>
-						<span className='mb-1 text-light'>
-							Duration: <ins>{prog.qty}s</ins>
-						</span>
-						<button
-							className='btn dropdown-toggle px-1 text-custom-color5'
-							type='button'
-							id='dropdownMenuButtonQty'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						></button>
-						<ul
-							className='dropdown-menu'
-							aria-labelledby='dropdownMenuButtonQty'
-						>
-							{duration.map((item) => (
-								<li key={item.id}>
-									<button
-										className='dropdown-item text-custom-color4'
-										key={item.id}
-										onClick={() => onDurationChange(item.id)}
-									>
-										{item.qty}s
-									</button>
-								</li>
-							))}
-						</ul>
+					<div className='col col-4'>
+						<div className='row'>
+							<div className='col col-12 text-center'>
+								<span className='mb-1 text-custom-color6'>Duration: </span>
+							</div>
+						</div>
+						<div className='row'>
+							<div className='col col-12 text-end'>
+								<span className='mb-1 text-custom-color6'>
+									<ins>{prog.qty}s</ins>
+								</span>
+								<button
+									className='btn dropdown-toggle px-1 text-custom-color5'
+									type='button'
+									id='dropdownMenuButtonQty'
+									data-bs-toggle='dropdown'
+									aria-expanded='false'
+								></button>
+								<ul
+									className='dropdown-menu'
+									aria-labelledby='dropdownMenuButtonQty'
+								>
+									{duration.map((item) => (
+										<li key={item.id}>
+											<button
+												className='dropdown-item text-custom-color4'
+												key={item.id}
+												onClick={() => onDurationChange(item.id)}
+											>
+												{item.qty}s
+											</button>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</li>

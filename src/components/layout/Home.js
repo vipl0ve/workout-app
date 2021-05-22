@@ -1,42 +1,55 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import ExternalLink from '../utils/ExternalLink'
+import LinkBtn from '../utils/LinkBtn'
 
 const Home = () => {
 	return (
 		<>
 			<div className='container'>
-				<h1 className='text-center text-custom-color5'>Body Workout App</h1>
-				<hr />
-				<p>Welcome to Body Workout app.</p>
 				<p>
-					We provide options to easliy perform many popular body weight routines
-					available on web including{' '}
-					<Link to='http://www.startbodyweight.com/p/start-bodyweight-basic-routine.html'>
-						Start Body Weight - Basic Routine
-					</Link>{' '}
+					Welcome to <b>BodyWorkout App</b>
+				</p>
+				<p>
+					Easily perform many of the popular body weight routines available
+					online here, including{' '}
+					<ExternalLink
+						url={
+							'http://www.startbodyweight.com/p/start-bodyweight-basic-routine.html'
+						}
+						title='Start Body Weight - Basic Routine'
+					/>{' '}
 					and{' '}
-					<Link to='https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine'>
-						Reddit BWF - Recommended Routine
-					</Link>
+					<ExternalLink
+						url={
+							'https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine'
+						}
+						title='Reddit BWF - Recommended Routine'
+					/>
 					.
 				</p>
 				<p>
-					Start your first <Link to='/workout'>Workout</Link> now.
+					Ready to try the app? Start your first{' '}
+					<LinkBtn route='/workout' title='Workout' /> now. You can also view
+					your past workouts under{' '}
+					<LinkBtn route='/workouthistory' title='Workout History' /> page.
 				</p>
 				<p>
-					You can also view your workout log under{' '}
-					<Link to='/workoutcalendar'>Calendar</Link>.
+					Need to calculate your body stats then check out the{' '}
+					<LinkBtn route='/calculator' title='Body Weight Report' /> page.
 				</p>
 				<p>
-					Finally, you can also practice Mindfulness and Meditation under{' '}
-					<Link to='/breathe'>Breathe</Link>.
+					Also, if you are feeling stressed or just needed to do a quick
+					Mindfulness and Meditation exercise, then check the{' '}
+					<LinkBtn route='/breathe' title='Breathe' /> page.
 				</p>
 				<p>
 					In upcoming releases, we are looking to provide various other Body
-					Weight Workout and Meditation routines based on your suggestions and
-					also, provide options to create your own custom routines. So, keep an
-					eye for future updates.
+					Weight Workout and Meditation routines based on your suggestions. We
+					will also hoping to provide an option for creating your own custom
+					routines. Keep an eye for our future updates on our{' '}
+					<LinkBtn route='/breathe' title='Annoucment' /> page.
 				</p>
+				<p>Team@BodyWorkoutApp</p>
 			</div>
 		</>
 	)

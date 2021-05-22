@@ -5,13 +5,23 @@ const CardImage = ({ url, alt }) => {
 	if (url === '') {
 		return (
 			<>
-				<img src={noImage} className='card-img-top' alt={alt} />
+				<img
+					src={noImage}
+					style={{ maxWidth: '300px', height: 'auto' }}
+					className='card-img-top rounded mx-auto d-block mt-3'
+					alt={alt}
+				/>
 			</>
 		)
 	} else {
 		return (
 			<>
-				<img src={url} className='card-img-top' alt={alt} />
+				<img
+					src={url}
+					style={{ maxWidth: '300px', height: 'auto' }}
+					className='card-img-top rounded mx-auto d-block mt-3'
+					alt={alt}
+				/>
 			</>
 		)
 	}

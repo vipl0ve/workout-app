@@ -11,6 +11,7 @@ const WorkoutProgress = (props) => {
 	const [settings] = useState(props.location.state.settings)
 	const [timer, setTimer] = useState(0)
 	const [play, setPlay] = useState(false)
+	const [autoPlay, setAutoPlay] = useState(true)
 	const [curModule, setCurModule] = useState(-1)
 	const [fillerModule, setFillerModule] = useState(true)
 	const countRef = useRef(null)
@@ -43,6 +44,10 @@ const WorkoutProgress = (props) => {
 		setCurModule(routine.exercises.length)
 	}
 
+	const setAutoPlayData = (checked) => {
+		setAutoPlay(checked)
+	}
+
 	if (curModule === -1) {
 		return (
 			<WorkoutIntro
@@ -69,12 +74,14 @@ const WorkoutProgress = (props) => {
 						exerciseData={routine.exercises[curModule].steps}
 						time={timer}
 						play={play}
+						autoPlay={autoPlay}
 						settings={settings}
 						nextStep={nextStep}
 						prevStep={prevStep}
 						lastStep={lastStep}
 						setFillerModule={setFillerModule}
 						setPlayStatus={setPlay}
+						setAutoPlay={setAutoPlayData}
 					/>
 				)
 			} else if (routine.exercises[curModule].type === 'Progressive') {
@@ -83,12 +90,14 @@ const WorkoutProgress = (props) => {
 						exerciseData={routine.exercises[curModule].steps}
 						time={timer}
 						play={play}
+						autoPlay={autoPlay}
 						settings={settings}
 						nextStep={nextStep}
 						prevStep={prevStep}
 						lastStep={lastStep}
 						setFillerModule={setFillerModule}
 						setPlayStatus={setPlay}
+						setAutoPlay={setAutoPlayData}
 					/>
 				)
 			} else {

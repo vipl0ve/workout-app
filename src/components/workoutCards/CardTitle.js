@@ -5,26 +5,24 @@ const CardTitle = ({
 	type,
 	qty,
 	progression,
+	exerciseName,
 	curSet,
-	totalSets,
 	reps,
 }) => {
 	if (progression) {
 		if (type === 'Reps') {
 			return (
 				<>
-					<h5 className='card-title text-center text-custom-color5'>
-						{name + ' [' + curSet + '/' + totalSets + ']'}:
-						{' ' + reps[curSet - 1]}x
+					<h5 className='card-title text-center text-custom-color5 mb-3'>
+						{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}x
 					</h5>
 				</>
 			)
 		} else if (type === 'Duration') {
 			return (
 				<>
-					<h5 className='card-title text-center text-custom-color5'>
-						{name + ' [' + curSet + '/' + totalSets + ']'}:
-						{' ' + reps[curSet - 1]}s
+					<h5 className='card-title text-center text-custom-color5 mb-3'>
+						{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}s
 					</h5>
 				</>
 			)
