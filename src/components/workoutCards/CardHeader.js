@@ -7,36 +7,24 @@ const CardHeader = ({
 	curSet,
 	totalSets,
 }) => {
-	if (progression) {
-		return (
-			<>
-				<div className='col col-4 text-start'>
+	return (
+		<>
+			<div className='col col-4 text-start'>
+				<div className='row'>
+					<span>
+						Exercise <b>{counter + '/' + exerciseData.length}</b>
+					</span>
+				</div>
+				{progression && (
 					<div className='row'>
-						<h6 className=''>
-							Exercise <b>{counter + '/' + exerciseData.length}</b>
-						</h6>
-					</div>
-					<div className='row'>
-						<h6 className=''>
+						<span>
 							Rep: <b>{curSet + '/' + totalSets}</b>
-						</h6>
+						</span>
 					</div>
-				</div>
-			</>
-		)
-	} else {
-		return (
-			<>
-				<div className='col col-4 text-start'>
-					<div className='row'>
-						<h6 className=''>
-							Exercise <b>{counter + '/' + exerciseData.length}</b>
-						</h6>
-					</div>
-				</div>
-			</>
-		)
-	}
+				)}
+			</div>
+		</>
+	)
 }
 
 export default CardHeader

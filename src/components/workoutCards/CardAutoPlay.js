@@ -4,146 +4,87 @@ import CardBtnAutoPlay from './CardBtnAutoPlay'
 
 const CardAutoPlay = ({
 	exercise,
+	type,
 	play,
 	autoPlay,
 	nextExercise,
 	setAutoPlay,
 	progression,
+	checkActivity,
 }) => {
-	if (progression) {
-		if (exercise.curProgressions.type === 'Duration') {
+	if (type === 'Duration') {
+		return (
+			<>
+				<div className='col col-5 text-start'>
+					<CardBtnAutoPlay
+						autoPlay={autoPlay}
+						status={true}
+						onAction={setAutoPlay}
+					/>
+				</div>
+				<div className='col col-3 text-end'>
+					{autoPlay && (
+						<Watch
+							data={progression ? exercise.curProgressions.qty : exercise.qty}
+							play={play}
+							className='text-custom-color6 p-2'
+							onComplete={progression ? checkActivity : nextExercise}
+							currentId={
+								progression ? exercise.curProgressions.id : exercise.id
+							}
+							settings={'ms'}
+						/>
+					)}
+				</div>
+			</>
+		)
+	} else if (type === 'Reps') {
+		if (exercise.autoPlay !== '') {
 			return (
 				<>
-					<div className='col col-4'>
+					<div className='col col-5 text-start'>
 						<CardBtnAutoPlay
 							autoPlay={autoPlay}
 							status={true}
 							onAction={setAutoPlay}
 						/>
 					</div>
-					<div className='col col-4'>
+					<div className='col col-3 text-end'>
 						{autoPlay && (
 							<Watch
-								data={exercise.curProgressions.qty}
+								data={
+									progression
+										? exercise.curProgressions.autoPlay
+										: exercise.autoPlay
+								}
 								play={play}
-								className='bg-custom-color6 text-custom-color1 p-2 border border-custom-color2 rounded'
-								onComplete={nextExercise}
-								currentId={exercise.id}
+								className='text-custom-color6 p-2'
+								onComplete={progression ? checkActivity : nextExercise}
+								currentId={
+									progression ? exercise.curProgressions.id : exercise.id
+								}
 								settings={'ms'}
 							/>
 						)}
 					</div>
 				</>
 			)
-		} else if (exercise.curProgressions.type === 'Reps') {
-			if (exercise.autoPlay !== '') {
-				return (
-					<>
-						<div className='col col-4'>
-							<CardBtnAutoPlay
-								autoPlay={autoPlay}
-								status={true}
-								onAction={setAutoPlay}
-							/>
-						</div>
-						<div className='col col-4'>
-							{autoPlay && (
-								<Watch
-									data={exercise.autoPlay}
-									play={play}
-									className='bg-custom-color6 text-custom-color1 p-2 border border-custom-color2 rounded'
-									onComplete={nextExercise}
-									currentId={exercise.id}
-									settings={'ms'}
-								/>
-							)}
-						</div>
-					</>
-				)
-			} else {
-				return (
-					<>
-						<div className='col col-4'>
-							<CardBtnAutoPlay
-								autoPlay={autoPlay}
-								status={false}
-								onAction={setAutoPlay}
-							/>
-						</div>
-						<div className='col col-4'></div>
-					</>
-				)
-			}
 		} else {
-			return null
+			return (
+				<>
+					<div className='col col-5 text-start'>
+						<CardBtnAutoPlay
+							autoPlay={autoPlay}
+							status={false}
+							onAction={setAutoPlay}
+						/>
+					</div>
+					<div className='col col-3 text-end'></div>
+				</>
+			)
 		}
 	} else {
-		if (exercise.type === 'Duration') {
-			return (
-				<>
-					<div className='col col-4'>
-						<CardBtnAutoPlay
-							autoPlay={autoPlay}
-							status={true}
-							onAction={setAutoPlay}
-						/>
-					</div>
-					<div className='col col-4'>
-						{autoPlay && (
-							<Watch
-								data={exercise.qty}
-								play={play}
-								className='text-custom-color6 font-weight-bold'
-								onComplete={nextExercise}
-								currentId={exercise.id}
-								settings={'ms'}
-							/>
-						)}
-					</div>
-				</>
-			)
-		} else if (exercise.type === 'Reps') {
-			if (exercise.autoPlay !== '') {
-				return (
-					<>
-						<div className='col col-4'>
-							<CardBtnAutoPlay
-								autoPlay={autoPlay}
-								status={true}
-								onAction={setAutoPlay}
-							/>
-						</div>
-						<div className='col col-4'>
-							{autoPlay && (
-								<Watch
-									data={exercise.autoPlay}
-									play={play}
-									className='text-custom-color6 font-weight-bold'
-									onComplete={nextExercise}
-									currentId={exercise.id}
-									settings={'ms'}
-								/>
-							)}
-						</div>
-					</>
-				)
-			} else {
-				return (
-					<>
-						<div className='col col-4'>
-							<CardBtnAutoPlay
-								autoPlay={autoPlay}
-								status={false}
-								onAction={setAutoPlay}
-							/>
-						</div>
-						<div className='col col-4'></div>
-					</>
-				)
-			}
-		} else {
-			return null
-		}
+		return null
 	}
 }
 

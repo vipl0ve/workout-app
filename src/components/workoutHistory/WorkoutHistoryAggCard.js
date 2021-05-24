@@ -4,7 +4,7 @@ import React from 'react'
 const WorkoutHistoryAggCard = ({ data }) => {
 	return (
 		<>
-			<div className='d-flex text-center justify-content-between'>
+			<div className='d-flex text-center justify-content-around'>
 				<h6 className='text-custom-color4'>
 					Total Count: <ins>{data.totalWorkoutCount}</ins>
 				</h6>

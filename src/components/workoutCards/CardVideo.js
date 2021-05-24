@@ -10,7 +10,6 @@ const procesURL = (data) => {
 	r = data.match(rx)
 	newurl = 'https://www.youtube.com/embed/' + r[1]
 	//console.log(newurl)
-	//'https://www.youtube.com/embed/A6XUVjK9W4o'
 	return newurl
 }
 
@@ -21,7 +20,7 @@ const CardVideo = ({ url }) => {
 				<iframe
 					src={procesURL(url)}
 					width='auto'
-					height='400px'
+					height='200vh'
 					frameBorder='0'
 					allow='autoplay; encrypted-media'
 					allowFullScreen

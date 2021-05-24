@@ -56,7 +56,10 @@ const WorkoutIntro = ({
 
 	if (curModule === -1) {
 		return (
-			<div className='container exercise'>
+			<div
+				className='containerExercise d-flex flex-column justify-content-center'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
 						Start Workout
@@ -65,9 +68,8 @@ const WorkoutIntro = ({
 					<div className='card-body'>
 						<div className='card-title'>
 							<h5>{routineInfo.name}</h5>
-							<small className='card-text'>{routineInfo.author}</small>
+							<small className='card-text'>Author: {routineInfo.author}</small>
 						</div>
-
 						<p className='card-text'>
 							Start the routine.
 							<img src={exerciseIcon} className='card-text' alt='exercise' />
@@ -85,7 +87,10 @@ const WorkoutIntro = ({
 		)
 	} else if (curModule === routineInfo.exercises.length) {
 		return (
-			<div className='container exercise'>
+			<div
+				className='containerExercise d-flex flex-column justify-content-center'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-center align-items-center'>
@@ -105,8 +110,8 @@ const WorkoutIntro = ({
 							<>
 								<h5 className='card-title'>Congratulations!</h5>
 								<p className='card-text'>
-									You just completed a {moment.duration(time * 1000).minutes()}{' '}
-									mintues workout.
+									You just completed {moment.duration(time, 's').humanize()}{' '}
+									workout.
 								</p>
 								<p>You deserve this medal.</p>
 								<h3>
@@ -139,10 +144,11 @@ const WorkoutIntro = ({
 				</div>
 				<div className='my-5 p-2 border border-custom-color6 rounded'>
 					<blockquote className='blockquote text-center text-custom-color6'>
-						<p className='mb-0'>{quote.quote}.</p>
+						<p className='mb-0'>
+							<i>{'"' + quote.quote + '"'}</i>
+						</p>
 						<footer className='blockquote-footer mt-2 text-custom-color4'>
-							{quote.author + ', '}
-							<small>{quote.authorInfo}</small>
+							<small>{quote.author + ', ' + quote.authorInfo}</small>
 						</footer>
 					</blockquote>
 				</div>

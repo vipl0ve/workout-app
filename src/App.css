@@ -4,6 +4,12 @@ html {
 	min-height: 100vh;
 }
 
+#root {
+	min-width: 100vw;
+	min-height: 100vh;
+}
+
+/*
 .navbar {
 	min-width: 100vw;
 	min-height: 5vh;
@@ -21,4 +27,4 @@ html {
 .footer {
 	min-width: 100vw;
 	min-height: 3vh;
-}
+} */

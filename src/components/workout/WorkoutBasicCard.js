@@ -80,10 +80,8 @@ const WorkoutBasicCard = ({
 	const showVideo = () => {
 		if (video) {
 			setPlayStatus(false)
-			setAutoPlay(false)
 		} else {
 			setPlayStatus(true)
-			setAutoPlay(true)
 		}
 		SetBtnDisabled({
 			prev: !btnDisabled.prev,
@@ -94,9 +92,12 @@ const WorkoutBasicCard = ({
 	}
 
 	return (
-		<div className='container exercise'>
+		<div
+			className='containerExercise d-flex flex-column justify-content-center'
+			style={{ minHeight: '90vh', width: 'auto' }}
+		>
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header d-flex flex-row align-items-center justify-content-between bg-transparent border-custom-color4 px-2'>
+				<div className='card-header d-flex flex-row justify-content-between align-items-start bg-transparent border-custom-color4 p-2'>
 					<CardHeader
 						counter={counter}
 						exerciseData={exerciseData}
@@ -104,6 +105,7 @@ const WorkoutBasicCard = ({
 					/>
 					<CardAutoPlay
 						exercise={exercise}
+						type={exercise.type}
 						play={play}
 						autoPlay={autoPlay}
 						nextExercise={nextExercise}

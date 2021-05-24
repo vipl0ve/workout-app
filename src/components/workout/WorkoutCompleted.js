@@ -75,42 +75,48 @@ const WorkoutCompleted = (props) => {
 
 	return (
 		<>
-			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header bg-transparent border-custom-color4'>
-					<h5>Workout Summary</h5>
-				</div>
-				<div className='card-body text-start'>
-					<h5 className='card-title text-center'>Completed!</h5>
-					<p className='card-text'>
-						Routine: <u>{workout.routineName}</u>
-					</p>
-					<p className='card-text'>
-						Time:{' '}
-						<i>
-							{moment(workout.workoutTime).format('dddd, MMM Do YY, h:mm:ss A')}
-						</i>
-					</p>
-					<p className='card-text'>
-						Duration:{' '}
-						<i>
-							<Timer data={workout.totalDuration} type={'no-badge'} />
-						</i>
-					</p>
-					<div className='d-flex justify-content-around'>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={goHome}
-						>
-							Home <FontAwesomeIcon icon={faHome} />
-						</button>
-						<button
-							type='button'
-							className='btn btn-custom-color6'
-							onClick={goWorkoutCalendar}
-						>
-							Workout Calendar <FontAwesomeIcon icon={faCalendarAlt} />
-						</button>
+			<div
+				className='containerExercise d-flex flex-column justify-content-center'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
+				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
+					<div className='card-header bg-transparent border-custom-color4'>
+						<h5>Workout Summary</h5>
+					</div>
+					<div className='card-body text-start'>
+						<p className='card-text'>
+							Routine: <u>{workout.routineName}</u>
+						</p>
+						<p className='card-text'>
+							Time:{' '}
+							<i>
+								{moment(workout.workoutTime).format(
+									'dddd, MMM Do YY, h:mm:ss A'
+								)}
+							</i>
+						</p>
+						<p className='card-text'>
+							Duration:{' '}
+							<i>
+								<Timer data={workout.totalDuration} type={'no-badge'} />
+							</i>
+						</p>
+						<div className='d-flex justify-content-around'>
+							<button
+								type='button'
+								className='btn btn-custom-color6'
+								onClick={goHome}
+							>
+								Home <FontAwesomeIcon icon={faHome} />
+							</button>
+							<button
+								type='button'
+								className='btn btn-custom-color6'
+								onClick={goWorkoutCalendar}
+							>
+								Workout Calendar <FontAwesomeIcon icon={faCalendarAlt} />
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

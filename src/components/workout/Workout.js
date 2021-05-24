@@ -48,7 +48,7 @@ const Workout = () => {
 	const onClick = (e) => {
 		history.push({
 			pathname: '/workoutprogress',
-			search: '?routine=' + encodeURI(curRoutine.name),
+			// search: '?routine=' + encodeURI(curRoutine.name),
 			state: { routine: curRoutine, settings: curRoutine.settings },
 		})
 	}
@@ -60,12 +60,15 @@ const Workout = () => {
 
 	return (
 		<>
-			<div className='container'>
+			<div
+				className='containerExercise d-flex flex-column justify-content-start'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
 				<h5 className='text-center'>Select Routine</h5>
 				<div className='d-flex justify-content-between mb-3 mx-1'>
 					<select
 						id='selectRoutine'
-						className='form-select form-select-md bg-custom-color2'
+						className='form-select form-select-md bg-custom-color2 text-custom-color6 p-2'
 						required
 						value={curRoutine.id}
 						onChange={onChange}

@@ -1,32 +1,33 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-export const NavItem = ({ title, to, active }) => {
-	return (
-		<>
-			{active ? (
-				<li
-					className='nav-item'
-					// data-bs-toggle='collapse'
-					// data-bs-target='#navbarSupportedContent'
-				>
-					<Link className='nav-link active text-custom-color1' to={to}>
+export const NavItem = ({ title, to }) => {
+	let location = useLocation()
+
+	if (location.pathname === to) {
+		return (
+			<>
+				<li className='nav-item border border-custom-color4'>
+					<Link
+						className='nav-link active bg-custom-color2 text-custom-color6'
+						to={to}
+					>
 						{title}
 					</Link>
 				</li>
-			) : (
-				<li
-					className='nav-item'
-					// data-bs-toggle='collapse'
-					// data-bs-target='#navbarSupportedContent'
-				>
+			</>
+		)
+	} else {
+		return (
+			<>
+				<li className='nav-item border border-custom-color4'>
 					<Link className='nav-link text-custom-color1' to={to}>
 						{title}
 					</Link>
 				</li>
-			)}
-		</>
-	)
+			</>
+		)
+	}
 }
 
 export default NavItem

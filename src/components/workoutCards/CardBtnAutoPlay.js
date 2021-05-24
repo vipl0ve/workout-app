@@ -4,15 +4,25 @@ import Switch from 'react-switch'
 const CardBtnAutoPlay = ({ autoPlay, status, onAction }) => {
 	return (
 		<>
-			<label>
-				{status ? <span>AutoPlay</span> : <span>No AutoPlay</span>}
+			<div className='d-flex justify-content-center align-items-start'>
+				<label>
+					{status ? (
+						<span>AutoPlay</span>
+					) : (
+						<span>
+							<del>AutoPlay</del>
+						</span>
+					)}
+				</label>
 				<Switch
 					onChange={onAction}
 					checked={autoPlay}
 					disabled={!status}
+					offColor='#ddb892'
+					onColor='#9c6644'
 					className='react-switch'
 				/>
-			</label>
+			</div>
 		</>
 	)
 }

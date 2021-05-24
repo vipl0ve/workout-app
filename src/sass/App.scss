@@ -1,11 +1,13 @@
 // Required
-@import '../node_modules/bootstrap/scss/functions';
-@import '../node_modules/bootstrap/scss/variables';
-@import '../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+
+@use 'global';
 
 // Pallet Colors: https://coolors.co/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644
-$pallet-color6: #9c6644; //Brown Sugar
-$pallet-color5: #7f5539; //'Coffee'
+$pallet-color6: #7f5539; //'Coffee'
+$pallet-color5: #9c6644; //Brown Sugar
 $pallet-color4: #b08968; //Cafe Au Lait
 $pallet-color3: #ddb892; //Tan
 $pallet-color2: #e6ccb2; //Desert Sand
@@ -36,9 +38,9 @@ $custom-colors: (
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // Bootstrap and its default variables
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 // Optional Bootstrap components here
-@import '../node_modules/bootstrap/scss/root';
-@import '../node_modules/bootstrap/scss/reboot';
-@import '../node_modules/bootstrap/scss/type';
+@import '../../node_modules/bootstrap/scss/root';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/type';

@@ -93,12 +93,12 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 					</div>
 					<div className='col col-4'>
 						<div className='row'>
-							<div className='col col-12 text-center'>
+							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6'>Reps: </span>
 							</div>
 						</div>
 						<div className='row'>
-							<div className='col col-12 text-end'>
+							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6'>
 									<ins>{prog.qty}</ins>
 								</span>
@@ -172,12 +172,12 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 					</div>
 					<div className='col col-4'>
 						<div className='row'>
-							<div className='col col-12 text-center'>
+							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6'>Duration: </span>
 							</div>
 						</div>
 						<div className='row'>
-							<div className='col col-12 text-end'>
+							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6'>
 									<ins>{prog.qty}s</ins>
 								</span>

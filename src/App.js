@@ -1,5 +1,4 @@
-import './App.css'
-import './App.min.css'
+import './sass/App.min.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Layout components
@@ -7,6 +6,7 @@ import Home from './components/layout/Home'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Settings from './components/layout/Settings'
+import Announcement from './components/layout/Announcement'
 
 // Workout components
 import Workout from './components/workout/Workout'
@@ -21,13 +21,13 @@ import Routines from './components/routine/Routines'
 import Breathe from './components/meditation/Breathe'
 
 // Body Weight Calculator
-import BWCalculator from './components/body/BWCalculator'
+import BWStats from './components/bwStats/BWStats'
 
 function App() {
 	return (
 		<Router>
 			<Navbar />
-			<div className='container main bg-custom-color1'>
+			<div className='container-fluid py-2 py-sm-3 py-md-5 px-2 px-sm-3 px-md-5 bg-custom-color1'>
 				<Route path='/' exact component={Home} />
 				<Route path='/workout' exact component={Workout} />
 				<Route path='/workoutprogress' exact component={WorkoutProgress} />
@@ -35,7 +35,8 @@ function App() {
 				<Route path='/workouthistory' exact component={WorkoutHistory} />
 				<Route path='/routines' component={Routines} />
 				<Route path='/breathe' exact component={Breathe} />
-				<Route path='/calculator' exact component={BWCalculator} />
+				<Route path='/calculator' exact component={BWStats} />
+				<Route path='/announcement' exact component={Announcement} />
 				<Route path='/settings' component={Settings} />
 			</div>
 			<Footer />

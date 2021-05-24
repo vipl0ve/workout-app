@@ -6,16 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const CardFooter = ({ time, onAction }) => {
 	return (
 		<>
-			<div className='card-footer bg-transparent border-custom-color4 d-flex flex-row justify-content-between align-items-end'>
+			<div className='card-footer bg-transparent border-custom-color4 d-flex flex-row justify-content-between align-items-center'>
 				<div className='col col-6 text-center'>
-					<span className='badge bg-custom-color6'>
-						{/* <b>Workout Duration:</b> */}
-						<FontAwesomeIcon icon={faClock} />
-						<Timer
-							className='badge bg-custom-color6 fs-6'
-							data={time}
-							type={'no-badge'}
-						/>
+					<span className='text-custom-color6'>
+						<FontAwesomeIcon icon={faClock} />{' '}
+						<Timer data={time} type={'no-badge'} />
 					</span>
 				</div>
 				<div className='col col-6 text-center'>

@@ -69,8 +69,11 @@ const WorkoutHistory = () => {
 	// }
 
 	return (
-		<div className='container bg-custom-color1'>
-			<h5 className='text-center text-custom-color6'>Workout History</h5>
+		<div
+			className='containerExercise d-flex flex-column justify-content-center'
+			style={{ minHeight: '90vh', width: 'auto' }}
+		>
+			<h4 className='text-center text-custom-color6'>Workout History</h4>
 			<WorkoutHistoryAggCard data={workoutAgg} />
 			{/* <DatePicker onChange={onChangeDate} value={curDate} /> */}
 			{events.length !== 0 ? (

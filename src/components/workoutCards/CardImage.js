@@ -7,7 +7,12 @@ const CardImage = ({ url, alt }) => {
 			<>
 				<img
 					src={noImage}
-					style={{ maxWidth: '300px', height: 'auto' }}
+					style={{
+						height: '45vh',
+						width: 'auto',
+						maxHeight: '45vh',
+						maxWidth: '90vw',
+					}}
 					className='card-img-top rounded mx-auto d-block mt-3'
 					alt={alt}
 				/>
@@ -18,7 +23,12 @@ const CardImage = ({ url, alt }) => {
 			<>
 				<img
 					src={url}
-					style={{ maxWidth: '300px', height: 'auto' }}
+					style={{
+						height: '45vh',
+						width: 'auto',
+						maxHeight: '45vh',
+						maxWidth: '90vw',
+					}}
 					className='card-img-top rounded mx-auto d-block mt-3'
 					alt={alt}
 				/>

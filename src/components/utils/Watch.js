@@ -69,44 +69,56 @@ const Watch = ({ data, className, play, onComplete, settings, currentId }) => {
 	if (timer <= totalTime) {
 		if (settings === 'hms') {
 			return (
-				<span className={className}>
-					{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}{' '}
-					{!play && <FontAwesomeIcon icon={faPause} />}
-				</span>
+				<b>
+					<span className={className}>
+						{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}{' '}
+						{!play && <FontAwesomeIcon icon={faPause} />}
+					</span>
+				</b>
 			)
 		} else if (settings === 'hm') {
 			return (
-				<span className={className}>
-					{formatTime.hours}:{formatTime.minutes}{' '}
-					{!play && <FontAwesomeIcon icon={faPause} />}
-				</span>
+				<b>
+					<span className={className}>
+						{formatTime.hours}:{formatTime.minutes}{' '}
+						{!play && <FontAwesomeIcon icon={faPause} />}
+					</span>
+				</b>
 			)
 		} else if (settings === 'ms') {
 			return (
-				<span className={className}>
-					{formatTime.minutes}:{formatTime.seconds}{' '}
-					{!play && <FontAwesomeIcon icon={faPause} />}
-				</span>
+				<b>
+					<span className={className}>
+						{formatTime.minutes}:{formatTime.seconds}{' '}
+						{!play && <FontAwesomeIcon icon={faPause} />}
+					</span>
+				</b>
 			)
 		} else {
 			return (
-				<span className={className}>
-					{formatTime.seconds} {!play && <FontAwesomeIcon icon={faPause} />}
-				</span>
+				<b>
+					<span className={className}>
+						{formatTime.seconds} {!play && <FontAwesomeIcon icon={faPause} />}
+					</span>
+				</b>
 			)
 		}
 	} else if (isNaN(timer)) {
 		return (
-			<span className={className}>
-				00:00 {!play && <FontAwesomeIcon icon={faPause} />}
-			</span>
+			<b>
+				<span className={className}>
+					00:00 {!play && <FontAwesomeIcon icon={faPause} />}
+				</span>
+			</b>
 		)
 	} else {
 		return (
-			<span className={className}>
-				{formatTime.minutes}:{formatTime.seconds}
-				{!play && <FontAwesomeIcon icon={faPause} />}
-			</span>
+			<b>
+				<span className={className}>
+					{formatTime.minutes}:{formatTime.seconds}
+					{!play && <FontAwesomeIcon icon={faPause} />}
+				</span>
+			</b>
 		)
 	}
 }

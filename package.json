@@ -22,6 +22,7 @@
 		"react-scripts": "4.0.3",
 		"react-svg-timer": "^2.1.1",
 		"react-switch": "^6.0.0",
+		"styled-components": "^5.3.0",
 		"web-vitals": "^1.1.2"
 	},
 	"homepage": "https://vipl0ve.github.io/workout-app/",
