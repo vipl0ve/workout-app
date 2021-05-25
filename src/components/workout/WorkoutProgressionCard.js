@@ -165,6 +165,8 @@ const WorkoutProgressionCard = ({
 		return (
 			<CardShowTimer
 				activity={activity}
+				exercise={exercise}
+				curSet={curSet}
 				settings={settings}
 				timerCompleted={timerCompleted}
 				timerSkip={timerSkip}

@@ -62,7 +62,7 @@ const WorkoutIntro = ({
 			>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
-						Start Workout
+						<h5 className='text-custom-color6'>Start Workout</h5>
 					</div>
 
 					<div className='card-body'>
@@ -94,7 +94,7 @@ const WorkoutIntro = ({
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-center align-items-center'>
-							<h6>End Workout</h6>
+							<h5 className='text-custom-color6'>End Workout</h5>
 						</div>
 					</div>
 					<div className='card-body'>

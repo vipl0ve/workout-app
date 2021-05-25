@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-// import moment from 'moment'
-// import DatePicker from 'react-date-picker'
+import { useLocalStorage } from '../utils/useLocalStorage'
+import moment from 'moment'
+import DatePicker from 'react-date-picker'
 import WorkoutHistoryAggCard from './WorkoutHistoryAggCard'
 import WorkoutHistoryCard from './WorkoutHistoryCard'
 
@@ -26,16 +27,13 @@ const workoutaggregation = (events) => {
 }
 
 const WorkoutHistory = () => {
-	const [events, setEvents] = useState(
-		JSON.parse(localStorage.getItem('bodyworkout'))
-	)
-
+	const [events, setEvents] = useLocalStorage('bwWorkoutHistory', '')
+	const [curDate, setCurDate] = useState(new Date())
+	const [eventsData, setEventsData] = useState(events)
 	const [workoutAgg, setWorkoutAgg] = useState({
 		totalWorkoutCount: 0,
 		totalWorkoutDuration: 0,
 	})
-
-	// const [curDate, setCurDate] = useState(new Date())
 
 	useEffect(() => {
 		setWorkoutAgg(workoutaggregation(events))
@@ -48,42 +46,58 @@ const WorkoutHistory = () => {
 		if (confirmed) {
 			const newEvents = events.filter((item) => item.id !== id)
 			setEvents(newEvents)
-			localStorage.setItem('bodyworkout', JSON.stringify(newEvents))
 		}
 	}
 
-	// const onChangeDate = (date) => {
-	// 	setCurDate(date)
-	// 	console.log(date)
-	// 	console.log(moment(date).startOf('day').format())
-	// 	console.log(moment(date).endOf('day').format())
+	const onChangeDate = (date) => {
+		setCurDate(date)
+		const newEvents = events.filter((item) => {
+			var startDate = new Date(item.start)
+			return (
+				startDate >= moment(date).startOf('day') &&
+				startDate <= moment(date).endOf('day')
+			)
+		})
+		setEventsData(newEvents)
+	}
 
-	// 	const newEvents = events.filter((item) => {
-	// 		var startDate = new Date(item.start)
-	// 		return (
-	// 			startDate >= moment(date).startOf('day') &&
-	// 			startDate <= moment(date).endOf('day')
-	// 		)
-	// 	})
-	// 	setEvents(newEvents)
-	// }
+	const onResetDate = () => {
+		setCurDate(new Date())
+		setEventsData(events)
+	}
 
 	return (
-		<div
-			className='containerExercise d-flex flex-column justify-content-center'
-			style={{ minHeight: '90vh', width: 'auto' }}
-		>
+		<div className='containerExercise d-flex flex-column justify-content-center'>
 			<h4 className='text-center text-custom-color6'>Workout History</h4>
 			<WorkoutHistoryAggCard data={workoutAgg} />
-			{/* <DatePicker onChange={onChangeDate} value={curDate} /> */}
-			{events.length !== 0 ? (
-				<WorkoutHistoryCard
-					data={events.slice(0).reverse()}
-					onAction={deleteEvent}
+			<div className='d-flex justify-content-around align-items-center'>
+				<DatePicker
+					calendarClassName='text-custom-color6'
+					clearIcon={null}
+					maxDate={new Date()}
+					onChange={onChangeDate}
+					value={curDate}
 				/>
-			) : (
-				<p>No Workout Available</p>
-			)}
+				<button
+					className='btn bg-custom-color6 text-custom-color2'
+					onClick={onResetDate}
+				>
+					Reset
+				</button>
+			</div>
+			<div
+				className='containerExercise d-flex justify-content-between align-items-center'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
+				{eventsData.length !== 0 ? (
+					<WorkoutHistoryCard
+						data={eventsData.slice(0).reverse()}
+						onAction={deleteEvent}
+					/>
+				) : (
+					<p>No Workout Available</p>
+				)}
+			</div>
 		</div>
 	)
 }

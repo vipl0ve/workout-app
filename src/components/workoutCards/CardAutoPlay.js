@@ -23,18 +23,20 @@ const CardAutoPlay = ({
 					/>
 				</div>
 				<div className='col col-3 text-end'>
-					{autoPlay && (
-						<Watch
-							data={progression ? exercise.curProgressions.qty : exercise.qty}
-							play={play}
-							className='text-custom-color6 p-2'
-							onComplete={progression ? checkActivity : nextExercise}
-							currentId={
-								progression ? exercise.curProgressions.id : exercise.id
-							}
-							settings={'ms'}
-						/>
-					)}
+					<Watch
+						data={
+							autoPlay
+								? progression
+									? exercise.curProgressions.autoPlay
+									: exercise.autoPlay
+								: '100'
+						}
+						play={play}
+						className='text-custom-color6 p-2'
+						onComplete={progression ? checkActivity : nextExercise}
+						currentId={progression ? exercise.curProgressions.id : exercise.id}
+						settings={'ms'}
+					/>
 				</div>
 			</>
 		)
@@ -50,22 +52,22 @@ const CardAutoPlay = ({
 						/>
 					</div>
 					<div className='col col-3 text-end'>
-						{autoPlay && (
-							<Watch
-								data={
-									progression
+						<Watch
+							data={
+								autoPlay
+									? progression
 										? exercise.curProgressions.autoPlay
 										: exercise.autoPlay
-								}
-								play={play}
-								className='text-custom-color6 p-2'
-								onComplete={progression ? checkActivity : nextExercise}
-								currentId={
-									progression ? exercise.curProgressions.id : exercise.id
-								}
-								settings={'ms'}
-							/>
-						)}
+									: '100'
+							}
+							play={play}
+							className='text-custom-color6 p-2'
+							onComplete={progression ? checkActivity : nextExercise}
+							currentId={
+								progression ? exercise.curProgressions.id : exercise.id
+							}
+							settings={'ms'}
+						/>
 					</div>
 				</>
 			)

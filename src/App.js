@@ -17,6 +17,9 @@ import WorkoutHistory from './components/workoutHistory/WorkoutHistory'
 //Routine components
 import Routines from './components/routine/Routines'
 
+//Routine components
+import Challenges from './components/challenges/Challenges'
+
 // Meditation components
 import Breathe from './components/meditation/Breathe'
 
@@ -34,6 +37,7 @@ function App() {
 				<Route path='/workoutcompleted' exact component={WorkoutCompleted} />
 				<Route path='/workouthistory' exact component={WorkoutHistory} />
 				<Route path='/routines' component={Routines} />
+				<Route path='/challenges' component={Challenges} />
 				<Route path='/breathe' exact component={Breathe} />
 				<Route path='/calculator' exact component={BWStats} />
 				<Route path='/announcement' exact component={Announcement} />

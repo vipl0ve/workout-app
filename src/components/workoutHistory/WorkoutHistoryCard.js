@@ -6,7 +6,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const WorkoutHistoryCard = ({ data, onAction }) => {
 	return (
 		<>
-			<div className='d-flex row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 border border-3 bg-custom-color4 p-2 mt-2'>
+			<div
+				className='d-flex row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 border border-3 bg-custom-color4 p-2 mt-2'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
 				{data.map((item) => (
 					<div key={item.id} className='col'>
 						<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4 my-2'>

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
+import NoSleep from 'nosleep.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import Timer from '../utils/Timer'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 const WorkoutCompleted = (props) => {
 	const history = useHistory()
 	const [workout] = useState(props.location.state.workout)
-	const [events, setEvents] = useState(
-		JSON.parse(localStorage.getItem('bodyworkout')) || []
-	)
+	const [events, setEvents] = useLocalStorage('bwWorkoutHistory', '')
+	var noSleep = new NoSleep()
+	noSleep.disable()
 
 	useEffect(() => {
 		let newEvent = {}
@@ -57,8 +59,7 @@ const WorkoutCompleted = (props) => {
 				console.log('Event Already Available')
 			}
 		}
-		localStorage.setItem('bodyworkout', JSON.stringify(events))
-	}, [events, workout])
+	}, [events, setEvents, workout])
 
 	const goHome = () => {
 		history.push({

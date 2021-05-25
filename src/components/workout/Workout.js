@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import Switch from 'react-switch'
 import { useHistory } from 'react-router-dom'
+import NoSleep from 'nosleep.js'
+//import $ from 'jquery'
 import { routines } from '../../data/exercise.json'
 import WorkoutAccordion from './WorkoutAccordion'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 const Workout = () => {
 	const history = useHistory()
 	const [routinesData] = useState(routines)
-	const [curRoutine, setCurRoutine] = useState(routinesData[0])
+	const [saveWorkout, SetSaveWorkout] = useLocalStorage('bwSaveWorkout', {
+		status: false,
+		data: '',
+		updatedDate: Date.now(),
+	})
+	const [curRoutine, setCurRoutine] = useState(
+		saveWorkout.status ? saveWorkout.data : routinesData[0]
+	)
+	var noSleep = new NoSleep()
 
 	useEffect(() => {}, [curRoutine])
 
@@ -27,6 +39,13 @@ const Workout = () => {
 						exercise
 					)
 					setCurRoutine(newRoutine)
+					if (saveWorkout.status) {
+						SetSaveWorkout({
+							...saveWorkout,
+							data: newRoutine,
+							updatedDate: Date.now(),
+						})
+					}
 				}
 			} else {
 				console.log('No Child found')
@@ -43,9 +62,17 @@ const Workout = () => {
 	const onChange = (e) => {
 		const newRoutine = routinesData.filter((item) => item.id === e.target.value)
 		setCurRoutine(newRoutine[0])
+		if (saveWorkout.status) {
+			SetSaveWorkout({
+				...saveWorkout,
+				data: newRoutine[0],
+				updatedDate: Date.now(),
+			})
+		}
 	}
 
 	const onClick = (e) => {
+		noSleep.enable()
 		history.push({
 			pathname: '/workoutprogress',
 			// search: '?routine=' + encodeURI(curRoutine.name),
@@ -56,6 +83,27 @@ const Workout = () => {
 	const onResetClick = (e) => {
 		const newRoutine = routinesData.filter((item) => item.id === curRoutine.id)
 		setCurRoutine(newRoutine[0])
+		SetSaveWorkout({
+			status: false,
+			data: '',
+			updatedDate: Date.now(),
+		})
+	}
+
+	const onSaveWorkout = () => {
+		if (!saveWorkout.status) {
+			SetSaveWorkout({
+				status: true,
+				data: curRoutine,
+				updatedDate: Date.now(),
+			})
+		} else {
+			SetSaveWorkout({
+				status: false,
+				data: '',
+				updatedDate: Date.now(),
+			})
+		}
 	}
 
 	return (
@@ -84,6 +132,18 @@ const Workout = () => {
 
 				<div className='text-center pb-2'>
 					<span className='h4 text-custom-color5'>{curRoutine.name}</span>
+					<div className='d-flex justify-content-center align-items-start mt-2'>
+						<label>
+							<span className='text-custom-color5'>Save Workout</span>
+						</label>
+						<Switch
+							onChange={onSaveWorkout}
+							checked={saveWorkout.status}
+							offColor='#ddb892'
+							onColor='#9c6644'
+							className='react-switch'
+						/>
+					</div>
 				</div>
 				<div className='accordion' id='accordionExample'>
 					{curRoutine.exercises.map((item) => (

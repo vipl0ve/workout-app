@@ -259,7 +259,7 @@ const BWStats = ({
 					<div className='row row-cols-1 row-cols-md-3 g-1'>
 						<div className='col'>
 							<div className='card h-80 text-center'>
-								<div className='card-body'>
+								<div className='card-body bg-custom-color2'>
 									<p className='card-title'>
 										<ins>Moderate Carb (30/35/35)</ins>
 									</p>
@@ -277,7 +277,7 @@ const BWStats = ({
 						</div>
 						<div className='col'>
 							<div className='card h-80 text-center'>
-								<div className='card-body'>
+								<div className='card-body bg-custom-color2'>
 									<p className='card-title'>
 										<ins>Lower Carb (40/40/20)</ins>
 									</p>
@@ -295,7 +295,7 @@ const BWStats = ({
 						</div>
 						<div className='col'>
 							<div className='card h-80 text-center'>
-								<div className='card-body'>
+								<div className='card-body bg-custom-color2'>
 									<p className='card-title'>
 										<ins>Higher Carb (30/20/50)</ins>
 									</p>

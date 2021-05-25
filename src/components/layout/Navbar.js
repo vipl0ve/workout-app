@@ -26,11 +26,8 @@ const Navbar = () => {
 					<ul className='navbar-nav me-auto text-center border-top border-custom-color2'>
 						<NavItem title='Home' to='/' />
 						<NavItem title='Workout' to='/workout' />
-						<NavItem
-							title='Workout History'
-							to='/workouthistory'
-							active={false}
-						/>
+						<NavItem title='Workout History' to='/workouthistory' />
+						<NavItem title='Challenges' to='/challenges' />
 						<NavItem title='Breathe' to='/breathe' />
 						<NavItem title='BW Calculator' to='/calculator' />
 					</ul>

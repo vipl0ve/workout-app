@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { useBWForm } from './useBWForm'
+import { useBWForm } from '../utils/useBWForm'
+import { useLocalStorage } from '../utils/useLocalStorage'
 import BWCalculator from './BWCalculator'
 import BWReport from './BWReport'
 
 const BWStats = () => {
-	const [values, handleChange] = useBWForm({
-		gender: 'Male',
-		age: 0,
-		weight: 0,
-		height: 0,
-		unit: 'Metric',
-		activity: 'Sedentary',
+	const [saveStats, SetSaveStats] = useLocalStorage('bwStats', {
+		data: '',
+		updatedDate: Date.now(),
 	})
+
+	const [values, handleChange] = useBWForm(
+		saveStats.data
+			? saveStats.data
+			: {
+					gender: 'Male',
+					age: 0,
+					weight: 0,
+					height: 0,
+					unit: 'Metric',
+					activity: 'Sedentary',
+			  }
+	)
+
 	const [showReport, setShowReport] = useState(false)
 	const [bmi, setBMI] = useState(0)
 	const [bmiCategory, setBMICategory] = useState('')
@@ -107,10 +118,18 @@ const BWStats = () => {
 	}, [bmr, values.activity])
 
 	const onChangeReport = () => {
+		SetSaveStats({
+			data: values,
+			updatedDate: Date.now(),
+		})
 		setShowReport(!showReport)
 	}
 
 	const onReset = () => {
+		SetSaveStats({
+			data: '',
+			updatedDate: Date.now(),
+		})
 		console.log('Reset')
 	}
 
