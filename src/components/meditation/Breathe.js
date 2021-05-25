@@ -2,13 +2,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import $ from 'jquery'
 //import styled from 'styled-components'
 import './Breathe.css'
+import Timer from '../utils/Timer'
 
 const Breathe = () => {
 	const [totalTime] = useState(7500)
 	const [breatheTime] = useState((totalTime / 5) * 2)
 	const [holdTime] = useState(totalTime / 5)
 	const [text, setText] = useState('Get Ready!')
+	const [totalDuration, setTotalDuration] = useState(0)
+	const [instruction, setInstruction] = useState(false)
 	const counter = useRef(null)
+	const durationCounter = useRef(null)
 	const container = useRef(null)
 
 	useEffect(() => {
@@ -27,6 +31,16 @@ const Breathe = () => {
 			clearInterval(counter.current)
 		}
 	}, [totalTime, breatheTime, holdTime])
+
+	useEffect(() => {
+		durationCounter.current = setInterval(
+			() => setTotalDuration((timer) => timer + 1),
+			1000
+		)
+		return () => {
+			clearInterval(durationCounter.current)
+		}
+	}, [])
 
 	const styles = {
 		breathe: {
@@ -82,10 +96,47 @@ const Breathe = () => {
 
 	return (
 		<div className='breathe' style={styles.breathe}>
-			<h4 className='text-center text-custom-color6 mt-3'>Breathe!</h4>
-			<small className='text-justify text-custom-color6'>
-				Breathe based on the instructions below!
-			</small>
+			<h4 className='text-center text-custom-color6 mt-1'>Basic Meditation</h4>
+			<p className='text-custom-color6'>
+				Total Duration:{' '}
+				<b>
+					<Timer
+						data={totalDuration}
+						type='no-badge'
+						className='text-custom-color6'
+					></Timer>
+				</b>
+			</p>
+			<button
+				className='btn btn-custom-color4'
+				onClick={() => setInstruction(!instruction)}
+			>
+				Read Instructions
+			</button>
+			{instruction && (
+				<div className='text-justify text-custom-color6 mt-2'>
+					<ul>
+						<li>
+							<small>
+								<b>Get comfortable:</b> Prepare to sit still for a few minutes.
+							</small>
+						</li>
+						<li>
+							<small>
+								<b>Focus on your breath:</b> Keep your attention on your inhale
+								and exhale.
+							</small>
+						</li>
+						<li>
+							<small>
+								<b>Continue your breathing:</b> Take a deep inhale, expanding
+								your belly, and then exhale slowly, elongating the out-breath as
+								your belly contracts.
+							</small>
+						</li>
+					</ul>
+				</div>
+			)}
 			<div
 				className='svgContainer'
 				id='svgContainer'
