@@ -26,6 +26,7 @@ const BWStats = () => {
 	const [showReport, setShowReport] = useState(false)
 	const [bmi, setBMI] = useState(0)
 	const [bmiCategory, setBMICategory] = useState('')
+	const [idealWeight, setIdealWeight] = useState(0)
 	const [bmr, setBMR] = useState(0)
 	const [dailyCalories, setDailyCalories] = useState(0)
 
@@ -71,6 +72,37 @@ const BWStats = () => {
 			setBMICategory({})
 		}
 	}, [bmi])
+
+	useEffect(() => {
+		if (values.height !== 0) {
+			let h = 0,
+				iWeight = ''
+			if (values.unit === 'Metric') {
+				h = values.height
+			} else if (values.unit === 'Imperial') {
+				h = values.height * 2.54
+			}
+			if (values.gender === 'Male') {
+				iWeight = {
+					hamwi: (48 + 1.06 * [h - 152.4]).toFixed(1),
+					devine: (50 + 0.91 * [h - 152.4]).toFixed(1),
+					robinson: (52 + 0.75 * [h - 152.4]).toFixed(1),
+					miller: (56.2 + 0.56 * [h - 152.4]).toFixed(1),
+				}
+			} else if (values.gender === 'Female') {
+				iWeight = {
+					hamwi: (45.5 + 0.87 * [h - 152.4]).toFixed(1),
+					devine: (45.5 + 0.91 * [h - 152.4]).toFixed(1),
+					robinson: (49 + 0.67 * [h - 152.4]).toFixed(1),
+					miller: (53.1 + 0.54 * [h - 152.4]).toFixed(1),
+				}
+			}
+			setIdealWeight(iWeight)
+			return () => {
+				setIdealWeight(0)
+			}
+		}
+	}, [values.height, values.unit, values.gender])
 
 	useEffect(() => {
 		if (values.height !== 0 && values.weight !== 0 && values.age !== 0) {
@@ -150,6 +182,7 @@ const BWStats = () => {
 				<BWReport
 					bmi={bmi}
 					bmiCategory={bmiCategory}
+					idealWeight={idealWeight}
 					bmr={bmr}
 					dailyCalories={dailyCalories}
 					activity={values.activity}

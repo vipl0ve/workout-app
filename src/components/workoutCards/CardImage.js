@@ -12,6 +12,7 @@ const CardImage = ({ url, alt }) => {
 						width: 'auto',
 						maxHeight: '45vh',
 						maxWidth: '90vw',
+						boxShadow: '10px 10px 5px grey',
 					}}
 					className='card-img-top rounded mx-auto d-block mt-3'
 					alt={alt}
@@ -28,6 +29,7 @@ const CardImage = ({ url, alt }) => {
 						width: 'auto',
 						maxHeight: '45vh',
 						maxWidth: '90vw',
+						boxShadow: '5px 5px 10px grey',
 					}}
 					className='card-img-top rounded mx-auto d-block mt-3'
 					alt={alt}

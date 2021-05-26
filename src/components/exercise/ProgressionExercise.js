@@ -62,7 +62,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 						</div>
 						<div className='row'>
 							<div className='col col-12 text-start'>
-								<span className='mb-1 text-custom-color6'>
+								<span className='mb-1 text-custom-color6 fs-6'>
 									<ins>{prog.name}</ins>
 								</span>
 								<button
@@ -73,13 +73,13 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 									aria-expanded='false'
 								></button>
 								<ul
-									className='dropdown-menu'
+									className='dropdown-menu bg-custom-color1'
 									aria-labelledby='dropdownMenuButtonExercise'
 								>
 									{exercise.progressions.map((item) => (
 										<li key={item.id}>
 											<button
-												className='dropdown-item text-custom-color4'
+												className='dropdown-item text-custom-color4 bg-custom-color1 fs-6'
 												key={item.id}
 												onClick={() => onChange(item.id)}
 											>
@@ -99,7 +99,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 						</div>
 						<div className='row'>
 							<div className='col col-12 text-start'>
-								<span className='mb-1 text-custom-color6'>
+								<span className='mb-1 text-custom-color6 fs-6'>
 									<ins>{prog.qty}</ins>
 								</span>
 								<button
@@ -110,13 +110,13 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 									aria-expanded='false'
 								></button>
 								<ul
-									className='dropdown-menu'
+									className='dropdown-menu bg-custom-color1'
 									aria-labelledby='dropdownMenuButtonQty'
 								>
 									{reps.map((item) => (
 										<li key={item.id}>
 											<button
-												className='dropdown-item text-custom-color4'
+												className='dropdown-item text-custom-color4  bg-custom-color1  fs-6'
 												key={item.id}
 												onClick={() => onRepsChange(item.id)}
 											>

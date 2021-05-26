@@ -5,7 +5,7 @@ const Footer = () => {
 	let location = useLocation()
 	const curYear = () => new Date().getFullYear()
 
-	if (location.pathname !== '/workoutprogress') {
+	if (location.pathname !== '/login') {
 		return (
 			<footer className='footer py-1 bg-custom-color2'>
 				<div className='text-center'>

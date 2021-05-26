@@ -3,6 +3,9 @@ import $ from 'jquery'
 //import styled from 'styled-components'
 import './Breathe.css'
 import Timer from '../utils/Timer'
+import Speak from '../utils/Speak'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
 const Breathe = () => {
 	const [totalTime] = useState(7500)
@@ -11,6 +14,7 @@ const Breathe = () => {
 	const [text, setText] = useState('Get Ready!')
 	const [totalDuration, setTotalDuration] = useState(0)
 	const [instruction, setInstruction] = useState(false)
+	const [volume, setVolume] = useState(false)
 	const counter = useRef(null)
 	const durationCounter = useRef(null)
 	const container = useRef(null)
@@ -41,6 +45,19 @@ const Breathe = () => {
 			clearInterval(durationCounter.current)
 		}
 	}, [])
+
+	useEffect(() => {
+		if (volume) {
+			if (text === 'Breathe In!') {
+				Speak({ text: 'Inhale...', voiceIndex: 1 })
+			} else if (text === 'Hold') {
+				Speak({ text: 'Hold!', voiceIndex: 1 })
+			} else if (text === 'Breathe Out!') {
+				Speak({ text: 'Exhale...', voiceIndex: 1 })
+			}
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [text])
 
 	const styles = {
 		breathe: {
@@ -96,8 +113,18 @@ const Breathe = () => {
 
 	return (
 		<div className='breathe' style={styles.breathe}>
-			<h4 className='text-center text-custom-color6 mt-1'>Basic Meditation</h4>
-			<p className='text-custom-color6'>
+			<h4 className='text-center text-custom-color6 mt-1'>
+				Basic Meditation{'  '}
+				{volume ? (
+					<FontAwesomeIcon icon={faVolumeUp} onClick={() => setVolume(false)} />
+				) : (
+					<FontAwesomeIcon
+						icon={faVolumeMute}
+						onClick={() => setVolume(true)}
+					/>
+				)}
+			</h4>
+			<p className='text-custom-color6 mb-1'>
 				Total Duration:{' '}
 				<b>
 					<Timer
@@ -108,10 +135,10 @@ const Breathe = () => {
 				</b>
 			</p>
 			<button
-				className='btn btn-custom-color4'
+				className='btn btn-custom-color4 text-custom-color1 my-0'
 				onClick={() => setInstruction(!instruction)}
 			>
-				Read Instructions
+				{instruction ? 'Hide Instructions' : 'Read Instructions'}
 			</button>
 			{instruction && (
 				<div className='text-justify text-custom-color6 mt-2'>

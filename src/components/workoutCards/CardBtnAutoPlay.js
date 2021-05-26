@@ -3,7 +3,7 @@ import Switch from 'react-switch'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons'
 
-const CardBtnAutoPlay = ({ autoPlay, status, onAction }) => {
+const CardBtnAutoPlay = ({ autoPlay, status, progression, onAction }) => {
 	if (status) {
 		return (
 			<>
@@ -75,6 +75,12 @@ const CardBtnAutoPlay = ({ autoPlay, status, onAction }) => {
 						}
 						className='react-switch'
 					/>
+					{progression && (
+						<>
+							<br />
+							<br />
+						</>
+					)}
 				</div>
 			</>
 		)
@@ -85,6 +91,12 @@ const CardBtnAutoPlay = ({ autoPlay, status, onAction }) => {
 					<label>
 						<span className='text-muted'>No AutoPlay</span>
 					</label>
+					{progression && (
+						<>
+							<br />
+							<br />
+						</>
+					)}
 				</div>
 			</>
 		)

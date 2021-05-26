@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Switch from 'react-switch'
 import { useHistory } from 'react-router-dom'
-import NoSleep from 'nosleep.js'
 //import $ from 'jquery'
 import { routines } from '../../data/exercise.json'
 import WorkoutAccordion from './WorkoutAccordion'
@@ -18,7 +17,6 @@ const Workout = () => {
 	const [curRoutine, setCurRoutine] = useState(
 		saveWorkout.status ? saveWorkout.data : routinesData[0]
 	)
-	var noSleep = new NoSleep()
 
 	useEffect(() => {}, [curRoutine])
 
@@ -72,7 +70,6 @@ const Workout = () => {
 	}
 
 	const onClick = (e) => {
-		noSleep.enable()
 		history.push({
 			pathname: '/workoutprogress',
 			// search: '?routine=' + encodeURI(curRoutine.name),
@@ -112,7 +109,7 @@ const Workout = () => {
 				className='containerExercise d-flex flex-column justify-content-start'
 				style={{ minHeight: '90vh', width: 'auto' }}
 			>
-				<h5 className='text-center'>Select Routine</h5>
+				<h5 className='text-center text-custom-color6'>Select Routine</h5>
 				<div className='d-flex justify-content-between mb-3 mx-1'>
 					<select
 						id='selectRoutine'
@@ -134,7 +131,7 @@ const Workout = () => {
 					<span className='h4 text-custom-color5'>{curRoutine.name}</span>
 					<div className='d-flex justify-content-center align-items-start mt-2'>
 						<label>
-							<span className='text-custom-color5'>Save Workout</span>
+							<span className='text-custom-color5 p-2'>Save Changes</span>
 						</label>
 						<Switch
 							onChange={onSaveWorkout}
@@ -169,14 +166,14 @@ const Workout = () => {
 				<div className='row justify-content-around my-3'>
 					<button
 						type='button'
-						className='btn btn-custom-color6 col-auto'
+						className='btn btn-custom-color6 text-custom-color1 col-auto'
 						onClick={onClick}
 					>
 						Start Workout
 					</button>
 					<button
 						type='button'
-						className='btn btn-custom-color6 col-auto'
+						className='btn btn-custom-color6 text-custom-color1 col-auto'
 						onClick={onResetClick}
 					>
 						Reset Workout

@@ -4,6 +4,7 @@ import WorkoutIntro from './WorkoutIntro'
 import WorkoutBasicCard from './WorkoutBasicCard'
 import WorkoutProgressionCard from './WorkoutProgressionCard'
 import FillerCard from '../utils/FillerCard'
+import Speak from '../utils/Speak'
 
 const WorkoutProgress = (props) => {
 	//const [query] = useState(queryString.parse(props.location.search))
@@ -45,6 +46,18 @@ const WorkoutProgress = (props) => {
 	}
 
 	const setAutoPlayData = (checked) => {
+		if (checked) {
+			Speak({
+				text: `Autoplay On`,
+				voiceIndex: 1,
+			})
+		} else {
+			Speak({
+				text: `Autoplay Off`,
+				voiceIndex: 1,
+			})
+		}
+
 		setAutoPlay(checked)
 	}
 

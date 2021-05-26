@@ -1499,7 +1499,7 @@
 							"img": "http://4.bp.blogspot.com/-TXObO0OGyxQ/Um-C5c3sSVI/AAAAAAAABQY/muyBo2rnjvI/s200/shoulder+rotations.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "",
 							"video": ""
 						},
@@ -1510,7 +1510,7 @@
 							"img": "http://3.bp.blogspot.com/-4noJxB-TxAo/Um-DWe8ofMI/AAAAAAAABQg/C-1XdG7icLY/s200/arm+raises.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "",
 							"video": ""
 						},
@@ -1521,7 +1521,7 @@
 							"img": "http://2.bp.blogspot.com/-7v9wOqMxqAs/Um-DkPwtIXI/AAAAAAAABQo/l6KlUbufhfo/s200/torso+rotations.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "",
 							"video": ""
 						},
@@ -1532,7 +1532,7 @@
 							"img": "http://3.bp.blogspot.com/-aPgAWGMeDXU/Um-EA7iZjhI/AAAAAAAABQw/_puZsMTJA1U/s200/chest+expansions.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "Expand chest with palms facing upwards",
 							"video": ""
 						},
@@ -1543,40 +1543,40 @@
 							"img": "http://3.bp.blogspot.com/-760fGngaxbo/Um-ESZjnfFI/AAAAAAAABQ4/-OS9DOsSSoU/s200/neck+circles.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "",
 							"video": ""
 						},
 						{
 							"id": "7",
 							"parentid": "1",
-							"name": "Hip Rotations (Each Leg)",
+							"name": "Hip Rotations(Each Leg)",
 							"img": "http://4.bp.blogspot.com/-jT5pA_qTrUo/Um-EuiRlJvI/AAAAAAAABRA/TVN5M5HRFCs/s200/hip+rotation.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "Standing in a staggered stance, bring your back knee up in front of you, then to the side, before lowering your leg back down in the starting position",
 							"video": ""
 						},
 						{
 							"id": "8",
 							"parentid": "1",
-							"name": "Reverse Hip Rotations (Each Leg)",
+							"name": "Reverse Hip Rotations(Each Leg)",
 							"img": "http://3.bp.blogspot.com/-v9VizXhSa9E/Um-FPtzz1hI/AAAAAAAABRI/92FggIXHMRY/s200/hip+rotation2.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "Reverse the previous motion by first bringing your back knee up to your side, then rotating your upper leg until your knee is in front of you before bringing it back down to the starting position.",
 							"video": ""
 						},
 						{
 							"id": "9",
 							"parentid": "1",
-							"name": "Front Leg Raises (Each Leg)",
+							"name": "Front Leg Raises(Each Leg)",
 							"img": "http://1.bp.blogspot.com/-VH_pu6kbVvc/Um-FuQZEanI/AAAAAAAABRU/QegY5Bs94l8/s200/leg+raises.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "10",
+							"autoPlay": "30",
 							"desc": "Bring your leg up to your outstretched hand. This should be a controled leg raise, rather than a swinging motion.",
 							"video": ""
 						}

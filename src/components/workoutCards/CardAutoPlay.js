@@ -20,6 +20,7 @@ const CardAutoPlay = ({
 						autoPlay={autoPlay}
 						status={true}
 						onAction={setAutoPlay}
+						progression={progression}
 					/>
 				</div>
 				<div className='col col-3 text-end'>
@@ -27,16 +28,23 @@ const CardAutoPlay = ({
 						data={
 							autoPlay
 								? progression
-									? exercise.curProgressions.autoPlay
-									: exercise.autoPlay
-								: '100'
+									? exercise.curProgressions.qty
+									: exercise.qty
+								: '1000'
 						}
 						play={play}
+						autoPlay={autoPlay}
 						className='text-custom-color6 p-2'
 						onComplete={progression ? checkActivity : nextExercise}
 						currentId={progression ? exercise.curProgressions.id : exercise.id}
 						settings={'ms'}
 					/>
+					{progression && (
+						<>
+							<br />
+							<br />
+						</>
+					)}
 				</div>
 			</>
 		)
@@ -58,9 +66,10 @@ const CardAutoPlay = ({
 									? progression
 										? exercise.curProgressions.autoPlay
 										: exercise.autoPlay
-									: '100'
+									: '1000'
 							}
 							play={play}
+							autoPlay={autoPlay}
 							className='text-custom-color6 p-2'
 							onComplete={progression ? checkActivity : nextExercise}
 							currentId={

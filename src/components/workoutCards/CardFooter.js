@@ -14,7 +14,10 @@ const CardFooter = ({ time, onAction }) => {
 					</span>
 				</div>
 				<div className='col col-6 text-center'>
-					<button className='btn btn-custom-color6' onClick={onAction}>
+					<button
+						className='btn btn-custom-color6 text-custom-color1'
+						onClick={onAction}
+					>
 						<b>End Workout</b>
 					</button>
 				</div>

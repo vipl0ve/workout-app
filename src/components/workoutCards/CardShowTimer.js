@@ -1,6 +1,7 @@
 import { faStepForward } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
+import Speak from '../utils/Speak'
 import Stopwatch from '../utils/Stopwatch'
 
 const CardShowTimer = ({
@@ -11,6 +12,14 @@ const CardShowTimer = ({
 	timerCompleted,
 	timerSkip,
 }) => {
+	useEffect(() => {
+		Speak({
+			text: `Rest for ${settings.betweenSet} seconds. Next Exercise ${exercise.curProgressions.name} Set: ${curSet}`,
+			voiceIndex: 1,
+		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	return (
 		<>
 			<div
@@ -21,18 +30,18 @@ const CardShowTimer = ({
 					<div className='card-body'>
 						{activity === 'RestSet' ? (
 							<>
-								<h5 className='card-title'>Rest {settings.betweenSet}s!</h5>
 								<h5 className='card-title'>
-									Next Exercise: {exercise.curProgressions.name} Set: {curSet}
+									<p>Rest {settings.betweenSet}s!</p>
+									<p>Next Exercise: {exercise.curProgressions.name}</p>
+									<p>Set: {curSet}</p>
 								</h5>
 							</>
 						) : (
 							<>
 								<h5 className='card-title'>
-									Rest {settings.betweenExercise}s!
-								</h5>
-								<h5 className='card-title'>
-									Next Exercise: {exercise.curProgressions.name} Set: {curSet}
+									<p>Rest {settings.betweenExercise}s!</p>
+									<p>Next Exercise: {exercise.curProgressions.name}</p>
+									<p>Set: {curSet}</p>
 								</h5>
 							</>
 						)}

@@ -47,7 +47,7 @@ const Navbar = () => {
 						</button>
 					</div>
 					<Link className='navbar-brand w-100' to='/'>
-						<h2 className='text-custom-color2'>BodyWeight App</h2>
+						<h2 className='text-custom-color2'>BODY WORKOUT APP</h2>
 					</Link>
 					<span className='w-100'></span>
 				</div>

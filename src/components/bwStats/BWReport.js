@@ -40,6 +40,7 @@ const updateCalories = (ref, calories) => {
 const BWStats = ({
 	bmi,
 	bmiCategory,
+	idealWeight,
 	bmr,
 	dailyCalories,
 	activity,
@@ -147,12 +148,40 @@ const BWStats = ({
 				</div>
 				<hr />
 				<div className='text-custom-color6'>
-					<h5>Calories Score:</h5>
+					<h5>Ideal Weight:</h5>
 					<p className='text-justify'>
-						Based on stats, the best estimate for your BMR is{' '}
-						<b>{bmr} calories</b> and your daily maintenance calories is{' '}
-						<b>{dailyCalories} calories</b> per day. The table below shows the
-						difference if you were to have selected a different activity level.
+						Estimate ideal weight are not perfect and may show lower results for
+						people with high muscle mass (and lean body mass). Ideal body weight
+						calculator uses four different formulas to find your ideal weight.
+					</p>
+					<div className='row mb-3'>
+						<ul id='idealWeight' className='list-group'>
+							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+								<span className=''>Hamwi Formula (1964)</span>
+								<span className=''>{idealWeight.hamwi}</span>
+							</li>
+							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+								<span className=''>Devine Formula (1974)</span>
+								<span className=''>{idealWeight.devine}</span>
+							</li>
+							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+								<span className=''>Robinson Formula (1983)</span>
+								<span className=''>{idealWeight.robinson}</span>
+							</li>
+							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+								<span className=''>Miller Formula (1983)</span>
+								<span className=''>{idealWeight.miller}</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<hr />
+				<div className='text-custom-color6'>
+					<h5>TDDE Score:</h5>
+					<p className='text-justify'>
+						Your estimated BMR is <b>{bmr} calories</b> and Total Daily Energy
+						Expenditure(TDDE) is <b>{dailyCalories} calories</b>. The table
+						below shows TDDE based on different activity level.
 					</p>
 					<div className='row mb-3'>
 						<ul id='calScore' className='list-group'>
@@ -160,42 +189,42 @@ const BWStats = ({
 								<span className=''>Basal Metabolic Rate</span>
 								<span className=''>
 									{bmr}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Sedentary</span>
 								<span className=''>
 									{(bmr * 1.2).toFixed(0)}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Light Exercise</span>
 								<span className=''>
 									{(bmr * 1.375).toFixed(0)}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Moderate Exercise</span>
 								<span className=''>
 									{(bmr * 1.55).toFixed(0)}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Heavy Exercise</span>
 								<span className=''>
 									{(bmr * 1.725).toFixed(0)}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Athlete</span>
 								<span className=''>
 									{(bmr * 1.9).toFixed(0)}
-									<small> calories per day</small>
+									<small> Calories Daily</small>
 								</span>
 							</li>
 						</ul>
@@ -205,9 +234,9 @@ const BWStats = ({
 				<div className='text-custom-color6'>
 					<h5>Macronutrients:</h5>
 					<p className='text-justify'>
-						Macronutrient based on your daily maintenance Calories of{' '}
-						<b>{dailyCalories} calories</b> per day. The table below shows
-						macronutrient values based on different types of diet.
+						Macronutrient is calculated based on your diet and daily calories
+						requirements. The table below shows macronutrient values based on
+						different types of diets and calories requirements.
 					</p>
 					<nav className='nav nav-justified border-bottom border-custom-color5'>
 						<div
@@ -253,7 +282,7 @@ const BWStats = ({
 					</nav>
 					<div className='row'>
 						<p className='text-center text-color-custom5 pt-3'>
-							Calories required per day: <b>{calories}</b>
+							Daily Calories Required: <b>{calories} Calories</b>
 						</p>
 					</div>
 					<div className='row row-cols-1 row-cols-md-3 g-1'>

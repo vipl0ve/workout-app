@@ -105,14 +105,14 @@ const WorkoutCompleted = (props) => {
 						<div className='d-flex justify-content-around'>
 							<button
 								type='button'
-								className='btn btn-custom-color6'
+								className='btn btn-custom-color6 text-custom-color1'
 								onClick={goHome}
 							>
 								Home <FontAwesomeIcon icon={faHome} />
 							</button>
 							<button
 								type='button'
-								className='btn btn-custom-color6'
+								className='btn btn-custom-color6 text-custom-color1'
 								onClick={goWorkoutCalendar}
 							>
 								Workout Calendar <FontAwesomeIcon icon={faCalendarAlt} />

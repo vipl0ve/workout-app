@@ -10,6 +10,7 @@ import CardBtnPlay from '../workoutCards/CardBtnPlay'
 import CardAutoPlay from '../workoutCards/CardAutoPlay'
 import CardHeader from '../workoutCards/CardHeader'
 import CardVideo from '../workoutCards/CardVideo'
+import Speak from '../utils/Speak'
 
 const WorkoutBasicCard = ({
 	exerciseData,
@@ -34,9 +35,35 @@ const WorkoutBasicCard = ({
 		play: false,
 	})
 
+	useEffect(() => {
+		if (exercise.type === 'Duration') {
+			Speak({
+				text: `Do ${exercise.name} for ${exercise.qty} seconds`,
+				voiceIndex: 1,
+			})
+		} else if (exercise.type === 'Reps') {
+			Speak({
+				text: `Do ${exercise.name} for ${exercise.qty} times`,
+				voiceIndex: 1,
+			})
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [exercise])
+
 	useEffect(() => {}, [play, exercise])
 
 	const setCardPlayStatus = () => {
+		if (play) {
+			Speak({
+				text: `Paused`,
+				voiceIndex: 1,
+			})
+		} else {
+			Speak({
+				text: `Play`,
+				voiceIndex: 1,
+			})
+		}
 		setPlayStatus(!play)
 	}
 

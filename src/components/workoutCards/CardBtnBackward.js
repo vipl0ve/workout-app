@@ -6,7 +6,11 @@ const CardBtnBackward = ({ onAction, disabled }) => {
 	if (disabled) {
 		return (
 			<>
-				<button type='button' className='btn btn-custom-color6' disabled>
+				<button
+					type='button'
+					className='btn btn-custom-color6 text-custom-color1'
+					disabled
+				>
 					<FontAwesomeIcon icon={faBackward} onClick={onAction} />
 				</button>
 			</>
@@ -14,7 +18,10 @@ const CardBtnBackward = ({ onAction, disabled }) => {
 	} else {
 		return (
 			<>
-				<button type='button' className='btn btn-custom-color6'>
+				<button
+					type='button'
+					className='btn btn-custom-color6 text-custom-color1'
+				>
 					<FontAwesomeIcon icon={faBackward} onClick={onAction} />
 				</button>
 			</>

@@ -12,6 +12,7 @@ import CardTitle from '../workoutCards/CardTitle'
 import CardShowTimer from '../workoutCards/CardShowTimer'
 import { getQty } from '../../helper/helperfunctions'
 import CardVideo from '../workoutCards/CardVideo'
+import Speak from '../utils/Speak'
 
 const WorkoutProgressionCard = ({
 	exerciseData,
@@ -42,6 +43,27 @@ const WorkoutProgressionCard = ({
 	})
 
 	useEffect(() => {
+		if (!showTimer) {
+			if (exercise.curProgressions.type === 'Duration') {
+				Speak({
+					text: `Do ${exercise.curProgressions.name} Set ${curSet} for ${
+						reps[curSet - 1]
+					} seconds`,
+					voiceIndex: 1,
+				})
+			} else if (exercise.curProgressions.type === 'Reps') {
+				Speak({
+					text: `Do ${exercise.curProgressions.name} Set ${curSet} for ${
+						reps[curSet - 1]
+					} times`,
+					voiceIndex: 1,
+				})
+			}
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [exercise, showTimer])
+
+	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
 		setCurSet(1)
 	}, [exercise])
@@ -59,6 +81,17 @@ const WorkoutProgressionCard = ({
 	useEffect(() => {}, [play])
 
 	const setCardPlayStatus = () => {
+		if (play) {
+			Speak({
+				text: `Paused`,
+				voiceIndex: 1,
+			})
+		} else {
+			Speak({
+				text: `Play`,
+				voiceIndex: 1,
+			})
+		}
 		setPlayStatus(!play)
 	}
 

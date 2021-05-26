@@ -3,9 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
 import { pad } from '../../helper/helperfunctions'
 
-const Watch = ({ data, className, play, onComplete, settings, currentId }) => {
+const Watch = ({
+	data,
+	className,
+	play,
+	autoPlay,
+	onComplete,
+	settings,
+	currentId,
+}) => {
 	const [timer, setTimer] = useState(0)
-	const [totalTime] = useState(parseInt(data))
+	const [totalTime, setTotalTime] = useState(autoPlay ? parseInt(data) : 1000)
 	const countRef = useRef(null)
 	const [formatTime, setformatTime] = useState({
 		hours: '00',
@@ -22,6 +30,14 @@ const Watch = ({ data, className, play, onComplete, settings, currentId }) => {
 		setTimer(0)
 		clearInterval(countRef.current)
 	}, [currentId])
+
+	useEffect(() => {
+		if (autoPlay) {
+			setTotalTime(parseInt(data))
+		} else {
+			setTotalTime(1000)
+		}
+	}, [data, autoPlay])
 
 	useEffect(() => {
 		if (play) {

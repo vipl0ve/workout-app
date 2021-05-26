@@ -1,23 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const ExternalLink = ({ url, title }) => {
 	const confirm = () => {
 		var confirmation = window.confirm('This is an external link. Are you sure?')
-		return confirmation
+		if (confirmation) {
+			window.open(url, '_blank').focus()
+		}
 	}
 
 	return (
 		<>
-			<Link
-				to={{
-					pathname: { url },
-				}}
-				onClick={confirm}
-				target='_blank'
-			>
-				{title}
-			</Link>
+			<span className='text-custom-color6' onClick={confirm}>
+				<ins>{title}</ins>
+			</span>
 		</>
 	)
 }

@@ -7,7 +7,7 @@ const CardBtnVideo = ({ data, onAction }) => {
 		return (
 			<button
 				type='button'
-				className='btn btn-custom-color6'
+				className='btn btn-custom-color6 text-custom-color1'
 				onClick={onAction}
 				disabled
 			>
@@ -18,7 +18,7 @@ const CardBtnVideo = ({ data, onAction }) => {
 		return (
 			<button
 				type='button'
-				className='btn btn-custom-color6'
+				className='btn btn-custom-color6 text-custom-color1'
 				onClick={onAction}
 			>
 				<FontAwesomeIcon icon={faVideo} />

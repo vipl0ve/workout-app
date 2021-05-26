@@ -36,8 +36,8 @@ const WorkoutHistory = () => {
 	})
 
 	useEffect(() => {
-		setWorkoutAgg(workoutaggregation(events))
-	}, [events])
+		setWorkoutAgg(workoutaggregation(eventsData))
+	}, [eventsData])
 
 	const deleteEvent = (id) => {
 		const confirmed = window.confirm(
@@ -46,6 +46,7 @@ const WorkoutHistory = () => {
 		if (confirmed) {
 			const newEvents = events.filter((item) => item.id !== id)
 			setEvents(newEvents)
+			setEventsData(newEvents)
 		}
 	}
 
@@ -67,10 +68,10 @@ const WorkoutHistory = () => {
 	}
 
 	return (
-		<div className='containerExercise d-flex flex-column justify-content-center'>
+		<div className='containerExercise py-3 '>
 			<h4 className='text-center text-custom-color6'>Workout History</h4>
 			<WorkoutHistoryAggCard data={workoutAgg} />
-			<div className='d-flex justify-content-around align-items-center'>
+			<div className='d-flex justify-content-around align-items-center mt-3'>
 				<DatePicker
 					calendarClassName='text-custom-color6'
 					clearIcon={null}
@@ -82,11 +83,11 @@ const WorkoutHistory = () => {
 					className='btn bg-custom-color6 text-custom-color2'
 					onClick={onResetDate}
 				>
-					Reset
+					View All
 				</button>
 			</div>
 			<div
-				className='containerExercise d-flex justify-content-between align-items-center'
+				className='containerWokroutCards'
 				style={{ minHeight: '90vh', width: 'auto' }}
 			>
 				{eventsData.length !== 0 ? (
@@ -95,7 +96,7 @@ const WorkoutHistory = () => {
 						onAction={deleteEvent}
 					/>
 				) : (
-					<p>No Workout Available</p>
+					<p className='text-center mt-5 text-muted'>No Workout Available</p>
 				)}
 			</div>
 		</div>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
+import $ from 'jquery'
+import NoSleep from 'nosleep.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
 	faPlay,
@@ -10,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { quotes } from '../../data/quotes.json'
 import exerciseIcon from '../../asset/exerciseIcon.png'
+import Speak from '../utils/Speak'
 
 const WorkoutIntro = ({
 	routineInfo,
@@ -19,6 +22,7 @@ const WorkoutIntro = ({
 	setPlayStatus,
 }) => {
 	const history = useHistory()
+	var noSleep = new NoSleep()
 	function getRandomInt(min, max) {
 		min = Math.ceil(min)
 		max = Math.floor(max)
@@ -27,7 +31,32 @@ const WorkoutIntro = ({
 	const [allQuotes] = useState(quotes)
 	const [quote] = useState(allQuotes[getRandomInt(0, allQuotes.length - 1)])
 
+	useEffect(() => {
+		$('html, body').animate(
+			{
+				scrollTop: $('.card').first().offset().top,
+			},
+			200
+		)
+	}, [])
+
+	useEffect(() => {
+		if (curModule === -1) {
+			Speak({ text: `Start Workout ${routineInfo.name}`, voiceIndex: 1 })
+		} else if (curModule === routineInfo.exercises.length) {
+			Speak({
+				text: `Congratulations! Workout Completed. Total Duration ${moment
+					.duration(time, 's')
+					.humanize()}`,
+				voiceIndex: 1,
+			})
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [curModule])
+
 	const onPlay = () => {
+		noSleep.enable()
+		Speak({ text: 'Start Workout', voiceIndex: 1 })
 		nextStep()
 		setPlayStatus(true)
 	}
@@ -62,7 +91,7 @@ const WorkoutIntro = ({
 			>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
-						<h5 className='text-custom-color6'>Start Workout</h5>
+						<h5 className='text-custom-color6'>Workout Started</h5>
 					</div>
 
 					<div className='card-body'>
@@ -71,12 +100,11 @@ const WorkoutIntro = ({
 							<small className='card-text'>Author: {routineInfo.author}</small>
 						</div>
 						<p className='card-text'>
-							Start the routine.
 							<img src={exerciseIcon} className='card-text' alt='exercise' />
 						</p>
 						<button
 							type='button'
-							className='btn btn-custom-color6'
+							className='btn btn-custom-color6 text-custom-color1'
 							onClick={onPlay}
 						>
 							Start Workout <FontAwesomeIcon icon={faPlay} />
@@ -94,7 +122,7 @@ const WorkoutIntro = ({
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-center align-items-center'>
-							<h5 className='text-custom-color6'>End Workout</h5>
+							<h5 className='text-custom-color6'>Workout Completed</h5>
 						</div>
 					</div>
 					<div className='card-body'>
@@ -124,7 +152,7 @@ const WorkoutIntro = ({
 							<div className='col'>
 								<button
 									type='button'
-									className='btn btn-custom-color6'
+									className='btn btn-custom-color6 text-custom-color1'
 									onClick={onFinished}
 								>
 									Save <FontAwesomeIcon icon={faSave} />
@@ -133,7 +161,7 @@ const WorkoutIntro = ({
 							<div className='col'>
 								<button
 									type='button'
-									className='btn btn-custom-color6'
+									className='btn btn-custom-color6 text-custom-color1'
 									onClick={onDiscard}
 								>
 									Discard <FontAwesomeIcon icon={faTrashAlt} />
@@ -143,7 +171,7 @@ const WorkoutIntro = ({
 					</div>
 				</div>
 				<div className='my-5 p-2 border border-custom-color6 rounded'>
-					<blockquote className='blockquote text-center text-custom-color6'>
+					<blockquote className='blockquote text-center text-custom-color6 fs-6'>
 						<p className='mb-0'>
 							<i>{'"' + quote.quote + '"'}</i>
 						</p>

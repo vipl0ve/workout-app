@@ -10,17 +10,17 @@ const CardHeader = ({
 	return (
 		<>
 			<div className='col col-4 text-start'>
-				<div className='row'>
-					<span className='text-custom-color6'>
-						<b>Exercise {counter + '/' + exerciseData.length}</b>
-					</span>
-				</div>
+				<span className='text-custom-color6'>
+					<b>Exercise {counter + '/' + exerciseData.length}</b>
+				</span>
+
 				{progression && (
-					<div className='row'>
+					<>
+						<br />
 						<span className='text-custom-color6'>
 							<b>Set: {curSet + '/' + totalSets}</b>
 						</span>
-					</div>
+					</>
 				)}
 			</div>
 		</>
