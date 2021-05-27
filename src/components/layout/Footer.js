@@ -10,7 +10,7 @@ const Footer = () => {
 			<footer className='footer py-1 bg-custom-color2'>
 				<div className='text-center'>
 					<small className='text-muted'>
-						Copyright &copy; {curYear()}. BodyWorkout App.
+						Copyright &copy; {curYear()}. Body Workout App.
 					</small>
 				</div>
 			</footer>

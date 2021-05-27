@@ -13,7 +13,6 @@ const CardHeader = ({
 				<span className='text-custom-color6'>
 					<b>Exercise {counter + '/' + exerciseData.length}</b>
 				</span>
-
 				{progression && (
 					<>
 						<br />

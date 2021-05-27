@@ -4,6 +4,8 @@ import moment from 'moment'
 import DatePicker from 'react-date-picker'
 import WorkoutHistoryAggCard from './WorkoutHistoryAggCard'
 import WorkoutHistoryCard from './WorkoutHistoryCard'
+import PageHeader from '../layout/PageHeader'
+import WorkoutActitivty from './WorkoutActitivty'
 
 const workoutaggregation = (events) => {
 	let workoutAgg = {}
@@ -26,14 +28,61 @@ const workoutaggregation = (events) => {
 	return workoutAgg
 }
 
+const weeklyActivity = (events) => {
+	var weekEvents = []
+	var activity = {
+		Mon: false,
+		Tue: false,
+		Wed: false,
+		Thu: false,
+		Fri: false,
+		Sat: false,
+		Sun: false,
+	}
+	if (events.length !== 0) {
+		weekEvents = events
+			.filter((i) => i.week === moment().format('w'))
+			.map((i) => i.day)
+
+		const keys = Object.keys(activity)
+		for (const key of keys) {
+			if (weekEvents.includes(key)) activity[key] = true
+			else activity[key] = false
+		}
+	}
+	return activity
+}
+
 const WorkoutHistory = () => {
 	const [events, setEvents] = useLocalStorage('bwWorkoutHistory', '')
 	const [curDate, setCurDate] = useState(new Date())
+	const [filter, setFilter] = useState(false)
+	const [weekActivity, setWeekActivity] = useState(weeklyActivity(events))
 	const [eventsData, setEventsData] = useState(events)
 	const [workoutAgg, setWorkoutAgg] = useState({
 		totalWorkoutCount: 0,
 		totalWorkoutDuration: 0,
 	})
+
+	useEffect(() => {
+		setEventsData(events)
+		setWeekActivity(weeklyActivity(events))
+	}, [events])
+
+	useEffect(() => {
+		if (filter) {
+			const newEvents = events.filter((item) => {
+				var startDate = new Date(item.start)
+				return (
+					startDate >= moment(curDate).startOf('day') &&
+					startDate <= moment(curDate).endOf('day')
+				)
+			})
+			setEventsData(newEvents)
+		} else {
+			setEventsData(events)
+		}
+	}, [curDate, filter, events])
 
 	useEffect(() => {
 		setWorkoutAgg(workoutaggregation(eventsData))
@@ -46,31 +95,24 @@ const WorkoutHistory = () => {
 		if (confirmed) {
 			const newEvents = events.filter((item) => item.id !== id)
 			setEvents(newEvents)
-			setEventsData(newEvents)
 		}
 	}
 
 	const onChangeDate = (date) => {
+		setFilter(true)
 		setCurDate(date)
-		const newEvents = events.filter((item) => {
-			var startDate = new Date(item.start)
-			return (
-				startDate >= moment(date).startOf('day') &&
-				startDate <= moment(date).endOf('day')
-			)
-		})
-		setEventsData(newEvents)
 	}
 
 	const onResetDate = () => {
+		setFilter(false)
 		setCurDate(new Date())
-		setEventsData(events)
 	}
 
 	return (
 		<div className='containerExercise py-3 '>
-			<h4 className='text-center text-custom-color6'>Workout History</h4>
+			<PageHeader text='Workout History' />
 			<WorkoutHistoryAggCard data={workoutAgg} />
+			<WorkoutActitivty data={weekActivity} />
 			<div className='d-flex justify-content-around align-items-center mt-3'>
 				<DatePicker
 					calendarClassName='text-custom-color6'

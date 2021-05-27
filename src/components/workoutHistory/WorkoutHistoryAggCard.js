@@ -1,5 +1,5 @@
-import moment from 'moment'
 import React from 'react'
+import { secondFormatted } from '../../helper/helperfunctions'
 
 const WorkoutHistoryAggCard = ({ data }) => {
 	return (
@@ -12,9 +12,7 @@ const WorkoutHistoryAggCard = ({ data }) => {
 					Total Duration:{' '}
 					<ins>
 						{data.totalWorkoutDuration
-							? moment(new Date(new Date().setHours(0, 0, 0, 0)))
-									.add(data.totalWorkoutDuration, 'seconds')
-									.format('HH:mm:ss')
+							? secondFormatted(data.totalWorkoutDuration)
 							: '00:00:00'}
 					</ins>
 				</h6>

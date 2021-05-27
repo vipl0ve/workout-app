@@ -6,6 +6,7 @@ import Timer from '../utils/Timer'
 import Speak from '../utils/Speak'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import PageHeader from '../layout/PageHeader'
 
 const Breathe = () => {
 	const [totalTime] = useState(7500)
@@ -56,8 +57,7 @@ const Breathe = () => {
 				Speak({ text: 'Exhale...', voiceIndex: 1 })
 			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [text])
+	}, [text, volume])
 
 	const styles = {
 		breathe: {
@@ -113,17 +113,23 @@ const Breathe = () => {
 
 	return (
 		<div className='breathe' style={styles.breathe}>
-			<h4 className='text-center text-custom-color6 mt-1'>
-				Basic Meditation{'  '}
-				{volume ? (
-					<FontAwesomeIcon icon={faVolumeUp} onClick={() => setVolume(false)} />
-				) : (
-					<FontAwesomeIcon
-						icon={faVolumeMute}
-						onClick={() => setVolume(true)}
-					/>
-				)}
-			</h4>
+			<div className='d-flex flex-row justify-content-around align-items-start'>
+				<PageHeader text='Basic Meditation' />
+				{'  '}
+				<h5 className='text-end text-custom-color6 ml-3'>
+					{volume ? (
+						<FontAwesomeIcon
+							icon={faVolumeUp}
+							onClick={() => setVolume(false)}
+						/>
+					) : (
+						<FontAwesomeIcon
+							icon={faVolumeMute}
+							onClick={() => setVolume(true)}
+						/>
+					)}
+				</h5>
+			</div>
 			<p className='text-custom-color6 mb-1'>
 				Total Duration:{' '}
 				<b>

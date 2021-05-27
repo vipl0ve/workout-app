@@ -113,12 +113,14 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='d-flex justify-content-around align-items-center mt-3'>
 						<button
 							className='btn btn-custom-color5 text-custom-color1'
+							type='reset'
 							onClick={onReset}
 						>
 							Reset
 						</button>
 						<button
 							className='btn btn-custom-color5 text-custom-color1'
+							type='submit'
 							onClick={onSubmit}
 						>
 							Calculate

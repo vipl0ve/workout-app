@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { challenges } from '../../data/challenges.json'
+import PageHeader from '../layout/PageHeader'
 
 const Challenges = () => {
 	const [challengesData] = useState(challenges)
@@ -42,7 +43,7 @@ const Challenges = () => {
 				style={{ minHeight: '90vh', width: 'auto' }}
 			>
 				<form className='bg-custom-color2 border border-custom-color3 border-5 rounded p-3'>
-					<h4 className='text-center text-custom-color6 mb-3'>Challenges</h4>
+					<PageHeader text='Challenges' />
 					<div className='form-row'>
 						<div className='form-group mb-2'>
 							<div className='input-group col-12'>

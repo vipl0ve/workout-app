@@ -1,14 +1,5 @@
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-
-$size-s: 14px;
-$size-m: 16px;
-$size-l: 20px;
-$size-xl: 24px;
-
-.navbar {
-	height: 10em;
-}
+// Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 /* Modern browsers only need this one */
 @media screen and (min-width: 25em) {

@@ -2,17 +2,17 @@ import React, { useEffect } from 'react'
 import Stopwatch from '../utils/Stopwatch'
 import Speak from './Speak'
 
-const FillerCard = ({ settings, exercise, setFillerModule }) => {
+const FillerCard = ({ settings, exercise, speak, setFillerModule }) => {
 	useEffect(() => {
-		Speak({
-			text: `${exercise} Exercise will starts in ${settings.beforeExercise} second`,
-			voiceIndex: 1,
-		})
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+		if (speak) {
+			Speak({
+				text: `${exercise} Exercise will starts in ${settings.beforeExercise} seconds`,
+				voiceIndex: 1,
+			})
+		}
+	}, [exercise, settings.beforeExercise, speak])
 
 	const onCompleted = () => {
-		Speak({ text: 'Timer Ended', voiceIndex: 1 })
 		setFillerModule(false)
 	}
 
@@ -30,6 +30,7 @@ const FillerCard = ({ settings, exercise, setFillerModule }) => {
 					</h5>
 					<Stopwatch
 						data={settings.beforeExercise}
+						speak={speak}
 						timerCompletedStatus={onCompleted}
 					/>
 				</div>

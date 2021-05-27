@@ -8,17 +8,19 @@ const CardShowTimer = ({
 	activity,
 	exercise,
 	curSet,
+	speak,
 	settings,
 	timerCompleted,
 	timerSkip,
 }) => {
 	useEffect(() => {
-		Speak({
-			text: `Rest for ${settings.betweenSet} seconds. Next Exercise ${exercise.curProgressions.name} Set: ${curSet}`,
-			voiceIndex: 1,
-		})
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+		if (speak) {
+			Speak({
+				text: `Rest for ${settings.betweenSet} seconds. Next Exercise ${exercise.curProgressions.name} Set: ${curSet}`,
+				voiceIndex: 1,
+			})
+		}
+	}, [curSet, exercise.curProgressions.name, settings.betweenSet, speak])
 
 	return (
 		<>
@@ -51,6 +53,7 @@ const CardShowTimer = ({
 									? settings.betweenSet
 									: settings.betweenExercise
 							}
+							speak={speak}
 							timerCompletedStatus={timerCompleted}
 						/>
 						<button

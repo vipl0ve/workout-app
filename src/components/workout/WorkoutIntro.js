@@ -13,13 +13,17 @@ import {
 import { quotes } from '../../data/quotes.json'
 import exerciseIcon from '../../asset/exerciseIcon.png'
 import Speak from '../utils/Speak'
+import CardBtnSpeak from '../workoutCards/CardBtnSpeak'
+import { secondFormatted } from '../../helper/helperfunctions'
 
 const WorkoutIntro = ({
 	routineInfo,
 	time,
+	speak,
 	curModule,
 	nextStep,
 	setPlayStatus,
+	setSpeakStatus,
 }) => {
 	const history = useHistory()
 	var noSleep = new NoSleep()
@@ -41,22 +45,32 @@ const WorkoutIntro = ({
 	}, [])
 
 	useEffect(() => {
-		if (curModule === -1) {
-			Speak({ text: `Start Workout ${routineInfo.name}`, voiceIndex: 1 })
-		} else if (curModule === routineInfo.exercises.length) {
-			Speak({
-				text: `Congratulations! Workout Completed. Total Duration ${moment
-					.duration(time, 's')
-					.humanize()}`,
-				voiceIndex: 1,
-			})
+		if (speak) {
+			if (curModule === -1) {
+				Speak({
+					text: `Get Started Now!`,
+					voiceIndex: 1,
+				})
+			} else if (curModule === routineInfo.exercises.length) {
+				if (time < 60) {
+					Speak({
+						text: `No Workout found`,
+						voiceIndex: 1,
+					})
+				} else {
+					Speak({
+						text: `Congratulations! Workout Completed. Total Duration ${moment
+							.duration(time, 's')
+							.humanize()}`,
+						voiceIndex: 1,
+					})
+				}
+			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [curModule])
+	}, [speak, curModule, routineInfo.exercises.length, time])
 
 	const onPlay = () => {
 		noSleep.enable()
-		Speak({ text: 'Start Workout', voiceIndex: 1 })
 		nextStep()
 		setPlayStatus(true)
 	}
@@ -65,8 +79,9 @@ const WorkoutIntro = ({
 		const workout = {
 			routineName: routineInfo.name,
 			totalDuration: time,
-			workoutTime: moment().format(),
+			workoutEndTime: moment().format(),
 		}
+		noSleep.disable()
 		setPlayStatus(false)
 		history.push({
 			pathname: '/workoutcompleted',
@@ -78,6 +93,7 @@ const WorkoutIntro = ({
 
 	const onDiscard = () => {
 		setPlayStatus(false)
+		noSleep.disable()
 		history.push({
 			pathname: '/',
 		})
@@ -91,7 +107,14 @@ const WorkoutIntro = ({
 			>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
-						<h5 className='text-custom-color6'>Workout Started</h5>
+						<h5 className='text-custom-color6'>
+							Workout Started
+							<CardBtnSpeak
+								speak={speak}
+								setSpeakStatus={setSpeakStatus}
+								isBtn={false}
+							/>
+						</h5>
 					</div>
 
 					<div className='card-body'>
@@ -122,7 +145,14 @@ const WorkoutIntro = ({
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header bg-transparent border-custom-color4'>
 						<div className='d-flex justify-content-center align-items-center'>
-							<h5 className='text-custom-color6'>Workout Completed</h5>
+							<h5 className='text-custom-color6'>
+								Workout Completed
+								<CardBtnSpeak
+									speak={speak}
+									setSpeakStatus={setSpeakStatus}
+									isBtn={false}
+								/>
+							</h5>
 						</div>
 					</div>
 					<div className='card-body'>
@@ -138,8 +168,8 @@ const WorkoutIntro = ({
 							<>
 								<h5 className='card-title'>Congratulations!</h5>
 								<p className='card-text'>
-									You just completed {moment.duration(time, 's').humanize()}{' '}
-									workout.
+									You just completed workout. Total Duration{' '}
+									{secondFormatted(time)}.
 								</p>
 								<p>You deserve this medal.</p>
 								<h3>

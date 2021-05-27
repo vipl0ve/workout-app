@@ -7,7 +7,7 @@ export const NavItem = ({ title, to }) => {
 	if (location.pathname === to) {
 		return (
 			<>
-				<li className='nav-item border border-custom-color4'>
+				<li className='nav-item'>
 					<Link
 						className='nav-link active bg-custom-color2 text-custom-color6'
 						to={to}
@@ -20,7 +20,7 @@ export const NavItem = ({ title, to }) => {
 	} else {
 		return (
 			<>
-				<li className='nav-item border border-custom-color4'>
+				<li className='nav-item'>
 					<Link className='nav-link text-custom-color1' to={to}>
 						{title}
 					</Link>

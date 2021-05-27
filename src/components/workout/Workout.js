@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { routines } from '../../data/exercise.json'
 import WorkoutAccordion from './WorkoutAccordion'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import PageHeader from '../layout/PageHeader'
 
 const Workout = () => {
 	const history = useHistory()
@@ -109,7 +110,7 @@ const Workout = () => {
 				className='containerExercise d-flex flex-column justify-content-start'
 				style={{ minHeight: '90vh', width: 'auto' }}
 			>
-				<h5 className='text-center text-custom-color6'>Select Routine</h5>
+				<PageHeader text='Select Routine' />
 				<div className='d-flex justify-content-between mb-3 mx-1'>
 					<select
 						id='selectRoutine'

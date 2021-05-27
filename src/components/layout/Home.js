@@ -1,14 +1,16 @@
 import React from 'react'
 import ColoredLink from '../utils/ColoredLink'
 import ExternalLink from '../utils/ExternalLink'
+import PageHeader from './PageHeader'
 
 const Home = () => {
 	return (
 		<>
-			<div className='container py-3 text-custom-color6'>
-				<h5 className='text-center'>
-					<b>WELCOME</b> to <b>BODY WORKOUT APP</b>
-				</h5>
+			<div
+				className='container py-3 text-custom-color6'
+				style={{ minHeight: '90vh', width: 'auto' }}
+			>
+				<PageHeader text='WELCOME to BODYWORKOUT APP' />
 				<hr />
 				<p className='text-justify' style={{ textAlign: 'justify' }}>
 					This powerful app assists you with achieving both mental and physical

@@ -7,12 +7,12 @@ import FillerCard from '../utils/FillerCard'
 import Speak from '../utils/Speak'
 
 const WorkoutProgress = (props) => {
-	//const [query] = useState(queryString.parse(props.location.search))
 	const [routine] = useState(props.location.state.routine)
 	const [settings] = useState(props.location.state.settings)
 	const [timer, setTimer] = useState(0)
 	const [play, setPlay] = useState(false)
 	const [autoPlay, setAutoPlay] = useState(true)
+	const [speak, setSpeak] = useState(true)
 	const [curModule, setCurModule] = useState(-1)
 	const [fillerModule, setFillerModule] = useState(true)
 	const countRef = useRef(null)
@@ -45,20 +45,41 @@ const WorkoutProgress = (props) => {
 		setCurModule(routine.exercises.length)
 	}
 
+	const setPlayStatus = (status) => {
+		setPlay(status)
+	}
+
 	const setAutoPlayData = (checked) => {
-		if (checked) {
+		if (speak) {
+			if (checked) {
+				Speak({
+					text: `Autoplay On`,
+					voiceIndex: 1,
+				})
+			} else {
+				Speak({
+					text: `Autoplay Off`,
+					voiceIndex: 1,
+				})
+			}
+		}
+		setAutoPlay(checked)
+	}
+
+	const setSpeakStatus = (status) => {
+		if (status) {
 			Speak({
-				text: `Autoplay On`,
+				text: `Speaking On`,
 				voiceIndex: 1,
 			})
 		} else {
 			Speak({
-				text: `Autoplay Off`,
+				text: `Speaking Off`,
 				voiceIndex: 1,
 			})
 		}
 
-		setAutoPlay(checked)
+		setSpeak(status)
 	}
 
 	if (curModule === -1) {
@@ -66,9 +87,11 @@ const WorkoutProgress = (props) => {
 			<WorkoutIntro
 				routineInfo={routine}
 				time={timer}
+				speak={speak}
 				curModule={curModule}
 				nextStep={nextStep}
-				setPlayStatus={setPlay}
+				setPlayStatus={setPlayStatus}
+				setSpeakStatus={setSpeakStatus}
 			/>
 		)
 	} else if (curModule > -1 && curModule < routine.exercises.length) {
@@ -77,6 +100,7 @@ const WorkoutProgress = (props) => {
 				<FillerCard
 					settings={settings}
 					exercise={routine.exercises[curModule].name}
+					speak={speak}
 					setFillerModule={setFillerModule}
 				/>
 			)
@@ -88,12 +112,14 @@ const WorkoutProgress = (props) => {
 						time={timer}
 						play={play}
 						autoPlay={autoPlay}
+						speak={speak}
 						settings={settings}
 						nextStep={nextStep}
 						prevStep={prevStep}
 						lastStep={lastStep}
 						setFillerModule={setFillerModule}
-						setPlayStatus={setPlay}
+						setPlayStatus={setPlayStatus}
+						setSpeakStatus={setSpeakStatus}
 						setAutoPlay={setAutoPlayData}
 					/>
 				)
@@ -104,12 +130,14 @@ const WorkoutProgress = (props) => {
 						time={timer}
 						play={play}
 						autoPlay={autoPlay}
+						speak={speak}
 						settings={settings}
 						nextStep={nextStep}
 						prevStep={prevStep}
 						lastStep={lastStep}
 						setFillerModule={setFillerModule}
-						setPlayStatus={setPlay}
+						setPlayStatus={setPlayStatus}
+						setSpeakStatus={setSpeakStatus}
 						setAutoPlay={setAutoPlayData}
 					/>
 				)
@@ -122,10 +150,12 @@ const WorkoutProgress = (props) => {
 			<WorkoutIntro
 				routineInfo={routine}
 				time={timer}
+				speak={speak}
 				curModule={curModule}
 				nextStep={nextStep}
 				prevStep={prevStep}
-				setPlayStatus={setPlay}
+				setSpeakStatus={setSpeakStatus}
+				setPlayStatus={setPlayStatus}
 			/>
 		)
 	} else {

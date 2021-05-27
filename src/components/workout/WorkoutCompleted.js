@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
-import NoSleep from 'nosleep.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import Timer from '../utils/Timer'
 import { useLocalStorage } from '../utils/useLocalStorage'
+import { findMaxId } from '../../helper/helperfunctions'
 
 const WorkoutCompleted = (props) => {
 	const history = useHistory()
 	const [workout] = useState(props.location.state.workout)
 	const [events, setEvents] = useLocalStorage('bwWorkoutHistory', '')
-	var noSleep = new NoSleep()
-	noSleep.disable()
 
 	useEffect(() => {
 		let newEvent = {}
@@ -21,11 +19,17 @@ const WorkoutCompleted = (props) => {
 				id: 0,
 				title: workout.routineName,
 				duration: workout.totalDuration,
-				start: moment(workout.workoutTime).subtract(
+				start: moment(workout.workoutEndTime).subtract(
 					workout.totalDuration,
 					'seconds'
 				),
-				end: moment(workout.workoutTime).format(),
+				end: moment(workout.workoutEndTime).format(),
+				day: moment(workout.workoutEndTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format('ddd'),
+				week: moment(workout.workoutEndTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format('w'),
 			}
 			setEvents([newEvent])
 		} else if (events.length === 0) {
@@ -33,25 +37,37 @@ const WorkoutCompleted = (props) => {
 				id: 0,
 				title: workout.routineName,
 				duration: workout.totalDuration,
-				start: moment(workout.workoutTime)
+				start: moment(workout.workoutEndTime)
 					.subtract(workout.totalDuration, 'seconds')
 					.format(),
-				end: moment(workout.workoutTime).format(),
+				end: moment(workout.workoutEndTime).format(),
+				day: moment(workout.workoutEndTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format('ddd'),
+				week: moment(workout.workoutEndTime)
+					.subtract(workout.totalDuration, 'seconds')
+					.format('w'),
 			}
 			setEvents([newEvent])
 		} else {
 			const eventIndex = events.findIndex(
-				(x) => x.end === moment(workout.workoutTime).format()
+				(x) => x.end === moment(workout.workoutEndTime).format()
 			)
 			if (eventIndex === -1) {
 				newEvent = {
-					id: events.length + 1,
+					id: findMaxId(events) + 1,
 					title: workout.routineName,
 					duration: workout.totalDuration,
-					start: moment(workout.workoutTime)
+					start: moment(workout.workoutEndTime)
 						.subtract(workout.totalDuration, 'seconds')
 						.format(),
-					end: moment(workout.workoutTime).format(),
+					end: moment(workout.workoutEndTime).format(),
+					day: moment(workout.workoutEndTime)
+						.subtract(workout.totalDuration, 'seconds')
+						.format('ddd'),
+					week: moment(workout.workoutEndTime)
+						.subtract(workout.totalDuration, 'seconds')
+						.format('w'),
 				}
 				events.push(newEvent)
 				setEvents(events)
@@ -91,7 +107,7 @@ const WorkoutCompleted = (props) => {
 						<p className='card-text'>
 							Time:{' '}
 							<i>
-								{moment(workout.workoutTime).format(
+								{moment(workout.workoutEndTime).format(
 									'dddd, MMM Do YY, h:mm:ss A'
 								)}
 							</i>

@@ -11,18 +11,21 @@ import CardAutoPlay from '../workoutCards/CardAutoPlay'
 import CardHeader from '../workoutCards/CardHeader'
 import CardVideo from '../workoutCards/CardVideo'
 import Speak from '../utils/Speak'
+import CardBtnSpeak from '../workoutCards/CardBtnSpeak'
 
 const WorkoutBasicCard = ({
 	exerciseData,
 	time,
 	play,
 	autoPlay,
+	speak,
 	settings,
 	nextStep,
 	prevStep,
 	lastStep,
 	setFillerModule,
 	setPlayStatus,
+	setSpeakStatus,
 	setAutoPlay,
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
@@ -36,33 +39,36 @@ const WorkoutBasicCard = ({
 	})
 
 	useEffect(() => {
-		if (exercise.type === 'Duration') {
-			Speak({
-				text: `Do ${exercise.name} for ${exercise.qty} seconds`,
-				voiceIndex: 1,
-			})
-		} else if (exercise.type === 'Reps') {
-			Speak({
-				text: `Do ${exercise.name} for ${exercise.qty} times`,
-				voiceIndex: 1,
-			})
+		if (speak) {
+			if (exercise.type === 'Duration') {
+				Speak({
+					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} seconds`,
+					voiceIndex: 1,
+				})
+			} else if (exercise.type === 'Reps') {
+				Speak({
+					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} times`,
+					voiceIndex: 1,
+				})
+			}
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [exercise])
+	}, [counter, exercise, speak])
 
 	useEffect(() => {}, [play, exercise])
 
 	const setCardPlayStatus = () => {
-		if (play) {
-			Speak({
-				text: `Paused`,
-				voiceIndex: 1,
-			})
-		} else {
-			Speak({
-				text: `Play`,
-				voiceIndex: 1,
-			})
+		if (speak) {
+			if (!play) {
+				Speak({
+					text: `Play`,
+					voiceIndex: 1,
+				})
+			} else {
+				Speak({
+					text: `Paused`,
+					voiceIndex: 1,
+				})
+			}
 		}
 		setPlayStatus(!play)
 	}
@@ -95,9 +101,19 @@ const WorkoutBasicCard = ({
 	}
 
 	const endWorkout = () => {
-		lastStep()
-		setFillerModule(false)
-		setPlayStatus(false)
+		var confirmation = window.confirm(
+			'This will end current workout. Are you sure?'
+		)
+		if (confirmation) {
+			if (speak) {
+				Speak({
+					text: `Ending Workout now`,
+					voiceIndex: 1,
+				})
+			}
+			setFillerModule(false)
+			lastStep()
+		}
 	}
 
 	const showInfo = () => {
@@ -153,6 +169,11 @@ const WorkoutBasicCard = ({
 					<div className='btn-group' role='group' aria-label='Basic example'>
 						<CardBtnInfo data={exercise.desc} onAction={showInfo} />
 						<CardBtnVideo data={exercise.video} onAction={showVideo} />
+						<CardBtnSpeak
+							speak={speak}
+							setSpeakStatus={setSpeakStatus}
+							isBtn={true}
+						/>
 						<CardBtnBackward
 							onAction={prevExercise}
 							disabled={btnDisabled.prev}

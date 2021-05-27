@@ -56,6 +56,7 @@ const CardAutoPlay = ({
 						<CardBtnAutoPlay
 							autoPlay={autoPlay}
 							status={true}
+							progression={progression}
 							onAction={setAutoPlay}
 						/>
 					</div>
@@ -77,6 +78,12 @@ const CardAutoPlay = ({
 							}
 							settings={'ms'}
 						/>
+						{progression && (
+							<>
+								<br />
+								<br />
+							</>
+						)}
 					</div>
 				</>
 			)
@@ -87,6 +94,7 @@ const CardAutoPlay = ({
 						<CardBtnAutoPlay
 							autoPlay={autoPlay}
 							status={false}
+							progression={progression}
 							onAction={setAutoPlay}
 						/>
 					</div>

@@ -23,7 +23,7 @@ const Navbar = () => {
 					id='navbarSupportedContent'
 					onClick={handleNavClick}
 				>
-					<ul className='navbar-nav me-auto text-center border-top border-custom-color2'>
+					<ul className='navbar-nav me-auto text-center'>
 						<NavItem title='Home' to='/' />
 						<NavItem title='Workout' to='/workout' />
 						<NavItem title='Workout History' to='/workouthistory' />

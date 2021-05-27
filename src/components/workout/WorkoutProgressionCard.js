@@ -13,18 +13,21 @@ import CardShowTimer from '../workoutCards/CardShowTimer'
 import { getQty } from '../../helper/helperfunctions'
 import CardVideo from '../workoutCards/CardVideo'
 import Speak from '../utils/Speak'
+import CardBtnSpeak from '../workoutCards/CardBtnSpeak'
 
 const WorkoutProgressionCard = ({
 	exerciseData,
 	time,
 	play,
 	autoPlay,
+	speak,
 	settings,
 	nextStep,
 	prevStep,
 	lastStep,
 	setFillerModule,
 	setPlayStatus,
+	setSpeakStatus,
 	setAutoPlay,
 }) => {
 	const [exercise, setExercise] = useState(exerciseData[0])
@@ -43,27 +46,6 @@ const WorkoutProgressionCard = ({
 	})
 
 	useEffect(() => {
-		if (!showTimer) {
-			if (exercise.curProgressions.type === 'Duration') {
-				Speak({
-					text: `Do ${exercise.curProgressions.name} Set ${curSet} for ${
-						reps[curSet - 1]
-					} seconds`,
-					voiceIndex: 1,
-				})
-			} else if (exercise.curProgressions.type === 'Reps') {
-				Speak({
-					text: `Do ${exercise.curProgressions.name} Set ${curSet} for ${
-						reps[curSet - 1]
-					} times`,
-					voiceIndex: 1,
-				})
-			}
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [exercise, showTimer])
-
-	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
 		setCurSet(1)
 	}, [exercise])
@@ -80,17 +62,41 @@ const WorkoutProgressionCard = ({
 
 	useEffect(() => {}, [play])
 
+	useEffect(() => {
+		if (speak) {
+			if (activity === 'Exercise') {
+				if (exercise.curProgressions.type === 'Duration') {
+					Speak({
+						text: `Exercise ${counter}, Do ${
+							exercise.curProgressions.name
+						} Set ${curSet} for ${reps[curSet - 1]} seconds`,
+						voiceIndex: 1,
+					})
+				} else if (exercise.curProgressions.type === 'Reps') {
+					Speak({
+						text: `Exercise ${counter}, Do ${
+							exercise.curProgressions.name
+						} Set ${curSet} for ${reps[curSet - 1]} times`,
+						voiceIndex: 1,
+					})
+				}
+			}
+		}
+	}, [activity, counter, curSet, exercise, reps, speak])
+
 	const setCardPlayStatus = () => {
-		if (play) {
-			Speak({
-				text: `Paused`,
-				voiceIndex: 1,
-			})
-		} else {
-			Speak({
-				text: `Play`,
-				voiceIndex: 1,
-			})
+		if (speak) {
+			if (!play) {
+				Speak({
+					text: `Play`,
+					voiceIndex: 1,
+				})
+			} else {
+				Speak({
+					text: `Paused`,
+					voiceIndex: 1,
+				})
+			}
 		}
 		setPlayStatus(!play)
 	}
@@ -171,9 +177,19 @@ const WorkoutProgressionCard = ({
 	}
 
 	const endWorkout = () => {
-		setFillerModule(false)
-		setPlayStatus(false)
-		lastStep()
+		var confirmation = window.confirm(
+			'This will end current workout. Are you sure?'
+		)
+		if (confirmation) {
+			if (speak) {
+				Speak({
+					text: `Ending Workout now`,
+					voiceIndex: 1,
+				})
+			}
+			setFillerModule(false)
+			lastStep()
+		}
 	}
 
 	const showInfo = () => {
@@ -200,6 +216,7 @@ const WorkoutProgressionCard = ({
 				activity={activity}
 				exercise={exercise}
 				curSet={curSet}
+				speak={speak}
 				settings={settings}
 				timerCompleted={timerCompleted}
 				timerSkip={timerSkip}
@@ -259,6 +276,11 @@ const WorkoutProgressionCard = ({
 							<CardBtnVideo
 								data={exercise.curProgressions.video}
 								onAction={showVideo}
+							/>
+							<CardBtnSpeak
+								speak={speak}
+								setSpeakStatus={setSpeakStatus}
+								isBtn={true}
 							/>
 							<CardBtnBackward
 								onAction={prevElement}
