@@ -1,26 +1,27 @@
 {
   "files": {
     "main.css": "/workout-app/static/css/main.d230d623.chunk.css",
-    "main.js": "/workout-app/static/js/main.751e983e.chunk.js",
-    "main.js.map": "/workout-app/static/js/main.751e983e.chunk.js.map",
+    "main.js": "/workout-app/static/js/main.d87c94d9.chunk.js",
+    "main.js.map": "/workout-app/static/js/main.d87c94d9.chunk.js.map",
     "runtime-main.js": "/workout-app/static/js/runtime-main.19af4607.js",
     "runtime-main.js.map": "/workout-app/static/js/runtime-main.19af4607.js.map",
     "static/css/2.e20f0ba4.chunk.css": "/workout-app/static/css/2.e20f0ba4.chunk.css",
-    "static/js/2.ba9d79bc.chunk.js": "/workout-app/static/js/2.ba9d79bc.chunk.js",
-    "static/js/2.ba9d79bc.chunk.js.map": "/workout-app/static/js/2.ba9d79bc.chunk.js.map",
+    "static/js/2.748951c0.chunk.js": "/workout-app/static/js/2.748951c0.chunk.js",
+    "static/js/2.748951c0.chunk.js.map": "/workout-app/static/js/2.748951c0.chunk.js.map",
     "static/js/3.8e4d42fd.chunk.js": "/workout-app/static/js/3.8e4d42fd.chunk.js",
     "static/js/3.8e4d42fd.chunk.js.map": "/workout-app/static/js/3.8e4d42fd.chunk.js.map",
     "index.html": "/workout-app/index.html",
     "static/css/2.e20f0ba4.chunk.css.map": "/workout-app/static/css/2.e20f0ba4.chunk.css.map",
     "static/css/main.d230d623.chunk.css.map": "/workout-app/static/css/main.d230d623.chunk.css.map",
-    "static/js/2.ba9d79bc.chunk.js.LICENSE.txt": "/workout-app/static/js/2.ba9d79bc.chunk.js.LICENSE.txt",
+    "static/js/2.748951c0.chunk.js.LICENSE.txt": "/workout-app/static/js/2.748951c0.chunk.js.LICENSE.txt",
+    "static/media/beep.028204c6.mp3": "/workout-app/static/media/beep.028204c6.mp3",
     "static/media/double-beep.30a766c7.mp3": "/workout-app/static/media/double-beep.30a766c7.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.19af4607.js",
     "static/css/2.e20f0ba4.chunk.css",
-    "static/js/2.ba9d79bc.chunk.js",
+    "static/js/2.748951c0.chunk.js",
     "static/css/main.d230d623.chunk.css",
-    "static/js/main.751e983e.chunk.js"
+    "static/js/main.d87c94d9.chunk.js"
   ]
 }
