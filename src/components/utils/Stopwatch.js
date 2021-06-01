@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import ReactSvgTimer from 'react-svg-timer'
-import Beep from '../../asset/double-beep.mp3'
+import DoubleBeep from '../../asset/double-beep.mp3'
 
-const Stopwatch = ({ data, speak, timerCompletedStatus }) => {
-	var audio = new Audio(Beep)
+const Stopwatch = ({ data, speakStatus, timerCompletedStatus }) => {
+	var audio = new Audio(DoubleBeep)
 	const [resetRequested, setResetRequested] = useState(false)
 	const [logMilliseconds] = useState(false)
 
 	const onComplete = (status) => {
-		if (speak) {
+		if (speakStatus) {
 			audio.play()
 		}
+		audio.play()
 		setResetRequested(true)
 		timerCompletedStatus()
 	}

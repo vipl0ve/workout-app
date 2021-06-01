@@ -1,12 +1,11 @@
 import React from 'react'
+import PageHeader from '../layout/PageHeader'
 
 const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 	return (
 		<>
 			<form className='bg-custom-color2 border border-custom-color3 border-5 rounded p-3'>
-				<h4 className='text-center text-custom-color6 mb-3'>
-					Body Weight Caculator
-				</h4>
+				<PageHeader text='Body Weight Calculator' />
 				<div className='form-row'>
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
@@ -113,14 +112,14 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='d-flex justify-content-around align-items-center mt-3'>
 						<button
 							className='btn btn-custom-color5 text-custom-color1'
-							type='reset'
+							type='button'
 							onClick={onReset}
 						>
 							Reset
 						</button>
 						<button
 							className='btn btn-custom-color5 text-custom-color1'
-							type='submit'
+							type='button'
 							onClick={onSubmit}
 						>
 							Calculate

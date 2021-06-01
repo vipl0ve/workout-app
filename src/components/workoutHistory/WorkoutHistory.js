@@ -40,14 +40,9 @@ const weeklyActivity = (events) => {
 		Sun: false,
 	}
 	if (events.length !== 0) {
-		weekEvents = events
-			.filter((i) => i.week === moment().format('w'))
-			.map((i) => i.day)
-
-		const keys = Object.keys(activity)
-		for (const key of keys) {
-			if (weekEvents.includes(key)) activity[key] = true
-			else activity[key] = false
+		weekEvents = events.filter((i) => i.week === moment().format('w'))
+		for (const item of weekEvents) {
+			activity[item.day] = true
 		}
 	}
 	return activity
@@ -109,7 +104,7 @@ const WorkoutHistory = () => {
 	}
 
 	return (
-		<div className='containerExercise py-3 '>
+		<div className='maincontainer container py-3 '>
 			<PageHeader text='Workout History' />
 			<WorkoutHistoryAggCard data={workoutAgg} />
 			<WorkoutActitivty data={weekActivity} />
@@ -128,10 +123,7 @@ const WorkoutHistory = () => {
 					View All
 				</button>
 			</div>
-			<div
-				className='containerWokroutCards'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='wokrout-cards'>
 				{eventsData.length !== 0 ? (
 					<WorkoutHistoryCard
 						data={eventsData.slice(0).reverse()}

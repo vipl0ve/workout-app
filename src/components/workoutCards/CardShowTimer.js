@@ -1,33 +1,64 @@
 import { faStepForward } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect } from 'react'
-import Speak from '../utils/Speak'
+import React, { useCallback, useEffect, useState } from 'react'
 import Stopwatch from '../utils/Stopwatch'
 
 const CardShowTimer = ({
 	activity,
 	exercise,
 	curSet,
-	speak,
+	Speak,
+	speakStatus,
+	speakSettings,
 	settings,
 	timerCompleted,
 	timerSkip,
 }) => {
-	useEffect(() => {
-		if (speak) {
-			Speak({
-				text: `Rest for ${settings.betweenSet} seconds. Next Exercise ${exercise.curProgressions.name} Set: ${curSet}`,
-				voiceIndex: 1,
-			})
+	const [initialize, setInitialize] = useState(true)
+
+	const speakText = useCallback(() => {
+		console.log('speakText')
+		if (speakStatus) {
+			if (activity === 'RestSet') {
+				Speak.speak({
+					text: `Rest for ${settings.betweenSet} seconds between Sets. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			} else if (activity === 'RestExercise') {
+				Speak.speak({
+					text: `Rest for ${settings.betweenExercise} seconds between Exercises. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			}
 		}
-	}, [curSet, exercise.curProgressions.name, settings.betweenSet, speak])
+	}, [
+		Speak,
+		activity,
+		curSet,
+		exercise.curProgressions.name,
+		settings.betweenExercise,
+		settings.betweenSet,
+		speakSettings.pitch,
+		speakSettings.rate,
+		speakSettings.voice,
+		speakSettings.voiceIndex,
+		speakStatus,
+	])
+
+	useEffect(() => {
+		if (initialize) {
+			setInitialize(false)
+			speakText()
+		}
+	}, [initialize, speakText])
 
 	return (
 		<>
-			<div
-				className='containerExercise d-flex flex-column justify-content-center'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer container d-flex flex-column justify-content-center'>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-body'>
 						{activity === 'RestSet' ? (
@@ -53,12 +84,12 @@ const CardShowTimer = ({
 									? settings.betweenSet
 									: settings.betweenExercise
 							}
-							speak={speak}
+							speakStatus={speakStatus}
 							timerCompletedStatus={timerCompleted}
 						/>
 						<button
 							type='button'
-							className='btn btn-custom-color6 mb-5'
+							className='btn btn-custom-color6 text-custom-color1 mb-5'
 							onClick={timerSkip}
 						>
 							Skip Rest <FontAwesomeIcon icon={faStepForward} />

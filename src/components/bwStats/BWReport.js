@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import $ from 'jquery'
 import ExternalLink from '../utils/ExternalLink'
+import PageHeader from '../layout/PageHeader'
 
 const calculateMacro = (calories) => {
 	const moderateCarb = {
@@ -117,7 +118,17 @@ const BWStats = ({
 	return (
 		<>
 			<div className='mx-3 my-2'>
-				<h4 className='text-center text-custom-color6'>Body Weight Report</h4>
+				<div className='row'>
+					<button
+						className='col-2 btn btn-custom-color4 text-custom-color1'
+						onClick={onBack}
+					>
+						{'Back'}
+					</button>
+					<div className='col-10'>
+						<PageHeader text='Body Weight Report' />
+					</div>
+				</div>
 				<hr />
 				<div className='text-custom-color6'>
 					<h5>BMI Score:</h5>
@@ -151,8 +162,8 @@ const BWStats = ({
 					<h5>Ideal Weight:</h5>
 					<p className='text-justify'>
 						Estimate ideal weight are not perfect and may show lower results for
-						people with high muscle mass (and lean body mass). Ideal body weight
-						calculator uses four different formulas to find your ideal weight.
+						people with high muscle mass. Ideal bodyweight calculator uses four
+						different formulas to find the ideal weight.
 					</p>
 					<div className='row mb-3'>
 						<ul id='idealWeight' className='list-group'>
@@ -350,7 +361,10 @@ const BWStats = ({
 					</small>
 				</div>
 				<div className='d-flex flex-row justify-content-between align-items-start'>
-					<button className='btn btn-custom-color4' onClick={onBack}>
+					<button
+						className='btn btn-custom-color4 text-custom-color1'
+						onClick={onBack}
+					>
 						Back
 					</button>
 					<ExternalLink

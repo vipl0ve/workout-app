@@ -11,7 +11,7 @@ import Announcement from './components/layout/Announcement'
 // Workout components
 import Workout from './components/workout/Workout'
 import WorkoutProgress from './components/workout/WorkoutProgress'
-import WorkoutCompleted from './components/workout/WorkoutCompleted'
+import WorkoutSummary from './components/workout/WorkoutSummary'
 import WorkoutHistory from './components/workoutHistory/WorkoutHistory'
 
 //Routine components
@@ -34,7 +34,7 @@ function App() {
 				<Route path='/' exact component={Home} />
 				<Route path='/workout' exact component={Workout} />
 				<Route path='/workoutprogress' exact component={WorkoutProgress} />
-				<Route path='/workoutcompleted' exact component={WorkoutCompleted} />
+				<Route path='/workoutsummary' exact component={WorkoutSummary} />
 				<Route path='/workouthistory' exact component={WorkoutHistory} />
 				<Route path='/routines' component={Routines} />
 				<Route path='/challenges' component={Challenges} />

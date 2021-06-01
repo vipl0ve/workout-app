@@ -106,10 +106,7 @@ const Workout = () => {
 
 	return (
 		<>
-			<div
-				className='containerExercise d-flex flex-column justify-content-start'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer container d-flex flex-column justify-content-start'>
 				<PageHeader text='Select Routine' />
 				<div className='d-flex justify-content-between mb-3 mx-1'>
 					<select
@@ -132,7 +129,9 @@ const Workout = () => {
 					<span className='h4 text-custom-color5'>{curRoutine.name}</span>
 					<div className='d-flex justify-content-center align-items-start mt-2'>
 						<label>
-							<span className='text-custom-color5 p-2'>Save Changes</span>
+							<span className='text-custom-color5 p-2'>
+								Save Workout Details
+							</span>
 						</label>
 						<Switch
 							onChange={onSaveWorkout}

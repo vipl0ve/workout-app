@@ -2,16 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
-const CardBtnSpeak = ({ speak, setSpeakStatus, isBtn }) => {
+const CardBtnSpeak = ({ speakStatus, setSpeakStatus, isBtn }) => {
 	if (isBtn) {
 		return (
 			<>
 				<button
 					type='button'
 					className='btn btn-custom-color6 text-custom-color1'
-					onClick={() => setSpeakStatus(!speak)}
+					onClick={() => setSpeakStatus(!speakStatus)}
 				>
-					{speak ? (
+					{speakStatus ? (
 						<FontAwesomeIcon icon={faVolumeUp} />
 					) : (
 						<FontAwesomeIcon icon={faVolumeMute} />
@@ -23,15 +23,15 @@ const CardBtnSpeak = ({ speak, setSpeakStatus, isBtn }) => {
 		return (
 			<>
 				<span className='badge text-custom-color6'>
-					{speak ? (
+					{speakStatus ? (
 						<FontAwesomeIcon
 							icon={faVolumeUp}
-							onClick={() => setSpeakStatus(!speak)}
+							onClick={() => setSpeakStatus(!speakStatus)}
 						/>
 					) : (
 						<FontAwesomeIcon
 							icon={faVolumeMute}
-							onClick={() => setSpeakStatus(!speak)}
+							onClick={() => setSpeakStatus(!speakStatus)}
 						/>
 					)}
 				</span>

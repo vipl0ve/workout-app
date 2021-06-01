@@ -4,16 +4,19 @@ import AnnouncementItem from './AnnouncementItem'
 const Announcement = () => {
 	return (
 		<>
-			<div
-				className='container py-3 text-custom-color6'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer container py-3 text-custom-color6'>
 				<h5 className='text-center'>
 					<b>ANNOUNCEMENTS!</b>
 				</h5>
-				<p className='text-end'>By Team@BodyWorkoutApp</p>
+				<p className='text-center'>Team@BodyWorkoutApp</p>
 				<hr />
 				<div className='list-group'>
+					<AnnouncementItem
+						title='Added Audio'
+						date='5/26/2021'
+						para='Audio has been added to workout module which will speak the important details to the user.'
+						small='Workout Module'
+					/>
 					<AnnouncementItem
 						title='Breathe Mobile Responsive'
 						date='5/24/2021'

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+
 import CardImage from '../workoutCards/CardImage'
 import CardTitle from '../workoutCards/CardTitle'
 import CardBtnInfo from '../workoutCards/CardBtnInfo'
@@ -10,16 +11,17 @@ import CardBtnPlay from '../workoutCards/CardBtnPlay'
 import CardAutoPlay from '../workoutCards/CardAutoPlay'
 import CardHeader from '../workoutCards/CardHeader'
 import CardVideo from '../workoutCards/CardVideo'
-import Speak from '../utils/Speak'
 import CardBtnSpeak from '../workoutCards/CardBtnSpeak'
 
 const WorkoutBasicCard = ({
 	exerciseData,
 	time,
 	play,
+	prevModule,
 	autoPlay,
-	speak,
-	settings,
+	Speak,
+	speakStatus,
+	speakSettings,
 	nextStep,
 	prevStep,
 	lastStep,
@@ -28,7 +30,9 @@ const WorkoutBasicCard = ({
 	setSpeakStatus,
 	setAutoPlay,
 }) => {
-	const [exercise, setExercise] = useState(exerciseData[0])
+	const [exercise, setExercise] = useState(
+		prevModule ? exerciseData[exerciseData.length - 1] : exerciseData[0]
+	)
 	const [counter, setCounter] = useState(parseInt(exercise.id))
 	const [info, setInfo] = useState(false)
 	const [video, setVideo] = useState(false)
@@ -37,36 +41,64 @@ const WorkoutBasicCard = ({
 		next: false,
 		play: false,
 	})
+	const [initialize, setInitialize] = useState(true)
 
-	useEffect(() => {
-		if (speak) {
+	const speakText = useCallback(() => {
+		console.log('speakText')
+		if (speakStatus) {
+			Speak.cancel()
 			if (exercise.type === 'Duration') {
-				Speak({
+				Speak.speak({
 					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} seconds`,
-					voiceIndex: 1,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			} else if (exercise.type === 'Reps') {
-				Speak({
+				Speak.speak({
 					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} times`,
-					voiceIndex: 1,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			}
 		}
-	}, [counter, exercise, speak])
+	}, [
+		Speak,
+		counter,
+		exercise.name,
+		exercise.qty,
+		exercise.type,
+		speakSettings.pitch,
+		speakSettings.rate,
+		speakSettings.voice,
+		speakSettings.voiceIndex,
+		speakStatus,
+	])
 
-	useEffect(() => {}, [play, exercise])
+	useEffect(() => {
+		if (initialize) {
+			setInitialize(false)
+			speakText()
+		}
+	}, [initialize, speakText])
 
 	const setCardPlayStatus = () => {
-		if (speak) {
+		if (speakStatus) {
+			Speak.cancel()
 			if (!play) {
-				Speak({
+				Speak.speak({
 					text: `Play`,
-					voiceIndex: 1,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			} else {
-				Speak({
+				Speak.speak({
 					text: `Paused`,
-					voiceIndex: 1,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			}
 		}
@@ -81,6 +113,7 @@ const WorkoutBasicCard = ({
 				(item) => item.id === newCounter.toString()
 			)
 			setExercise(newExercise[0])
+			setInitialize(true)
 		} else if (counter === 1) {
 			prevStep()
 		}
@@ -94,6 +127,7 @@ const WorkoutBasicCard = ({
 				(item) => item.id === newCounter.toString()
 			)
 			setExercise(newExercise[0])
+			setInitialize(true)
 		} else if (counter === exerciseData.length) {
 			nextStep()
 			setFillerModule(true)
@@ -105,10 +139,13 @@ const WorkoutBasicCard = ({
 			'This will end current workout. Are you sure?'
 		)
 		if (confirmation) {
-			if (speak) {
-				Speak({
+			if (speakStatus) {
+				Speak.cancel()
+				Speak.speak({
 					text: `Ending Workout now`,
-					voiceIndex: 1,
+					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			}
 			setFillerModule(false)
@@ -135,10 +172,7 @@ const WorkoutBasicCard = ({
 	}
 
 	return (
-		<div
-			className='containerExercise d-flex flex-column justify-content-center'
-			style={{ minHeight: '90vh', width: 'auto' }}
-		>
+		<div className='maincontainer container d-flex flex-column justify-content-center'>
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				<div className='card-header d-flex flex-row justify-content-between align-items-start bg-transparent border-custom-color4 p-2'>
 					<CardHeader
@@ -170,7 +204,7 @@ const WorkoutBasicCard = ({
 						<CardBtnInfo data={exercise.desc} onAction={showInfo} />
 						<CardBtnVideo data={exercise.video} onAction={showVideo} />
 						<CardBtnSpeak
-							speak={speak}
+							speakStatus={speakStatus}
 							setSpeakStatus={setSpeakStatus}
 							isBtn={true}
 						/>

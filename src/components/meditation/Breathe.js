@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import $ from 'jquery'
 //import styled from 'styled-components'
 import './Breathe.css'
 import Timer from '../utils/Timer'
-import Speak from '../utils/Speak'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import PageHeader from '../layout/PageHeader'
+import { useSpeechSynthesis } from 'react-speech-kit'
+import { useLocalStorage } from '../utils/useLocalStorage'
 
 const Breathe = () => {
 	const [totalTime] = useState(7500)
@@ -19,23 +20,83 @@ const Breathe = () => {
 	const counter = useRef(null)
 	const durationCounter = useRef(null)
 	const container = useRef(null)
+	const Speak = useSpeechSynthesis()
+	const [speakSettings] = useLocalStorage('bwAudio', {})
+
+	const speakText = useCallback(() => {
+		console.log('speakText')
+		if (volume) {
+			Speak.cancel()
+			if (text === 'Breathe In!') {
+				Speak.speak({
+					text: 'Inhale...',
+					voice: Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			} else if (text === 'Hold') {
+				Speak.speak({
+					text: 'Hold...',
+					voice: Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			} else if (text === 'Reps') {
+				Speak.speak({
+					text: 'Breathe Out!',
+					voice: Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			}
+		}
+	}, [
+		Speak,
+		speakSettings.pitch,
+		speakSettings.rate,
+		speakSettings.voiceIndex,
+		text,
+		volume,
+	])
 
 	useEffect(() => {
 		counter.current = setInterval(() => {
 			setText('Breathe In!')
 			$(container.current).removeClass('shrink').addClass('grow')
+			speakText()
 			setTimeout(() => {
 				setText('Hold')
+				speakText()
 				setTimeout(() => {
 					setText('Breathe Out!')
 					$(container.current).removeClass('grow').addClass('shrink')
+					speakText()
 				}, holdTime)
 			}, breatheTime)
 		}, totalTime)
 		return () => {
 			clearInterval(counter.current)
 		}
-	}, [totalTime, breatheTime, holdTime])
+	}, [totalTime, breatheTime, holdTime, speakText])
+
+	const setVolumeStatus = () => {
+		if (volume) {
+			Speak.speak({
+				text: 'Audio Off',
+				voice: Speak.voices[speakSettings.voiceIndex],
+				rate: speakSettings.rate,
+				pitch: speakSettings.pitch,
+			})
+		} else {
+			Speak.speak({
+				text: 'Audio On',
+				voice: Speak.voices[speakSettings.voiceIndex],
+				rate: speakSettings.rate,
+				pitch: speakSettings.pitch,
+			})
+		}
+		setVolume(!volume)
+	}
 
 	useEffect(() => {
 		durationCounter.current = setInterval(
@@ -46,18 +107,6 @@ const Breathe = () => {
 			clearInterval(durationCounter.current)
 		}
 	}, [])
-
-	useEffect(() => {
-		if (volume) {
-			if (text === 'Breathe In!') {
-				Speak({ text: 'Inhale...', voiceIndex: 1 })
-			} else if (text === 'Hold') {
-				Speak({ text: 'Hold!', voiceIndex: 1 })
-			} else if (text === 'Breathe Out!') {
-				Speak({ text: 'Exhale...', voiceIndex: 1 })
-			}
-		}
-	}, [text, volume])
 
 	const styles = {
 		breathe: {
@@ -113,39 +162,29 @@ const Breathe = () => {
 
 	return (
 		<div className='breathe' style={styles.breathe}>
-			<div className='d-flex flex-row justify-content-around align-items-start'>
-				<PageHeader text='Basic Meditation' />
-				{'  '}
-				<h5 className='text-end text-custom-color6 ml-3'>
-					{volume ? (
-						<FontAwesomeIcon
-							icon={faVolumeUp}
-							onClick={() => setVolume(false)}
-						/>
-					) : (
-						<FontAwesomeIcon
-							icon={faVolumeMute}
-							onClick={() => setVolume(true)}
-						/>
-					)}
-				</h5>
-			</div>
+			<PageHeader text='Basic Meditation' />
 			<p className='text-custom-color6 mb-1'>
 				Total Duration:{' '}
 				<b>
-					<Timer
-						data={totalDuration}
-						type='no-badge'
-						className='text-custom-color6'
-					></Timer>
+					<Timer data={totalDuration} className='text-custom-color6'></Timer>
 				</b>
 			</p>
-			<button
-				className='btn btn-custom-color4 text-custom-color1 my-0'
-				onClick={() => setInstruction(!instruction)}
-			>
-				{instruction ? 'Hide Instructions' : 'Read Instructions'}
-			</button>
+			<div className='d-flex flex-row justify-content-between align-items-start'>
+				<button
+					className='btn btn-custom-color4 text-custom-color1 mx-2'
+					onClick={() => setVolumeStatus(!volume)}
+				>
+					{/* {volume ? 'Audio Off' : 'Audio On'} */}
+					{volume && <FontAwesomeIcon icon={faVolumeUp} />}
+					{!volume && <FontAwesomeIcon icon={faVolumeMute} />}
+				</button>
+				<button
+					className='btn btn-custom-color4 text-custom-color1 mx-2'
+					onClick={() => setInstruction(!instruction)}
+				>
+					{instruction ? 'Hide Instructions' : 'Read Instructions'}
+				</button>
+			</div>
 			{instruction && (
 				<div className='text-justify text-custom-color6 mt-2'>
 					<ul>

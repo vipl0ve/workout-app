@@ -37,6 +37,7 @@ $custom-colors: (
 // update custom map in theme colors
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+// Nav Bar
 .nav-link {
 	@media only screen and (max-width: 25em) {
 		body {
@@ -50,6 +51,15 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		background-color: $pallet-color4;
 		color: $pallet-color6;
 	}
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+.maincontainer {
+	min-height: 90vh;
+	width: auto;
 }
 
 // Bootstrap and its default variables

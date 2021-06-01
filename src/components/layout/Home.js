@@ -6,13 +6,10 @@ import PageHeader from './PageHeader'
 const Home = () => {
 	return (
 		<>
-			<div
-				className='container py-3 text-custom-color6'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer container py-3 text-custom-color6'>
 				<PageHeader text='WELCOME to BODYWORKOUT APP' />
 				<hr />
-				<p className='text-justify' style={{ textAlign: 'justify' }}>
+				<p className='text-justify'>
 					This powerful app assists you with achieving both mental and physical
 					fitness goals. You can perform Workouts from available routines and
 					challenges, view your past Workout History, perform Basic Meditation,

@@ -12,15 +12,17 @@ import CardTitle from '../workoutCards/CardTitle'
 import CardShowTimer from '../workoutCards/CardShowTimer'
 import { getQty } from '../../helper/helperfunctions'
 import CardVideo from '../workoutCards/CardVideo'
-import Speak from '../utils/Speak'
 import CardBtnSpeak from '../workoutCards/CardBtnSpeak'
 
 const WorkoutProgressionCard = ({
 	exerciseData,
 	time,
 	play,
+	prevModule,
 	autoPlay,
-	speak,
+	Speak,
+	speakStatus,
+	speakSettings,
 	settings,
 	nextStep,
 	prevStep,
@@ -44,6 +46,7 @@ const WorkoutProgressionCard = ({
 		next: false,
 		play: false,
 	})
+	const [initialize, setInitialize] = useState(true)
 
 	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
@@ -55,46 +58,74 @@ const WorkoutProgressionCard = ({
 	}, [reps])
 
 	useEffect(() => {
-		if (activity === 'Exercise') setShowTimer(false)
-		else if (activity === 'RestSet') setShowTimer(true)
-		else if (activity === 'RestExercise') setShowTimer(true)
+		if (activity === 'Exercise') {
+			setShowTimer(false)
+			setInitialize(true)
+		} else if (activity === 'RestSet') {
+			setShowTimer(true)
+			setInitialize(false)
+		} else if (activity === 'RestExercise') {
+			setShowTimer(true)
+			setInitialize(false)
+		}
 	}, [activity])
 
-	useEffect(() => {}, [play])
-
 	useEffect(() => {
-		if (speak) {
-			if (activity === 'Exercise') {
-				if (exercise.curProgressions.type === 'Duration') {
-					Speak({
-						text: `Exercise ${counter}, Do ${
-							exercise.curProgressions.name
-						} Set ${curSet} for ${reps[curSet - 1]} seconds`,
-						voiceIndex: 1,
-					})
-				} else if (exercise.curProgressions.type === 'Reps') {
-					Speak({
-						text: `Exercise ${counter}, Do ${
-							exercise.curProgressions.name
-						} Set ${curSet} for ${reps[curSet - 1]} times`,
-						voiceIndex: 1,
-					})
+		if (initialize) {
+			setInitialize(false)
+			if (speakStatus) {
+				Speak.cancel()
+				if (activity === 'Exercise') {
+					if (exercise.curProgressions.type === 'Duration') {
+						Speak.speak({
+							text: `Exercise ${counter}, Do ${
+								exercise.curProgressions.name
+							} Set ${curSet} for ${reps[curSet - 1]} seconds`,
+							voice: speakSettings.voice,
+							rate: speakSettings.rate,
+							pitch: speakSettings.pitch,
+						})
+					} else if (exercise.curProgressions.type === 'Reps') {
+						Speak.speak({
+							text: `Exercise ${counter}, Do ${
+								exercise.curProgressions.name
+							} Set ${curSet} for ${reps[curSet - 1]} times`,
+							voice: speakSettings.voice,
+							rate: speakSettings.rate,
+							pitch: speakSettings.pitch,
+						})
+					}
 				}
 			}
 		}
-	}, [activity, counter, curSet, exercise, reps, speak])
+	}, [
+		activity,
+		counter,
+		curSet,
+		exercise,
+		reps,
+		Speak,
+		speakSettings,
+		speakStatus,
+		initialize,
+	])
 
 	const setCardPlayStatus = () => {
-		if (speak) {
+		if (speakStatus) {
+			Speak.cancel()
 			if (!play) {
-				Speak({
+				Speak.speak({
 					text: `Play`,
-					voiceIndex: 1,
+					voice: speakSettings.voice,
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			} else {
-				Speak({
+				Speak.speak({
 					text: `Paused`,
-					voiceIndex: 1,
+					voice: speakSettings.voice,
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			}
 		}
@@ -102,21 +133,15 @@ const WorkoutProgressionCard = ({
 	}
 
 	const timerCompleted = () => {
+		Speak.cancel()
 		setActivity('Exercise')
 		checkActivity()
 	}
 
 	const timerSkip = () => {
+		Speak.cancel()
 		setActivity('Exercise')
 		checkActivity()
-	}
-
-	const prevElement = () => {
-		if (curSet > 1) {
-			prevSet()
-		} else {
-			prevExercise()
-		}
 	}
 
 	const checkActivity = () => {
@@ -129,6 +154,14 @@ const WorkoutProgressionCard = ({
 		}
 	}
 
+	const prevElement = () => {
+		if (curSet > 1) {
+			prevSet()
+		} else {
+			prevExercise()
+		}
+	}
+
 	const nextElement = () => {
 		if (curSet < totalSets) {
 			nextSet()
@@ -138,11 +171,15 @@ const WorkoutProgressionCard = ({
 	}
 
 	const prevSet = () => {
+		Speak.cancel()
+		setInitialize(true)
 		setCurSet(curSet - 1)
 	}
 
 	const nextSet = () => {
 		setCurSet(curSet + 1)
+		Speak.cancel()
+		setInitialize(true)
 		setActivity('RestSet')
 	}
 
@@ -155,6 +192,8 @@ const WorkoutProgressionCard = ({
 				(item) => item.id === newCounter.toString()
 			)
 			setExercise(newExercise[0])
+			Speak.cancel()
+			setInitialize(true)
 		} else if (counter === 1) {
 			prevStep()
 		}
@@ -170,6 +209,8 @@ const WorkoutProgressionCard = ({
 				(item) => item.id === newCounter.toString()
 			)
 			setExercise(newExercise[0])
+			Speak.cancel()
+			setInitialize(true)
 		} else if (counter === exerciseData.length) {
 			nextStep()
 			setFillerModule(true)
@@ -181,10 +222,13 @@ const WorkoutProgressionCard = ({
 			'This will end current workout. Are you sure?'
 		)
 		if (confirmation) {
-			if (speak) {
-				Speak({
+			if (speakStatus) {
+				Speak.cancel()
+				Speak.speak({
 					text: `Ending Workout now`,
-					voiceIndex: 1,
+					voice: speakSettings.voice,
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
 				})
 			}
 			setFillerModule(false)
@@ -216,7 +260,9 @@ const WorkoutProgressionCard = ({
 				activity={activity}
 				exercise={exercise}
 				curSet={curSet}
-				speak={speak}
+				Speak={Speak}
+				speakStatus={speakStatus}
+				speakSettings={speakSettings}
 				settings={settings}
 				timerCompleted={timerCompleted}
 				timerSkip={timerSkip}
@@ -224,10 +270,7 @@ const WorkoutProgressionCard = ({
 		)
 	} else {
 		return (
-			<div
-				className='containerExercise d-flex flex-column justify-content-center'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer d-flex flex-column justify-content-center'>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 					<div className='card-header d-flex flex-row align-items-center justify-content-between bg-transparent border-custom-color4 px-2'>
 						<CardHeader
@@ -278,7 +321,7 @@ const WorkoutProgressionCard = ({
 								onAction={showVideo}
 							/>
 							<CardBtnSpeak
-								speak={speak}
+								speakStatus={speakStatus}
 								setSpeakStatus={setSpeakStatus}
 								isBtn={true}
 							/>

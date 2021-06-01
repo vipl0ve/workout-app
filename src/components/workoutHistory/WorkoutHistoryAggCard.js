@@ -12,7 +12,7 @@ const WorkoutHistoryAggCard = ({ data }) => {
 					Total Duration:{' '}
 					<ins>
 						{data.totalWorkoutDuration
-							? secondFormatted(data.totalWorkoutDuration)
+							? secondFormatted(data.totalWorkoutDuration, 'HH:mm:ss')
 							: '00:00:00'}
 					</ins>
 				</h6>

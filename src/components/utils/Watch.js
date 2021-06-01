@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
-import { pad } from '../../helper/helperfunctions'
+import { secondFormatted } from '../../helper/helperfunctions'
+import Beep from '../../asset/beep.mp3'
 
 const Watch = ({
 	data,
@@ -13,81 +14,43 @@ const Watch = ({
 	currentId,
 }) => {
 	const [timer, setTimer] = useState(0)
-	const [totalTime, setTotalTime] = useState(autoPlay ? parseInt(data) : 1000)
+	const [totalTime] = useState(parseInt(data))
 	const countRef = useRef(null)
-	const [formatTime, setformatTime] = useState({
-		hours: '00',
-		minutes: '00',
-		seconds: '00',
-	})
 
 	useEffect(() => {
-		setformatTime({
-			hours: '00',
-			minutes: '00',
-			seconds: '00',
-		})
 		setTimer(0)
 		clearInterval(countRef.current)
 	}, [currentId])
 
 	useEffect(() => {
-		if (autoPlay) {
-			setTotalTime(parseInt(data))
-		} else {
-			setTotalTime(1000)
-		}
-	}, [data, autoPlay])
-
-	useEffect(() => {
 		if (play) {
-			if (timer > totalTime) {
-				setformatTime({
-					hours: '00',
-					minutes: '00',
-					seconds: '00',
-				})
-				setTimer(0)
-				clearInterval(countRef.current)
-				onComplete()
-			} else {
+			if (timer < totalTime) {
 				countRef.current = setInterval(() => {
 					setTimer(timer + 1)
-					formatTimer(timer)
 				}, 1000)
 				return () => {
 					clearInterval(countRef.current)
+				}
+			} else {
+				clearInterval(countRef.current)
+				if (autoPlay) {
+					setTimer(0)
+					var audio = new Audio(Beep)
+					audio.play()
+					onComplete()
 				}
 			}
 		} else {
 			clearInterval(countRef.current)
 		}
-	}, [play, timer, onComplete, totalTime])
-
-	// const timerPaused = () => {
-	// 	onPause(!play)
-	// }
-
-	const formatTimer = (timer) => {
-		const newTimer = parseInt(timer)
-		let newFormatTime = { hours: '0', minutes: '0', seconds: '0' }
-
-		if (newTimer > 0) {
-			newFormatTime = {
-				hours: pad(Math.floor((newTimer / (60 * 60)) % 24), 2),
-				minutes: pad(Math.floor((newTimer / 60) % 60), 2),
-				seconds: pad(Math.floor(newTimer % 60), 2),
-			}
-			setformatTime(newFormatTime)
-		}
-	}
+	}, [play, timer, onComplete, totalTime, autoPlay])
 
 	if (timer <= totalTime) {
 		if (settings === 'hms') {
 			return (
 				<b>
 					<span className={className}>
-						{formatTime.hours}:{formatTime.minutes}:{formatTime.seconds}{' '}
+						{secondFormatted(totalTime - timer, 'HH:mm:ss')}{' '}
 						{!play && <FontAwesomeIcon icon={faPause} />}
 					</span>
 				</b>
@@ -96,7 +59,7 @@ const Watch = ({
 			return (
 				<b>
 					<span className={className}>
-						{formatTime.hours}:{formatTime.minutes}{' '}
+						{secondFormatted(totalTime - timer, 'HH:mm')}{' '}
 						{!play && <FontAwesomeIcon icon={faPause} />}
 					</span>
 				</b>
@@ -105,7 +68,16 @@ const Watch = ({
 			return (
 				<b>
 					<span className={className}>
-						{formatTime.minutes}:{formatTime.seconds}{' '}
+						{secondFormatted(totalTime - timer, 'mm:ss')}{' '}
+						{!play && <FontAwesomeIcon icon={faPause} />}
+					</span>
+				</b>
+			)
+		} else if (settings === 's') {
+			return (
+				<b>
+					<span className={className}>
+						{secondFormatted(totalTime - timer, 'ss')}{' '}
 						{!play && <FontAwesomeIcon icon={faPause} />}
 					</span>
 				</b>
@@ -114,7 +86,8 @@ const Watch = ({
 			return (
 				<b>
 					<span className={className}>
-						{formatTime.seconds} {!play && <FontAwesomeIcon icon={faPause} />}
+						{secondFormatted(totalTime - timer, 'mm:ss')}{' '}
+						{!play && <FontAwesomeIcon icon={faPause} />}
 					</span>
 				</b>
 			)
@@ -131,7 +104,7 @@ const Watch = ({
 		return (
 			<b>
 				<span className={className}>
-					{formatTime.minutes}:{formatTime.seconds}
+					{secondFormatted(totalTime - timer, 'mm:ss')}{' '}
 					{!play && <FontAwesomeIcon icon={faPause} />}
 				</span>
 			</b>

@@ -25,13 +25,7 @@ const CardAutoPlay = ({
 				</div>
 				<div className='col col-3 text-end'>
 					<Watch
-						data={
-							autoPlay
-								? progression
-									? exercise.curProgressions.qty
-									: exercise.qty
-								: '1000'
-						}
+						data={progression ? exercise.curProgressions.qty : exercise.qty}
 						play={play}
 						autoPlay={autoPlay}
 						className='text-custom-color6 p-2'
@@ -63,11 +57,9 @@ const CardAutoPlay = ({
 					<div className='col col-3 text-end'>
 						<Watch
 							data={
-								autoPlay
-									? progression
-										? exercise.curProgressions.autoPlay
-										: exercise.autoPlay
-									: '1000'
+								progression
+									? exercise.curProgressions.autoPlay
+									: exercise.autoPlay
 							}
 							play={play}
 							autoPlay={autoPlay}

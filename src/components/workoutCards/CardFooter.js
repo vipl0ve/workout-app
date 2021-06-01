@@ -9,8 +9,7 @@ const CardFooter = ({ time, onAction }) => {
 			<div className='card-footer bg-transparent border-custom-color4 d-flex flex-row justify-content-between align-items-center'>
 				<div className='col col-6 text-center'>
 					<span className='text-custom-color6'>
-						<FontAwesomeIcon icon={faClock} />{' '}
-						<Timer data={time} type={'no-badge'} />
+						<FontAwesomeIcon icon={faClock} /> <Timer data={time} />
 					</span>
 				</div>
 				<div className='col col-6 text-center'>

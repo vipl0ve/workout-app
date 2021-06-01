@@ -166,10 +166,7 @@ const BWStats = () => {
 	}
 
 	return (
-		<div
-			className='containerExercise d-flex flex-column justify-content-start'
-			style={{ minHeight: '90vh', width: 'auto' }}
-		>
+		<div className='maincontainer container d-flex flex-column justify-content-start'>
 			{!showReport && (
 				<BWCalculator
 					values={values}

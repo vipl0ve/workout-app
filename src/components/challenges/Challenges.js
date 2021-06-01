@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { challenges } from '../../data/challenges.json'
 import PageHeader from '../layout/PageHeader'
 
@@ -7,7 +7,30 @@ const Challenges = () => {
 	const [curChallenge, setCurChallenge] = useState(challengesData[0])
 	const [curWeek, setCurWeek] = useState(challengesData[0].weeks[0])
 	const [curDay, setCurDay] = useState(challengesData[0].weeks[0].days[0])
-	const [curCriteria, setCurCriteria] = useState(0)
+	const [curCriteriaArr, setCurCriteriaArr] = useState(
+		challengesData[0].weeks[0].days[0].criteria
+	)
+	const [curCriteriaIndex, setCurCriteriaIndex] = useState(0)
+
+	useEffect(() => {
+		setCurWeek(curChallenge.weeks[0])
+		setCurDay(curChallenge.weeks[0].days[0])
+		setCurCriteriaArr(curChallenge.weeks[0].days[0].criteria)
+		setCurCriteriaIndex(0)
+	}, [curChallenge])
+
+	useEffect(() => {
+		setCurDay(curWeek.days[0])
+		setCurCriteriaArr(curWeek.days[0].criteria)
+		setCurCriteriaIndex(0)
+	}, [curWeek])
+
+	useEffect(() => {
+		setCurCriteriaArr(curDay.criteria)
+		setCurCriteriaIndex(0)
+	}, [curDay])
+
+	useEffect(() => {}, [curCriteriaIndex])
 
 	const onChallengeChange = (e) => {
 		const newChallenge = challengesData.filter(
@@ -21,27 +44,20 @@ const Challenges = () => {
 			(item) => item.id === e.target.value
 		)
 		setCurWeek(newWeek[0])
-		setCurDay(newWeek[0].days[0])
-		setCurCriteria(0)
 	}
 
 	const onDayChange = (e) => {
 		const newDay = curWeek.days.filter((item) => item.id === e.target.value)
 		setCurDay(newDay[0])
-		setCurCriteria(0)
 	}
 
 	const onCriteriaChange = (e) => {
-		console.log(curDay.criteria[e.target.value])
-		setCurCriteria(e.target.value)
+		setCurCriteriaIndex(e.target.value)
 	}
 
 	return (
 		<>
-			<div
-				className='containerExercise d-flex flex-column justify-content-start'
-				style={{ minHeight: '90vh', width: 'auto' }}
-			>
+			<div className='maincontainer container d-flex flex-column justify-content-start'>
 				<form className='bg-custom-color2 border border-custom-color3 border-5 rounded p-3'>
 					<PageHeader text='Challenges' />
 					<div className='form-row'>
@@ -114,12 +130,12 @@ const Challenges = () => {
 									id='selectChallengeDayCriteria'
 									className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
 									required
-									value={'< ' + curDay.criteria[curCriteria]}
+									value={curCriteriaIndex}
 									onChange={onCriteriaChange}
 								>
-									{curDay.criteria.map((item, index) => (
+									{curCriteriaArr.map((item, index) => (
 										<option key={index} value={index}>
-											{'< ' + item}
+											{'<' + item}
 										</option>
 									))}
 								</select>
@@ -127,6 +143,9 @@ const Challenges = () => {
 						</div>
 						<hr />
 						<div className='form-group mb-2'>
+							<h5 className='text-center text-custom-color6'>
+								Challenge Selected
+							</h5>
 							<div className='input-group col-12'>
 								<span className='input-group-text text-center col-3 bg-custom-color2 border-custom-color3 text-custom-color6'>
 									<b>{curWeek.title}</b>
@@ -135,13 +154,13 @@ const Challenges = () => {
 									<b>{curDay.title}</b>
 								</span>
 								<span className='input-group-text text-center col-6 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									<b>Current Best {curDay.criteria[curCriteria]}</b>
+									<b>Current Best {curCriteriaArr[curCriteriaIndex]}</b>
 								</span>
 							</div>
 						</div>
 						<div>
 							<ul className='list-group'>
-								{curDay.sets[curCriteria].map((item, index) => (
+								{curDay.sets[curCriteriaIndex].map((item, index) => (
 									<li
 										className='list-group-item d-flex justify-content-between align-items-center bg-custom-color3 text-custom-color6'
 										key={index}
