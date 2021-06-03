@@ -33,10 +33,10 @@ const Watch = ({
 				}
 			} else {
 				clearInterval(countRef.current)
+				var audio = new Audio(Beep)
+				audio.play()
 				if (autoPlay) {
 					setTimer(0)
-					var audio = new Audio(Beep)
-					audio.play()
 					onComplete()
 				}
 			}

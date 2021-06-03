@@ -11,7 +11,9 @@ const WorkoutStarted = ({
 	speakStatus,
 	speakSettings,
 	nextStep,
+	workoutProgress,
 	setPlayStatus,
+	setWorkoutProgress,
 }) => {
 	var noSleep = new NoSleep()
 	const [initialize, setInitialize] = useState(true)
@@ -31,7 +33,7 @@ const WorkoutStarted = ({
 			Speak.cancel()
 			Speak.speak({
 				text: `Start Workout!`,
-				voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+				voice: Speak.voices[speakSettings.voiceIndex],
 				rate: speakSettings.rate,
 				pitch: speakSettings.pitch,
 			})
@@ -40,7 +42,6 @@ const WorkoutStarted = ({
 		Speak,
 		speakSettings.pitch,
 		speakSettings.rate,
-		speakSettings.voice,
 		speakSettings.voiceIndex,
 		speakStatus,
 	])
@@ -54,8 +55,15 @@ const WorkoutStarted = ({
 
 	const onPlay = () => {
 		noSleep.enable()
-		nextStep()
 		setPlayStatus(true)
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			play: true,
+			updatedDate: Date.now(),
+		})
+		nextStep()
 	}
 
 	return (

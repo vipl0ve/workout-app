@@ -12,7 +12,7 @@ const CardShowTimer = ({
 	speakSettings,
 	settings,
 	timerCompleted,
-	timerSkip,
+	timerSkiped,
 }) => {
 	const [initialize, setInitialize] = useState(true)
 
@@ -22,14 +22,14 @@ const CardShowTimer = ({
 			if (activity === 'RestSet') {
 				Speak.speak({
 					text: `Rest for ${settings.betweenSet} seconds between Sets. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
 			} else if (activity === 'RestExercise') {
 				Speak.speak({
 					text: `Rest for ${settings.betweenExercise} seconds between Exercises. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
@@ -44,7 +44,6 @@ const CardShowTimer = ({
 		settings.betweenSet,
 		speakSettings.pitch,
 		speakSettings.rate,
-		speakSettings.voice,
 		speakSettings.voiceIndex,
 		speakStatus,
 	])
@@ -90,7 +89,7 @@ const CardShowTimer = ({
 						<button
 							type='button'
 							className='btn btn-custom-color6 text-custom-color1 mb-5'
-							onClick={timerSkip}
+							onClick={timerSkiped}
 						>
 							Skip Rest <FontAwesomeIcon icon={faStepForward} />
 						</button>

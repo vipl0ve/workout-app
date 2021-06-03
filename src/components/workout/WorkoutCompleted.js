@@ -13,6 +13,8 @@ const WorkoutCompleted = ({
 	Speak,
 	speakStatus,
 	speakSettings,
+	workoutProgress,
+	setWorkoutProgress,
 }) => {
 	const history = useHistory()
 	var noSleep = new NoSleep()
@@ -20,6 +22,8 @@ const WorkoutCompleted = ({
 	noSleep.disable()
 	const [allQuotes] = useState(quotes)
 	const [quote] = useState(allQuotes[getRandomInt(0, allQuotes.length - 1)])
+	const [newTime, setNewTime] = useState(time)
+	const [edited, setEdited] = useState(false)
 
 	useEffect(() => {
 		if (initialize) {
@@ -29,7 +33,7 @@ const WorkoutCompleted = ({
 				if (time < 60) {
 					Speak.speak({
 						text: `No Workout found`,
-						voice: speakSettings.voice,
+						voice: Speak.voices[speakSettings.voiceIndex],
 						rate: speakSettings.rate,
 						pitch: speakSettings.pitch,
 					})
@@ -38,7 +42,7 @@ const WorkoutCompleted = ({
 						text: `Congratulations! Workout Completed. Total Duration ${moment
 							.duration(time, 's')
 							.humanize()}`,
-						voice: speakSettings.voice,
+						voice: Speak.voices[speakSettings.voiceIndex],
 						rate: speakSettings.rate,
 						pitch: speakSettings.pitch,
 					})
@@ -50,9 +54,15 @@ const WorkoutCompleted = ({
 	const onFinished = () => {
 		const workout = {
 			routineName: routineInfo.name,
-			totalDuration: time,
+			totalDuration: newTime,
 			workoutEndTime: moment().format(),
 		}
+		setWorkoutProgress({
+			...workoutProgress,
+			status: false,
+			loaded: false,
+			updatedDate: Date.now(),
+		})
 		history.push({
 			pathname: '/workoutsummary',
 			state: {
@@ -62,6 +72,11 @@ const WorkoutCompleted = ({
 	}
 
 	const onDiscard = () => {
+		setWorkoutProgress({
+			status: false,
+			loaded: false,
+			updatedDate: Date.now(),
+		})
 		history.push({
 			pathname: '/',
 		})
@@ -83,17 +98,53 @@ const WorkoutCompleted = ({
 							</p>
 						</>
 					) : (
-						<>
+						<p>
 							<h5 className='card-title'>Congratulations!</h5>
-							<p className='card-text'>
-								You just completed workout. Total Duration{' '}
-								{secondFormatted(time, 'HH:mm:ss')}.
-							</p>
+							<p className='card-text'>You just completed workout.</p>
+							<div className='row mx-4 justify-content-around align-items-center'>
+								{!edited && (
+									<>
+										<span className='col-9'>
+											Total Duration:{' '}
+											<b>{secondFormatted(newTime, 'HH:mm:ss')}</b>
+										</span>
+										<button
+											type='button'
+											className='btn btn-link col-3 text-custom-color6'
+											onClick={() => setEdited(true)}
+										>
+											Edit
+										</button>
+									</>
+								)}
+								{edited && (
+									<>
+										<span className='col-8'>
+											<input
+												type='number'
+												className='col-6'
+												value={newTime}
+												placeholder='Total Duration'
+												onChange={(e) => setNewTime(e.target.value)}
+											/>
+										</span>
+
+										<button
+											type='button'
+											className='btn btn-link col-4 text-custom-color6'
+											onClick={() => setEdited(false)}
+										>
+											Update
+										</button>
+									</>
+								)}
+							</div>
+							<br />
 							<p>You deserve this medal.</p>
 							<h3>
 								<FontAwesomeIcon icon={faMedal} />
 							</h3>
-						</>
+						</p>
 					)}
 					<div className='row my-3'>
 						<div className='col'>

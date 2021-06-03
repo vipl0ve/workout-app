@@ -9,9 +9,10 @@ const CardBtnBackward = ({ onAction, disabled }) => {
 				<button
 					type='button'
 					className='btn btn-custom-color6 text-custom-color1'
+					onClick={onAction}
 					disabled
 				>
-					<FontAwesomeIcon icon={faBackward} onClick={onAction} />
+					<FontAwesomeIcon icon={faBackward} />
 				</button>
 			</>
 		)
@@ -21,8 +22,9 @@ const CardBtnBackward = ({ onAction, disabled }) => {
 				<button
 					type='button'
 					className='btn btn-custom-color6 text-custom-color1'
+					onClick={onAction}
 				>
-					<FontAwesomeIcon icon={faBackward} onClick={onAction} />
+					<FontAwesomeIcon icon={faBackward} />
 				</button>
 			</>
 		)

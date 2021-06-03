@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import CardHeader from '../workoutCards/CardHeader'
 import CardAutoPlay from '../workoutCards/CardAutoPlay'
 import CardImage from '../workoutCards/CardImage'
@@ -27,16 +27,30 @@ const WorkoutProgressionCard = ({
 	nextStep,
 	prevStep,
 	lastStep,
+	workoutProgress,
 	setFillerModule,
 	setPlayStatus,
 	setSpeakStatus,
 	setAutoPlay,
+	setWorkoutProgress,
 }) => {
-	const [exercise, setExercise] = useState(exerciseData[0])
+	const [exercise, setExercise] = useState(
+		workoutProgress.loaded
+			? exerciseData[workoutProgress.exerciseCount - 1]
+			: prevModule
+			? exerciseData[exerciseData.length - 1]
+			: exerciseData[0]
+	)
 	const [counter, setCounter] = useState(parseInt(exercise.id))
 	const [reps, setReps] = useState(getQty(exercise.curProgressions.qty))
 	const [totalSets, setTotalSets] = useState(reps.length)
-	const [curSet, setCurSet] = useState(1)
+	const [curSet, setCurSet] = useState(
+		workoutProgress.loaded
+			? workoutProgress.setCount
+			: prevModule
+			? reps.length
+			: 1
+	)
 	const [activity, setActivity] = useState('Exercise')
 	const [showTimer, setShowTimer] = useState(false)
 	const [info, setInfo] = useState(false)
@@ -50,7 +64,7 @@ const WorkoutProgressionCard = ({
 
 	useEffect(() => {
 		setReps(getQty(exercise.curProgressions.qty))
-		setCurSet(1)
+		//setCurSet(1)
 	}, [exercise])
 
 	useEffect(() => {
@@ -70,45 +84,52 @@ const WorkoutProgressionCard = ({
 		}
 	}, [activity])
 
-	useEffect(() => {
-		if (initialize) {
-			setInitialize(false)
-			if (speakStatus) {
-				Speak.cancel()
-				if (activity === 'Exercise') {
-					if (exercise.curProgressions.type === 'Duration') {
-						Speak.speak({
-							text: `Exercise ${counter}, Do ${
-								exercise.curProgressions.name
-							} Set ${curSet} for ${reps[curSet - 1]} seconds`,
-							voice: speakSettings.voice,
-							rate: speakSettings.rate,
-							pitch: speakSettings.pitch,
-						})
-					} else if (exercise.curProgressions.type === 'Reps') {
-						Speak.speak({
-							text: `Exercise ${counter}, Do ${
-								exercise.curProgressions.name
-							} Set ${curSet} for ${reps[curSet - 1]} times`,
-							voice: speakSettings.voice,
-							rate: speakSettings.rate,
-							pitch: speakSettings.pitch,
-						})
-					}
+	const speakText = useCallback(() => {
+		console.log('speakText')
+		if (speakStatus) {
+			Speak.cancel()
+			if (activity === 'Exercise') {
+				if (exercise.curProgressions.type === 'Duration') {
+					Speak.speak({
+						text: `Exercise ${counter}, Do ${
+							exercise.curProgressions.name
+						} Set ${curSet} for ${reps[curSet - 1]} seconds`,
+						voice: Speak.voices[speakSettings.voiceIndex],
+						rate: speakSettings.rate,
+						pitch: speakSettings.pitch,
+					})
+				} else if (exercise.curProgressions.type === 'Reps') {
+					Speak.speak({
+						text: `Exercise ${counter}, Do ${
+							exercise.curProgressions.name
+						} Set ${curSet} for ${reps[curSet - 1]} times`,
+						voice: Speak.voices[speakSettings.voiceIndex],
+						rate: speakSettings.rate,
+						pitch: speakSettings.pitch,
+					})
 				}
 			}
 		}
 	}, [
+		Speak,
 		activity,
 		counter,
 		curSet,
-		exercise,
+		exercise.curProgressions.name,
+		exercise.curProgressions.type,
 		reps,
-		Speak,
-		speakSettings,
+		speakSettings.pitch,
+		speakSettings.rate,
+		speakSettings.voiceIndex,
 		speakStatus,
-		initialize,
 	])
+
+	useEffect(() => {
+		if (initialize) {
+			setInitialize(false)
+			speakText()
+		}
+	}, [initialize, speakText])
 
 	const setCardPlayStatus = () => {
 		if (speakStatus) {
@@ -116,14 +137,14 @@ const WorkoutProgressionCard = ({
 			if (!play) {
 				Speak.speak({
 					text: `Play`,
-					voice: speakSettings.voice,
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
 			} else {
 				Speak.speak({
 					text: `Paused`,
-					voice: speakSettings.voice,
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
@@ -138,16 +159,14 @@ const WorkoutProgressionCard = ({
 		checkActivity()
 	}
 
-	const timerSkip = () => {
+	const timerSkiped = () => {
 		Speak.cancel()
 		setActivity('Exercise')
 		checkActivity()
 	}
 
 	const checkActivity = () => {
-		if (activity === 'RestSet') {
-			setShowTimer(true)
-		} else if (activity === 'RestExercise') {
+		if (activity === 'RestSet' || activity === 'RestExercise') {
 			setShowTimer(true)
 		} else if (activity === 'Exercise') {
 			nextElement()
@@ -174,10 +193,24 @@ const WorkoutProgressionCard = ({
 		Speak.cancel()
 		setInitialize(true)
 		setCurSet(curSet - 1)
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			setCount: curSet - 1,
+			updatedDate: Date.now(),
+		})
 	}
 
 	const nextSet = () => {
 		setCurSet(curSet + 1)
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			setCount: curSet + 1,
+			updatedDate: Date.now(),
+		})
 		Speak.cancel()
 		setInitialize(true)
 		setActivity('RestSet')
@@ -188,6 +221,14 @@ const WorkoutProgressionCard = ({
 		if (counter > 1) {
 			let newCounter = counter - 1
 			setCounter(newCounter)
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				exerciseCount: newCounter,
+				setCount: 1,
+				updatedDate: Date.now(),
+			})
 			let newExercise = exerciseData.filter(
 				(item) => item.id === newCounter.toString()
 			)
@@ -205,6 +246,14 @@ const WorkoutProgressionCard = ({
 		if (counter < exerciseData.length) {
 			let newCounter = counter + 1
 			setCounter(newCounter)
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				exerciseCount: newCounter,
+				setCount: 1,
+				updatedDate: Date.now(),
+			})
 			let newExercise = exerciseData.filter(
 				(item) => item.id === newCounter.toString()
 			)
@@ -213,25 +262,26 @@ const WorkoutProgressionCard = ({
 			setInitialize(true)
 		} else if (counter === exerciseData.length) {
 			nextStep()
+			setWorkoutProgress({
+				...workoutProgress,
+				fillerModule: true,
+				updatedDate: Date.now(),
+			})
 			setFillerModule(true)
 		}
 	}
 
 	const endWorkout = () => {
-		var confirmation = window.confirm(
-			'This will end current workout. Are you sure?'
-		)
+		var confirmation = window.confirm('Do you really want to end the workout?')
 		if (confirmation) {
-			if (speakStatus) {
-				Speak.cancel()
-				Speak.speak({
-					text: `Ending Workout now`,
-					voice: speakSettings.voice,
-					rate: speakSettings.rate,
-					pitch: speakSettings.pitch,
-				})
-			}
 			setFillerModule(false)
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				fillerModule: false,
+				updatedDate: Date.now(),
+			})
 			lastStep()
 		}
 	}
@@ -265,7 +315,7 @@ const WorkoutProgressionCard = ({
 				speakSettings={speakSettings}
 				settings={settings}
 				timerCompleted={timerCompleted}
-				timerSkip={timerSkip}
+				timerSkiped={timerSkiped}
 			/>
 		)
 	} else {

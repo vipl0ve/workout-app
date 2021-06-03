@@ -144,17 +144,34 @@ const Challenges = () => {
 						<hr />
 						<div className='form-group mb-2'>
 							<h5 className='text-center text-custom-color6'>
-								Challenge Selected
+								{curChallenge.title}
 							</h5>
 							<div className='input-group col-12'>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-custom-color3 text-custom-color6'>
+									Week
+								</span>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+									Day
+								</span>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+									Best
+								</span>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+									Rest
+								</span>
+							</div>
+							<div className='input-group col-12 text-center'>
 								<span className='input-group-text text-center col-3 bg-custom-color2 border-custom-color3 text-custom-color6'>
 									<b>{curWeek.title}</b>
 								</span>
 								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
 									<b>{curDay.title}</b>
 								</span>
-								<span className='input-group-text text-center col-6 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									<b>Current Best {curCriteriaArr[curCriteriaIndex]}</b>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+									<b>{curCriteriaArr[curCriteriaIndex]}</b>
+								</span>
+								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+									<b>{curDay.rest}</b>
 								</span>
 							</div>
 						</div>
@@ -167,7 +184,7 @@ const Challenges = () => {
 									>
 										<h6>Set {index + 1}</h6>
 										<h6 className='badge bg-primary rounded-pill bg-custom-color6 text-custom-color1'>
-											{item}
+											Reps: {item}
 										</h6>
 									</li>
 								))}

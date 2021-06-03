@@ -9,9 +9,10 @@ const CardBtnForward = ({ onAction, disabled }) => {
 				<button
 					type='button'
 					className='btn btn-custom-color6 text-custom-color1'
+					onClick={onAction}
 					disabled
 				>
-					<FontAwesomeIcon icon={faForward} onClick={onAction} />
+					<FontAwesomeIcon icon={faForward} />
 				</button>
 			</>
 		)
@@ -21,8 +22,9 @@ const CardBtnForward = ({ onAction, disabled }) => {
 				<button
 					type='button'
 					className='btn btn-custom-color6 text-custom-color1'
+					onClick={onAction}
 				>
-					<FontAwesomeIcon icon={faForward} onClick={onAction} />
+					<FontAwesomeIcon icon={faForward} />
 				</button>
 			</>
 		)

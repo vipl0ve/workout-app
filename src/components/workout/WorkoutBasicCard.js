@@ -25,13 +25,19 @@ const WorkoutBasicCard = ({
 	nextStep,
 	prevStep,
 	lastStep,
+	workoutProgress,
 	setFillerModule,
 	setPlayStatus,
 	setSpeakStatus,
 	setAutoPlay,
+	setWorkoutProgress,
 }) => {
 	const [exercise, setExercise] = useState(
-		prevModule ? exerciseData[exerciseData.length - 1] : exerciseData[0]
+		workoutProgress.loaded
+			? exerciseData[workoutProgress.exerciseCount - 1]
+			: prevModule
+			? exerciseData[exerciseData.length - 1]
+			: exerciseData[0]
 	)
 	const [counter, setCounter] = useState(parseInt(exercise.id))
 	const [info, setInfo] = useState(false)
@@ -50,14 +56,14 @@ const WorkoutBasicCard = ({
 			if (exercise.type === 'Duration') {
 				Speak.speak({
 					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} seconds`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
 			} else if (exercise.type === 'Reps') {
 				Speak.speak({
 					text: `Exercise ${counter}, Do ${exercise.name} for ${exercise.qty} times`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
@@ -71,7 +77,6 @@ const WorkoutBasicCard = ({
 		exercise.type,
 		speakSettings.pitch,
 		speakSettings.rate,
-		speakSettings.voice,
 		speakSettings.voiceIndex,
 		speakStatus,
 	])
@@ -89,14 +94,14 @@ const WorkoutBasicCard = ({
 			if (!play) {
 				Speak.speak({
 					text: `Play`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
 			} else {
 				Speak.speak({
 					text: `Paused`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+					voice: Speak.voices[speakSettings.voiceIndex],
 					rate: speakSettings.rate,
 					pitch: speakSettings.pitch,
 				})
@@ -109,6 +114,13 @@ const WorkoutBasicCard = ({
 		if (counter > 1) {
 			let newCounter = counter - 1
 			setCounter(newCounter)
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				exerciseCount: newCounter,
+				updatedDate: Date.now(),
+			})
 			let newExercise = exerciseData.filter(
 				(item) => item.id === newCounter.toString()
 			)
@@ -123,31 +135,39 @@ const WorkoutBasicCard = ({
 		if (counter < exerciseData.length) {
 			let newCounter = counter + 1
 			setCounter(newCounter)
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				exerciseCount: newCounter,
+				updatedDate: Date.now(),
+			})
 			let newExercise = exerciseData.filter(
 				(item) => item.id === newCounter.toString()
 			)
 			setExercise(newExercise[0])
 			setInitialize(true)
 		} else if (counter === exerciseData.length) {
+			setWorkoutProgress({
+				...workoutProgress,
+				fillerModule: true,
+				updatedDate: Date.now(),
+			})
 			nextStep()
 			setFillerModule(true)
 		}
 	}
 
 	const endWorkout = () => {
-		var confirmation = window.confirm(
-			'This will end current workout. Are you sure?'
-		)
+		var confirmation = window.confirm('Do you really want to end the workout?')
 		if (confirmation) {
-			if (speakStatus) {
-				Speak.cancel()
-				Speak.speak({
-					text: `Ending Workout now`,
-					voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
-					rate: speakSettings.rate,
-					pitch: speakSettings.pitch,
-				})
-			}
+			setWorkoutProgress({
+				...workoutProgress,
+				status: true,
+				loaded: false,
+				fillerModule: false,
+				updatedDate: Date.now(),
+			})
 			setFillerModule(false)
 			lastStep()
 		}

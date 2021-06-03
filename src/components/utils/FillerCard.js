@@ -7,7 +7,9 @@ const FillerCard = ({
 	Speak,
 	speakStatus,
 	speakSettings,
+	workoutProgress,
 	setFillerModule,
+	setWorkoutProgress,
 }) => {
 	const [initialize, setInitialize] = useState(true)
 	const speakText = useCallback(() => {
@@ -16,7 +18,7 @@ const FillerCard = ({
 			Speak.cancel()
 			Speak.speak({
 				text: `${exercise} Exercise will starts in ${settings.beforeExercise} seconds`,
-				voice: speakSettings.voice || Speak.voices[speakSettings.voiceIndex],
+				voice: Speak.voices[speakSettings.voiceIndex],
 				rate: speakSettings.rate,
 				pitch: speakSettings.pitch,
 			})
@@ -27,7 +29,6 @@ const FillerCard = ({
 		settings.beforeExercise,
 		speakSettings.pitch,
 		speakSettings.rate,
-		speakSettings.voice,
 		speakSettings.voiceIndex,
 		speakStatus,
 	])
@@ -40,8 +41,14 @@ const FillerCard = ({
 	}, [initialize, speakText])
 
 	const onCompleted = () => {
-		Speak.cancel()
 		setFillerModule(false)
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			fillerModule: false,
+			updatedDate: Date.now(),
+		})
 	}
 
 	return (

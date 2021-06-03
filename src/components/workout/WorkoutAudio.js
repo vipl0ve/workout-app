@@ -5,8 +5,10 @@ const WorkoutAudio = ({
 	Speak,
 	speakSettings,
 	nextStep,
+	workoutProgress,
 	setSpeakStatus,
 	setSpeakSettings,
+	setWorkoutProgress,
 }) => {
 	const [text, setText] = useState('I am a robot')
 	const [pitch, setPitch] = useState(
@@ -16,9 +18,7 @@ const WorkoutAudio = ({
 	const [voiceIndex, setVoiceIndex] = useState(
 		speakSettings.voiceIndex ? speakSettings.voiceIndex : null
 	)
-	const [voice, SetVoice] = useState(
-		speakSettings.voice ? speakSettings.voice : Speak.voices[voiceIndex]
-	)
+	const [voice, SetVoice] = useState(Speak.voices[voiceIndex])
 	const [audio, setAudio] = useState(false)
 
 	useEffect(() => {
@@ -32,6 +32,13 @@ const WorkoutAudio = ({
 	const disableAudio = (e) => {
 		setAudio(false)
 		setSpeakStatus(false)
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			speakStatus: false,
+			updatedDate: Date.now(),
+		})
 		nextStep()
 	}
 
@@ -39,10 +46,16 @@ const WorkoutAudio = ({
 		setSpeakStatus(true)
 		setSpeakSettings({
 			audio,
-			voice,
 			rate,
 			pitch,
 			voiceIndex,
+		})
+		setWorkoutProgress({
+			...workoutProgress,
+			status: true,
+			loaded: false,
+			speakStatus: true,
+			updatedDate: Date.now(),
 		})
 		nextStep()
 	}
@@ -51,7 +64,7 @@ const WorkoutAudio = ({
 		<div className='maincontainer container py-3 d-flex flex-column justify-content-start'>
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				<div className='card-header d-flex flex-row justify-content-between align-items-start bg-transparent border-custom-color4 p-2'>
-					<PageHeader text='Select Exercise Audio' />
+					<PageHeader text='Exercise Audio' />
 				</div>
 				{/* If Browser don't support Speech */}
 				{!Speak.supported && (
