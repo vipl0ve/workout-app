@@ -6,7 +6,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import exerciseIcon from '../../asset/exerciseIcon.png'
 
 const WorkoutStarted = ({
-	routineInfo,
+	routine,
 	Speak,
 	speakStatus,
 	speakSettings,
@@ -61,21 +61,23 @@ const WorkoutStarted = ({
 			status: true,
 			loaded: false,
 			play: true,
+			workoutName: routine.name.trim(),
 			updatedDate: Date.now(),
 		})
+		console.log(routine.name.trim())
 		nextStep()
 	}
 
 	return (
-		<div className='maincontainer container container d-flex flex-column justify-content-center'>
+		<div className='maincontainer container d-flex flex-column justify-content-center'>
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
 				<div className='card-header bg-transparent border-custom-color4'>
 					<h5 className='text-custom-color6'>Workout Started</h5>
 				</div>
 				<div className='card-body'>
 					<div className='card-title'>
-						<h5>{routineInfo.name}</h5>
-						<small className='card-text'>Author: {routineInfo.author}</small>
+						<h5>{routine.name}</h5>
+						<small className='card-text'>Author: {routine.author}</small>
 					</div>
 					<p className='card-text'>
 						<img src={exerciseIcon} className='card-text' alt='exercise' />

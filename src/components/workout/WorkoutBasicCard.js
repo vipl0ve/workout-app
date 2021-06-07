@@ -150,6 +150,8 @@ const WorkoutBasicCard = ({
 		} else if (counter === exerciseData.length) {
 			setWorkoutProgress({
 				...workoutProgress,
+				status: true,
+				loaded: false,
 				fillerModule: true,
 				updatedDate: Date.now(),
 			})
@@ -159,7 +161,7 @@ const WorkoutBasicCard = ({
 	}
 
 	const endWorkout = () => {
-		var confirmation = window.confirm('Do you really want to end the workout?')
+		var confirmation = window.confirm('Do you want to end workout?')
 		if (confirmation) {
 			setWorkoutProgress({
 				...workoutProgress,
@@ -219,7 +221,11 @@ const WorkoutBasicCard = ({
 						qty={exercise.qty}
 						progression={false}
 					/>
-					{info && <p className='card-text'>{exercise.desc}</p>}
+					{info && (
+						<p className='card-text'>
+							<small>{exercise.desc}</small>
+						</p>
+					)}
 					<div className='btn-group' role='group' aria-label='Basic example'>
 						<CardBtnInfo data={exercise.desc} onAction={showInfo} />
 						<CardBtnVideo data={exercise.video} onAction={showVideo} />

@@ -64,11 +64,11 @@ const Challenges = () => {
 						<div className='form-group mb-2'>
 							<div className='input-group col-12'>
 								<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-									Challenge
+									<small>Challenge</small>
 								</span>
 								<select
 									id='selectChallenge'
-									className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+									className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 									required
 									value={curChallenge.id}
 									onChange={onChallengeChange}
@@ -84,11 +84,11 @@ const Challenges = () => {
 						<div className='form-group mb-2'>
 							<div className='input-group col-12'>
 								<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-									Week
+									<small>Week</small>
 								</span>
 								<select
 									id='selectChallengeWeek'
-									className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+									className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 									required
 									value={curWeek.id}
 									onChange={onWeekChange}
@@ -104,11 +104,11 @@ const Challenges = () => {
 						<div className='form-group mb-2'>
 							<div className='input-group col-12'>
 								<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-									Day
+									<small>Day</small>
 								</span>
 								<select
 									id='selectChallengeDay'
-									className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+									className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 									required
 									value={curDay.id}
 									onChange={onDayChange}
@@ -124,11 +124,11 @@ const Challenges = () => {
 						<div className='form-group mb-2'>
 							<div className='input-group col-12'>
 								<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-									Criteria
+									<small>Criteria</small>
 								</span>
 								<select
 									id='selectChallengeDayCriteria'
-									className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+									className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 									required
 									value={curCriteriaIndex}
 									onChange={onCriteriaChange}
@@ -146,46 +146,31 @@ const Challenges = () => {
 							<h5 className='text-center text-custom-color6'>
 								{curChallenge.title}
 							</h5>
-							<div className='input-group col-12'>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-custom-color3 text-custom-color6'>
-									Week
-								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									Day
-								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									Best
-								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									Rest
-								</span>
-							</div>
-							<div className='input-group col-12 text-center'>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-custom-color3 text-custom-color6'>
+							<div className='d-flex justify-content-between align-items-center bg-custom-color2 text-custom-color6 mx-2'>
+								<span className='small'>
 									<b>{curWeek.title}</b>
 								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
+								<span className='small'>
 									<b>{curDay.title}</b>
 								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									<b>{curCriteriaArr[curCriteriaIndex]}</b>
-								</span>
-								<span className='input-group-text text-center col-3 bg-custom-color2 border-right-0 border-custom-color3 text-custom-color6'>
-									<b>{curDay.rest}</b>
+								<span className='small'>
+									<b>Criteria:{curCriteriaArr[curCriteriaIndex]}</b>
 								</span>
 							</div>
 						</div>
 						<div>
 							<ul className='list-group'>
+								<li className='list-group-item d-flex justify-content-between align-items-center bg-custom-color3 text-custom-color6'>
+									<h6 className='text-custom-color6 lead'>Rest</h6>
+									<h6 className='text-custom-color6 lead'>{curDay.rest}s</h6>
+								</li>
 								{curDay.sets[curCriteriaIndex].map((item, index) => (
 									<li
 										className='list-group-item d-flex justify-content-between align-items-center bg-custom-color3 text-custom-color6'
 										key={index}
 									>
-										<h6>Set {index + 1}</h6>
-										<h6 className='badge bg-primary rounded-pill bg-custom-color6 text-custom-color1'>
-											Reps: {item}
-										</h6>
+										<h6 className='text-custom-color6 lead'>Set {index + 1}</h6>
+										<h6 className='text-custom-color6 lead'>Reps: {item}</h6>
 									</li>
 								))}
 							</ul>

@@ -1499,7 +1499,7 @@
 							"img": "http://4.bp.blogspot.com/-TXObO0OGyxQ/Um-C5c3sSVI/AAAAAAAABQY/muyBo2rnjvI/s200/shoulder+rotations.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
@@ -1510,7 +1510,7 @@
 							"img": "http://3.bp.blogspot.com/-4noJxB-TxAo/Um-DWe8ofMI/AAAAAAAABQg/C-1XdG7icLY/s200/arm+raises.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
@@ -1521,7 +1521,7 @@
 							"img": "http://2.bp.blogspot.com/-7v9wOqMxqAs/Um-DkPwtIXI/AAAAAAAABQo/l6KlUbufhfo/s200/torso+rotations.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
@@ -1532,7 +1532,7 @@
 							"img": "http://3.bp.blogspot.com/-aPgAWGMeDXU/Um-EA7iZjhI/AAAAAAAABQw/_puZsMTJA1U/s200/chest+expansions.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "Expand chest with palms facing upwards",
 							"video": ""
 						},
@@ -1543,40 +1543,40 @@
 							"img": "http://3.bp.blogspot.com/-760fGngaxbo/Um-ESZjnfFI/AAAAAAAABQ4/-OS9DOsSSoU/s200/neck+circles.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
 						{
 							"id": "7",
 							"parentid": "1",
-							"name": "Hip Rotations(Each Leg)",
+							"name": "Hip Rotations",
 							"img": "http://4.bp.blogspot.com/-jT5pA_qTrUo/Um-EuiRlJvI/AAAAAAAABRA/TVN5M5HRFCs/s200/hip+rotation.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "Standing in a staggered stance, bring your back knee up in front of you, then to the side, before lowering your leg back down in the starting position",
 							"video": ""
 						},
 						{
 							"id": "8",
 							"parentid": "1",
-							"name": "Reverse Hip Rotations(Each Leg)",
+							"name": "Reverse Hip Rotations",
 							"img": "http://3.bp.blogspot.com/-v9VizXhSa9E/Um-FPtzz1hI/AAAAAAAABRI/92FggIXHMRY/s200/hip+rotation2.JPG",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "Reverse the previous motion by first bringing your back knee up to your side, then rotating your upper leg until your knee is in front of you before bringing it back down to the starting position.",
 							"video": ""
 						},
 						{
 							"id": "9",
 							"parentid": "1",
-							"name": "Front Leg Raises(Each Leg)",
+							"name": "Front Leg Raises",
 							"img": "http://1.bp.blogspot.com/-VH_pu6kbVvc/Um-FuQZEanI/AAAAAAAABRU/QegY5Bs94l8/s200/leg+raises.jpg",
 							"type": "Reps",
 							"qty": "5",
-							"autoPlay": "30",
+							"autoPlay": "60",
 							"desc": "Bring your leg up to your outstretched hand. This should be a controled leg raise, rather than a swinging motion.",
 							"video": ""
 						}
@@ -2781,7 +2781,7 @@
 							"img": "http://2.bp.blogspot.com/-g4RWrolEDxI/UnANL70l1-I/AAAAAAAABiU/b_IRN9F7i64/s200/pecs.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Performed against a wall. Your hand should be facing up towards the ceiling.",
 							"video": ""
 						},
@@ -2792,7 +2792,7 @@
 							"img": "http://1.bp.blogspot.com/-kBtdCwn7VQQ/UnANdrkEm9I/AAAAAAAABic/0yeAKbVRfE4/s200/lats.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Lay your outstretched hand against a wall, and gradually lean into the wall.",
 							"video": ""
 						},
@@ -2803,7 +2803,7 @@
 							"img": "http://1.bp.blogspot.com/-Tou-L40XSkU/UnANui_evTI/AAAAAAAABik/Mjk3a3SEj08/s200/triceps.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
@@ -2814,7 +2814,7 @@
 							"img": "http://1.bp.blogspot.com/--1LOZcj4RYM/UnAN50h-y1I/AAAAAAAABis/eHX0kqXIX0M/s200/pecs+and+rotator+cuffs.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Place your forearms flat against both sides of a door and lean foreward gradually to increase the stretch.",
 							"video": ""
 						},
@@ -2825,7 +2825,7 @@
 							"img": "http://1.bp.blogspot.com/-qwLbuUpu7VE/UnAOR5BurtI/AAAAAAAABi0/u3KCAtA-rv0/s200/gastrocnemius.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "This calf stretch targets principally the gastrocnemius. Keep your heel on the floor and your leg straight, and lean into the wall.",
 							"video": ""
 						},
@@ -2836,7 +2836,7 @@
 							"img": "http://3.bp.blogspot.com/-LK3X_ciTV9o/UnAOmVPYrHI/AAAAAAAABi8/1gk64obiF3o/s200/soleus+and+achilles+tendon.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "This calf stretch targets the soleus and achilles tendon. Keep your heel on the floor, bend your leg as you bring the knee towards the wall.",
 							"video": ""
 						},
@@ -2847,7 +2847,7 @@
 							"img": "",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Push your hips forward and bring your knee back to increase the stretch.",
 							"video": ""
 						},
@@ -2858,7 +2858,7 @@
 							"img": "http://4.bp.blogspot.com/-Z4ULs1Y_jcg/UnAPR979gqI/AAAAAAAABjM/0hzJJdFh_-U/s200/hamstrings.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Keep a straight leg as your bring your weight forward over your knee.",
 							"video": ""
 						},
@@ -2869,7 +2869,7 @@
 							"img": "http://2.bp.blogspot.com/-3DxnGgSlKAs/UnAPih143CI/AAAAAAAABjU/a-BPWv3vwi8/s200/hamstrings+and+adductors.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": " From the previous position, rotate the foot and the floor 90 degrees, and rotate your hips to face sideways. Lean your body towars your outstretched foot to increase the stretch.",
 							"video": ""
 						},
@@ -2880,7 +2880,7 @@
 							"img": "http://3.bp.blogspot.com/-iYLlm9NwUb4/UnAQCTns8QI/AAAAAAAABjg/OUF5c2pEteM/s200/adductors+and+hamstrings.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "",
 							"video": ""
 						},
@@ -2891,7 +2891,7 @@
 							"img": "http://2.bp.blogspot.com/-pVwY9SbKAEM/UnAQNYX_8oI/AAAAAAAABjo/6Z8GzokIXq0/s200/adductors+and+calves.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "This will stretch your adductors and calf muscles. Press with your elbows on the inside of your knees to increase the stretch.",
 							"video": ""
 						},
@@ -2902,7 +2902,7 @@
 							"img": "http://4.bp.blogspot.com/-G2iiQUhTugs/UnAQjtTHQPI/AAAAAAAABjw/wKuNXXMO6hc/s200/glutes+and+abductors.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "This stretch will target both your glutes and abductors.",
 							"video": ""
 						},
@@ -2913,7 +2913,7 @@
 							"img": "http://1.bp.blogspot.com/-ApY-zC7HSxM/UnAQx5g-zoI/AAAAAAAABj4/hC1UkzWkVmI/s200/abdominals.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "Arch your back to target your abdominals.",
 							"video": ""
 						},
@@ -2924,7 +2924,7 @@
 							"img": "http://2.bp.blogspot.com/-bCk3OTnosGA/UnARIijWrlI/AAAAAAAABkA/Q_EyLirlbU4/s200/back.JPG",
 							"type": "Duration",
 							"qty": "20",
-							"autoPlay": "20",
+							"autoPlay": "60",
 							"desc": "The cat stretch increases flexibility in the lower back and core muscles.",
 							"video": ""
 						}

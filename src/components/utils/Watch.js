@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
 import { secondFormatted } from '../../helper/helperfunctions'
 import Beep from '../../asset/beep.mp3'
+var beepAudio = new Audio(Beep)
 
 const Watch = ({
 	data,
@@ -33,8 +34,7 @@ const Watch = ({
 				}
 			} else {
 				clearInterval(countRef.current)
-				var audio = new Audio(Beep)
-				audio.play()
+				beepAudio.play()
 				if (autoPlay) {
 					setTimer(0)
 					onComplete()

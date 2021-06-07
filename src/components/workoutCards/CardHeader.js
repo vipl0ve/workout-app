@@ -11,13 +11,17 @@ const CardHeader = ({
 		<>
 			<div className='col col-4 text-start'>
 				<span className='text-custom-color6'>
-					<b>Exercise {counter + '/' + exerciseData.length}</b>
+					<small>
+						<b>Exercise {counter + '/' + exerciseData.length}</b>
+					</small>
 				</span>
 				{progression && (
 					<>
 						<br />
 						<span className='text-custom-color6'>
-							<b>Set: {curSet + '/' + totalSets}</b>
+							<small>
+								<b>Set: {curSet + '/' + totalSets}</b>
+							</small>
 						</span>
 					</>
 				)}

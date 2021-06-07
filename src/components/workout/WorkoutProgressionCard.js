@@ -52,7 +52,6 @@ const WorkoutProgressionCard = ({
 			: 1
 	)
 	const [activity, setActivity] = useState('Exercise')
-	const [showTimer, setShowTimer] = useState(false)
 	const [info, setInfo] = useState(false)
 	const [video, setVideo] = useState(false)
 	const [btnDisabled, SetBtnDisabled] = useState({
@@ -70,19 +69,6 @@ const WorkoutProgressionCard = ({
 	useEffect(() => {
 		setTotalSets(reps.length)
 	}, [reps])
-
-	useEffect(() => {
-		if (activity === 'Exercise') {
-			setShowTimer(false)
-			setInitialize(true)
-		} else if (activity === 'RestSet') {
-			setShowTimer(true)
-			setInitialize(false)
-		} else if (activity === 'RestExercise') {
-			setShowTimer(true)
-			setInitialize(false)
-		}
-	}, [activity])
 
 	const speakText = useCallback(() => {
 		console.log('speakText')
@@ -108,6 +94,20 @@ const WorkoutProgressionCard = ({
 						pitch: speakSettings.pitch,
 					})
 				}
+			} else if (activity === 'RestSet') {
+				Speak.speak({
+					text: `Rest for ${settings.betweenSet} seconds between Sets. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
+					voice: Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
+			} else if (activity === 'RestExercise') {
+				Speak.speak({
+					text: `Rest for ${settings.betweenExercise} seconds between Exercises. Next, ${exercise.curProgressions.name} Set: ${curSet}`,
+					voice: Speak.voices[speakSettings.voiceIndex],
+					rate: speakSettings.rate,
+					pitch: speakSettings.pitch,
+				})
 			}
 		}
 	}, [
@@ -118,6 +118,8 @@ const WorkoutProgressionCard = ({
 		exercise.curProgressions.name,
 		exercise.curProgressions.type,
 		reps,
+		settings.betweenExercise,
+		settings.betweenSet,
 		speakSettings.pitch,
 		speakSettings.rate,
 		speakSettings.voiceIndex,
@@ -131,6 +133,7 @@ const WorkoutProgressionCard = ({
 		}
 	}, [initialize, speakText])
 
+	// Play Button
 	const setCardPlayStatus = () => {
 		if (speakStatus) {
 			Speak.cancel()
@@ -154,20 +157,13 @@ const WorkoutProgressionCard = ({
 	}
 
 	const timerCompleted = () => {
-		Speak.cancel()
-		setActivity('Exercise')
-		checkActivity()
-	}
-
-	const timerSkiped = () => {
-		Speak.cancel()
-		setActivity('Exercise')
 		checkActivity()
 	}
 
 	const checkActivity = () => {
 		if (activity === 'RestSet' || activity === 'RestExercise') {
-			setShowTimer(true)
+			setActivity('Exercise')
+			setInitialize(true)
 		} else if (activity === 'Exercise') {
 			nextElement()
 		}
@@ -204,6 +200,7 @@ const WorkoutProgressionCard = ({
 
 	const nextSet = () => {
 		setCurSet(curSet + 1)
+		setActivity('RestSet')
 		setWorkoutProgress({
 			...workoutProgress,
 			status: true,
@@ -213,7 +210,6 @@ const WorkoutProgressionCard = ({
 		})
 		Speak.cancel()
 		setInitialize(true)
-		setActivity('RestSet')
 	}
 
 	const prevExercise = () => {
@@ -264,6 +260,8 @@ const WorkoutProgressionCard = ({
 			nextStep()
 			setWorkoutProgress({
 				...workoutProgress,
+				status: true,
+				loaded: false,
 				fillerModule: true,
 				updatedDate: Date.now(),
 			})
@@ -272,7 +270,7 @@ const WorkoutProgressionCard = ({
 	}
 
 	const endWorkout = () => {
-		var confirmation = window.confirm('Do you really want to end the workout?')
+		var confirmation = window.confirm('Do you want to end workout?')
 		if (confirmation) {
 			setFillerModule(false)
 			setWorkoutProgress({
@@ -304,21 +302,21 @@ const WorkoutProgressionCard = ({
 		setVideo(!video)
 	}
 
-	if (showTimer) {
+	if (activity === 'RestSet' || activity === 'RestExercise') {
 		return (
 			<CardShowTimer
 				activity={activity}
 				exercise={exercise}
 				curSet={curSet}
+				reps={reps}
 				Speak={Speak}
 				speakStatus={speakStatus}
 				speakSettings={speakSettings}
 				settings={settings}
 				timerCompleted={timerCompleted}
-				timerSkiped={timerSkiped}
 			/>
 		)
-	} else {
+	} else if (activity === 'Exercise') {
 		return (
 			<div className='maincontainer d-flex flex-column justify-content-center'>
 				<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
@@ -359,7 +357,9 @@ const WorkoutProgressionCard = ({
 							reps={reps}
 						/>
 						{info && (
-							<p className='card-text'>{exercise.curProgressions.desc}</p>
+							<p className='card-text'>
+								<small>{exercise.curProgressions.desc}</small>
+							</p>
 						)}
 						<div className='btn-group' role='group' aria-label='Basic example'>
 							<CardBtnInfo
@@ -394,6 +394,8 @@ const WorkoutProgressionCard = ({
 				</div>
 			</div>
 		)
+	} else {
+		return null
 	}
 }
 

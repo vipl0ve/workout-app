@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Switch from 'react-switch'
 import { useHistory } from 'react-router-dom'
-//import $ from 'jquery'
 import { routines } from '../../data/exercise.json'
 import WorkoutAccordion from './WorkoutAccordion'
 import { useLocalStorage } from '../utils/useLocalStorage'
@@ -126,10 +125,12 @@ const Workout = () => {
 				<hr />
 
 				<div className='text-center pb-2'>
-					<span className='h4 text-custom-color5'>{curRoutine.name}</span>
+					<span className='text-custom-color5 lead'>
+						<b>{curRoutine.name}</b>
+					</span>
 					<div className='d-flex justify-content-center align-items-start mt-2'>
 						<label>
-							<span className='text-custom-color5 p-2'>
+							<span className='text-custom-color5 small p-2'>
 								Save Workout Details
 							</span>
 						</label>

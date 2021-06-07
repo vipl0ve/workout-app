@@ -1,31 +1,50 @@
 import React, { useState } from 'react'
 import ReactSvgTimer from 'react-svg-timer'
 import DoubleBeep from '../../asset/double-beep.mp3'
-import Beep from '../../asset/beep.mp3'
+//import Beep from '../../asset/beep.mp3'
+var dBeepAudio = new Audio(DoubleBeep)
+//var beepAudio = new Audio(Beep)
 
 const Stopwatch = ({ data, speakStatus, timerCompletedStatus }) => {
-	var beepAudio = new Audio(Beep)
-	var dBeepAudio = new Audio(DoubleBeep)
-
 	const [resetRequested, setResetRequested] = useState(false)
 	const [logMilliseconds] = useState(false)
 
-	const onComplete = (status) => {
-		// if (speakStatus) {
-		// 	dBeepAudio.play()
-		// }
-		dBeepAudio.play()
+	const onComplete = () => {
+		if (speakStatus) {
+			dBeepAudio.play()
+		}
 		setResetRequested(true)
 		timerCompletedStatus()
 	}
 
 	const timerValue = (value) => {
 		if (logMilliseconds) {
-			console.log(value)
+			console.log('Value:' + value)
 		}
-		if (value === data * 500) {
-			beepAudio.play()
-		}
+		// if (speakStatus) {
+		// 	if (data > 10 && data < 20) {
+		// 		if (
+		// 			value === (data - 3) * 1000 ||
+		// 			value === (data - 2) * 1000 ||
+		// 			value === (data - 1) * 1000
+		// 		) {
+		// 			console.log('Timer: ' + value)
+		// 			beepAudio.play()
+		// 		}
+		// 	} else if (data > 20) {
+		// 		if (
+		// 			value === (data * 1000) / 2 ||
+		// 			value === (data - 5) * 1000 ||
+		// 			value === (data - 4) * 1000 ||
+		// 			value === (data - 3) * 1000 ||
+		// 			value === (data - 2) * 1000 ||
+		// 			value === (data - 1) * 1000
+		// 		) {
+		// 			console.log('Timer: ' + value)
+		// 			beepAudio.play()
+		// 		}
+		// 	}
+		// }
 	}
 
 	return (

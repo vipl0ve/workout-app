@@ -13,13 +13,15 @@ const CardTitle = ({
 		return (
 			<>
 				{progression && (
-					<h5 className='card-title text-center text-custom-color5 mb-3'>
-						{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}x
+					<h5 className='card-title lead text-center text-custom-color5 mb-3'>
+						<b>{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}x</b>
 					</h5>
 				)}
 				{!progression && (
-					<h5 className='card-title text-center text-custom-color5'>
-						{name}: {qty}x
+					<h5 className='card-title  lead text-center text-custom-color5'>
+						<b>
+							{name}: {qty}x
+						</b>
 					</h5>
 				)}
 			</>
@@ -28,13 +30,15 @@ const CardTitle = ({
 		return (
 			<>
 				{progression && (
-					<h5 className='card-title text-center text-custom-color5 mb-3'>
-						{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}s
+					<h5 className='card-title lead text-center text-custom-color5 mb-3'>
+						<b>{exerciseName + ' : ' + name + ' ' + reps[curSet - 1]}s</b>
 					</h5>
 				)}
 				{!progression && (
-					<h5 className='card-title text-center text-custom-color5'>
-						{name}: {qty}s
+					<h5 className='card-title  lead text-center text-custom-color5'>
+						<b>
+							{name}: {qty}s
+						</b>
 					</h5>
 				)}
 			</>

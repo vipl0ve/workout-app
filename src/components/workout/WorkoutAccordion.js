@@ -25,7 +25,7 @@ const WorkoutAccordion = ({
 								aria-expanded='false'
 								aria-controls={'collapse' + id}
 							>
-								{name}
+								<small>{name}</small>
 								<span className='badge bg-custom-color5 text-custom-color1 ms-3'>
 									{data.length}
 								</span>
@@ -65,7 +65,7 @@ const WorkoutAccordion = ({
 								aria-expanded='false'
 								aria-controls={'collapse' + id}
 							>
-								{name}
+								<small>{name}</small>
 								<span className='badge bg-custom-color5 text-custom-color1 ms-3'>
 									{data.length}
 								</span>
@@ -106,7 +106,7 @@ const WorkoutAccordion = ({
 								aria-expanded='false'
 								aria-controls={'collapse' + id}
 							>
-								{name}
+								<small>{name}</small>
 								<span className='badge bg-custom-color5 text-custom-color1 ms-3'>
 									{data.length}
 								</span>

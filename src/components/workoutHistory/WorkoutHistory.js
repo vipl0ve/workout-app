@@ -4,7 +4,6 @@ import moment from 'moment'
 import DatePicker from 'react-date-picker'
 import WorkoutHistoryAggCard from './WorkoutHistoryAggCard'
 import WorkoutHistoryCard from './WorkoutHistoryCard'
-import PageHeader from '../layout/PageHeader'
 import WorkoutActitivty from './WorkoutActitivty'
 
 const workoutaggregation = (events) => {
@@ -30,19 +29,64 @@ const workoutaggregation = (events) => {
 
 const weeklyActivity = (events) => {
 	var weekEvents = []
-	var activity = {
-		Mon: false,
-		Tue: false,
-		Wed: false,
-		Thu: false,
-		Fri: false,
-		Sat: false,
-		Sun: false,
-	}
+	var activity = [
+		{
+			id: 1,
+			day: 'Mon',
+			shortName: 'M',
+			status: false,
+			date: '',
+		},
+		{
+			id: 2,
+			day: 'Tue',
+			shortName: 'T',
+			status: false,
+			date: '',
+		},
+		{
+			id: 3,
+			day: 'Wed',
+			shortName: 'W',
+			status: false,
+			date: '',
+		},
+		{
+			id: 4,
+			day: 'Thu',
+			shortName: 'Th',
+			status: false,
+			date: '',
+		},
+		{
+			id: 5,
+			day: 'Fri',
+			shortName: 'F',
+			status: false,
+			date: '',
+		},
+		{
+			id: 6,
+			day: 'Sat',
+			shortName: 'Sa',
+			status: false,
+			date: '',
+		},
+		{
+			id: 7,
+			day: 'Sun',
+			shortName: 'S',
+			status: false,
+			date: '',
+		},
+	]
 	if (events.length !== 0) {
-		weekEvents = events.filter((i) => i.week === moment().format('w'))
-		for (const item of weekEvents) {
-			activity[item.day] = true
+		weekEvents = events
+			.filter((i) => i.week === moment().format('w'))
+			.map((item) => item.day)
+		for (var item of activity) {
+			item.date = moment().day(item.id).format('D')
+			item.status = weekEvents.includes(item.day)
 		}
 	}
 	return activity
@@ -105,9 +149,8 @@ const WorkoutHistory = () => {
 
 	return (
 		<div className='maincontainer container py-3 '>
-			<PageHeader text='Workout History' />
-			<WorkoutHistoryAggCard data={workoutAgg} />
 			<WorkoutActitivty data={weekActivity} />
+			<WorkoutHistoryAggCard data={workoutAgg} />
 			<div className='d-flex justify-content-around align-items-center mt-3'>
 				<DatePicker
 					calendarClassName='text-custom-color6'

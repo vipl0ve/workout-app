@@ -58,12 +58,16 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 				<div className='d-flex flex-row align-items-start justify-content-between'>
 					<div className='col col-8 text-start'>
 						<div className='row'>
-							<span className='mb-1 text-custom-color6'>{exercise.name}: </span>
+							<span className='mb-1 text-custom-color6'>
+								<small>{exercise.name}:</small>
+							</span>
 						</div>
 						<div className='row'>
 							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6 fs-6'>
-									<ins>{prog.name}</ins>
+									<small>
+										<ins>{prog.name}</ins>
+									</small>
 								</span>
 								<button
 									className='btn dropdown-toggle px-1 text-custom-color5'
@@ -83,7 +87,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 												key={item.id}
 												onClick={() => onChange(item.id)}
 											>
-												{item.name}
+												<small>{item.name}</small>
 											</button>
 										</li>
 									))}
@@ -94,13 +98,17 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 					<div className='col col-4'>
 						<div className='row'>
 							<div className='col col-12 text-start'>
-								<span className='mb-1 text-custom-color6'>Reps: </span>
+								<span className='mb-1 text-custom-color6'>
+									<small>Reps:</small>
+								</span>
 							</div>
 						</div>
 						<div className='row'>
 							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6 fs-6'>
-									<ins>{prog.qty}</ins>
+									<small>
+										<ins>{prog.qty}</ins>
+									</small>
 								</span>
 								<button
 									className='btn dropdown-toggle px-1 text-custom-color5'
@@ -120,7 +128,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 												key={item.id}
 												onClick={() => onRepsChange(item.id)}
 											>
-												{item.qty}
+												<small>{item.qty}</small>
 											</button>
 										</li>
 									))}
@@ -173,13 +181,17 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 					<div className='col col-4'>
 						<div className='row'>
 							<div className='col col-12 text-start'>
-								<span className='mb-1 text-custom-color6'>Duration: </span>
+								<span className='mb-1 text-custom-color6'>
+									<small>Duration:</small>
+								</span>
 							</div>
 						</div>
 						<div className='row'>
 							<div className='col col-12 text-start'>
 								<span className='mb-1 text-custom-color6'>
-									<ins>{prog.qty}s</ins>
+									<small>
+										<ins>{prog.qty}s</ins>
+									</small>
 								</span>
 								<button
 									className='btn dropdown-toggle px-1 text-custom-color5'
@@ -199,7 +211,7 @@ const ProgressionExercise = ({ data, changeCurProgression }) => {
 												key={item.id}
 												onClick={() => onDurationChange(item.id)}
 											>
-												{item.qty}s
+												<small>{item.qty}s</small>
 											</button>
 										</li>
 									))}

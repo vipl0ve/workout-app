@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PageHeader from '../layout/PageHeader'
 
 const WorkoutAudio = ({
 	Speak,
@@ -19,18 +18,17 @@ const WorkoutAudio = ({
 		speakSettings.voiceIndex ? speakSettings.voiceIndex : null
 	)
 	const [voice, SetVoice] = useState(Speak.voices[voiceIndex])
-	const [audio, setAudio] = useState(false)
+	const [audioSettings, setAudioSettings] = useState(false)
 
 	useEffect(() => {
 		SetVoice(Speak.voices[voiceIndex])
 	}, [Speak.voices, voiceIndex])
 
-	const enableAudio = (e) => {
-		setAudio(true)
+	const enableAudioSettings = (e) => {
+		setAudioSettings(true)
 	}
 
-	const disableAudio = (e) => {
-		setAudio(false)
+	const disableAudioSettings = (e) => {
 		setSpeakStatus(false)
 		setWorkoutProgress({
 			...workoutProgress,
@@ -45,7 +43,6 @@ const WorkoutAudio = ({
 	const saveAudioSettings = (e) => {
 		setSpeakStatus(true)
 		setSpeakSettings({
-			audio,
 			rate,
 			pitch,
 			voiceIndex,
@@ -61,22 +58,22 @@ const WorkoutAudio = ({
 	}
 
 	return (
-		<div className='maincontainer container py-3 d-flex flex-column justify-content-start'>
+		<div className='maincontainer container py-3 d-flex flex-column justify-content-center'>
 			<div className='card text-center text-custom-color5 bg-custom-color2 border-custom-color4'>
-				<div className='card-header d-flex flex-row justify-content-between align-items-start bg-transparent border-custom-color4 p-2'>
-					<PageHeader text='Exercise Audio' />
+				<div className='card-header bg-transparent border-custom-color4'>
+					<h5 className='text-custom-color6'>Workout Audio</h5>
 				</div>
 				{/* If Browser don't support Speech */}
 				{!Speak.supported && (
 					<>
 						<div className='card-body'>
-							<p className='text-justify card-text'>
+							<p className='card-text text-justify'>
 								Oh no, it looks like your browser doesn&#39;t support Speech
 								Synthesis.
 							</p>
 							<button
 								className='btn btn-custom-color5 text-custom-color1'
-								onClick={disableAudio}
+								onClick={disableAudioSettings}
 							>
 								Skip Settings
 							</button>
@@ -86,33 +83,35 @@ const WorkoutAudio = ({
 				{/* If Browser support Speech */}
 				{Speak.supported && (
 					<div className='card-body'>
-						<p className='text-justify card-text'>{`Do you want to enable the audio during the workout?`}</p>
+						<p className='card-text text-center'>{`Do you want the audio to be enabled during the workout?`}</p>
 						<div className='d-flex justify-content-around align-items-center'>
 							<button
 								className='btn btn-custom-color5 text-custom-color1'
-								onClick={enableAudio}
+								onClick={enableAudioSettings}
 							>
 								Yes
 							</button>
 							<button
 								className='btn btn-custom-color5 text-custom-color1'
-								onClick={disableAudio}
+								onClick={disableAudioSettings}
 							>
 								No
 							</button>
 						</div>
-						{audio && (
+						{audioSettings && (
 							<form>
-								<h5 className='text-center mt-3'>Audio Settings</h5>
+								<hr />
+								<h5 className='text-center mt-3'>Settings</h5>
+								<hr />
 								<div className='form-group mb-2'>
 									<div className='input-group col-12'>
-										<span className='input-group-text col-4 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											Select Voice
+										<span className='input-group-text col-4 bg-custom-color4 border-custom-color3 text-custom-color1 fs-6'>
+											<small>Select Voice</small>
 										</span>
 										<select
 											id='voice'
 											name='voice'
-											className='form-control bg-custom-color2 border-custom-color3 text-custom-color6'
+											className='form-select small bg-custom-color2 border-custom-color3 text-custom-color6'
 											required
 											value={voiceIndex || ''}
 											onChange={(event) => {
@@ -121,7 +120,11 @@ const WorkoutAudio = ({
 										>
 											<option value=''>Default</option>
 											{Speak.voices.map((option, index) => (
-												<option key={option.voiceURI} value={index}>
+												<option
+													key={option.voiceURI}
+													value={index}
+													className='small'
+												>
 													{`${option.lang} - ${option.name}`}
 												</option>
 											))}
@@ -131,67 +134,75 @@ const WorkoutAudio = ({
 								<div className='form-group mb-2'>
 									<div className='input-group col-12'>
 										<span className='input-group-text col-2 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											Rate:
+											<small>Rate</small>
 										</span>
 										<span className='input-group-text col-2 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											<b>{rate}</b>
+											<small>
+												<b>{rate}</b>
+											</small>
 										</span>
-										<input
-											type='range'
-											min='0.5'
-											max='2'
-											defaultValue='1'
-											step='0.1'
-											id='rate'
-											className='form-control bg-custom-color2 border-custom-color3 text-custom-color6'
-											required
-											onChange={(event) => {
-												setRate(event.target.value)
-											}}
-										/>
+										<div className='input-group-text col-8 bg-custom-color2 border-custom-color3 text-custom-color6'>
+											<input
+												type='range'
+												min='0.5'
+												max='2'
+												defaultValue='1'
+												step='0.1'
+												id='rate'
+												className='form-range'
+												required
+												onChange={(event) => {
+													setRate(event.target.value)
+												}}
+											/>
+										</div>
 									</div>
 								</div>
 								<div className='form-group mb-2'>
 									<div className='input-group col-12'>
 										<span className='input-group-text col-2 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											Pitch
+											<small>Pitch</small>
 										</span>
 										<span className='input-group-text col-2 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											<b>{pitch}</b>
+											<small>
+												<b>{pitch}</b>
+											</small>
 										</span>
-										<input
-											type='range'
-											min='0'
-											max='2'
-											defaultValue='1'
-											step='0.1'
-											id='pitch'
-											className='form-control bg-custom-color2 border-custom-color3 text-custom-color6'
-											required
-											onChange={(event) => {
-												setPitch(event.target.value)
-											}}
-										/>
+										<div className='input-group-text col-8 bg-custom-color2 border-custom-color3 text-custom-color6'>
+											<input
+												type='range'
+												min='0'
+												max='2'
+												defaultValue='1'
+												step='0.1'
+												id='pitch'
+												className='form-range'
+												required
+												onChange={(event) => {
+													setPitch(event.target.value)
+												}}
+											/>
+										</div>
 									</div>
 								</div>
 								<div className='form-group mb-2'>
 									<div className='input-group col-12'>
 										<span className='input-group-text col-4 bg-custom-color4 border-custom-color3 text-custom-color1'>
-											Message
+											<small>Message</small>
 										</span>
 										<textarea
 											id='message'
 											name='message'
-											rows={3}
+											rows={2}
 											value={text}
-											className='form-control bg-custom-color2 border-custom-color3 text-custom-color6'
+											className='form-control small text-center bg-custom-color2 border-custom-color3 text-custom-color6'
 											onChange={(event) => {
 												setText(event.target.value)
 											}}
 										/>
 									</div>
 								</div>
-								<div className='d-flex justify-content-around align-items-center'>
+								<div className='d-flex justify-content-around align-items-center mt-3'>
 									{Speak.speaking ? (
 										<button
 											type='button'

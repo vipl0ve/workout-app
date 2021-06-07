@@ -138,19 +138,19 @@ const BWStats = ({
 					</p>
 					<div className='row mb-3'>
 						<ul id='bmiScore' className='list-group'>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between active'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between active'>
 								<span className=''>18.5 or less</span>
 								<span className=''>Underweight</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>18.5 – 24.99</span>
 								<span className=''>Normal Weight</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>25 – 29.99</span>
 								<span className=''>Overweight</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>30+</span>
 								<span className=''>Obese</span>
 							</li>
@@ -167,19 +167,19 @@ const BWStats = ({
 					</p>
 					<div className='row mb-3'>
 						<ul id='idealWeight' className='list-group'>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Hamwi Formula (1964)</span>
 								<span className=''>{idealWeight.hamwi}</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Devine Formula (1974)</span>
 								<span className=''>{idealWeight.devine}</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Robinson Formula (1983)</span>
 								<span className=''>{idealWeight.robinson}</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Miller Formula (1983)</span>
 								<span className=''>{idealWeight.miller}</span>
 							</li>
@@ -196,42 +196,42 @@ const BWStats = ({
 					</p>
 					<div className='row mb-3'>
 						<ul id='calScore' className='list-group'>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between active'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between active'>
 								<span className=''>Basal Metabolic Rate</span>
 								<span className=''>
 									{bmr}
 									<small> Calories Daily</small>
 								</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Sedentary</span>
 								<span className=''>
 									{(bmr * 1.2).toFixed(0)}
 									<small> Calories Daily</small>
 								</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Light Exercise</span>
 								<span className=''>
 									{(bmr * 1.375).toFixed(0)}
 									<small> Calories Daily</small>
 								</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Moderate Exercise</span>
 								<span className=''>
 									{(bmr * 1.55).toFixed(0)}
 									<small> Calories Daily</small>
 								</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Heavy Exercise</span>
 								<span className=''>
 									{(bmr * 1.725).toFixed(0)}
 									<small> Calories Daily</small>
 								</span>
 							</li>
-							<li className='list-group-item bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
+							<li className='list-group-item small bg-custom-color2 text-custom-color5 d-flex justify-content-between'>
 								<span className=''>Athlete</span>
 								<span className=''>
 									{(bmr * 1.9).toFixed(0)}
@@ -251,13 +251,13 @@ const BWStats = ({
 					</p>
 					<nav className='nav nav-justified border-bottom border-custom-color5'>
 						<div
-							className='nav nav-tabs'
+							className='nav nav-tabs d-flex justify-content-between'
 							onClick={handleNavClick}
 							id='nav-tab'
 							role='tablist'
 						>
 							<button
-								className='nav-item nav-link active bg-custom-color3 text-custom-color6'
+								className='nav-item nav-link active bg-custom-color3 text-custom-color6 small'
 								id='maintenance-tab'
 								data-toggle='tab'
 								role='tab'
@@ -268,7 +268,7 @@ const BWStats = ({
 								Maintenance
 							</button>
 							<button
-								className='nav-item nav-link text-custom-color6'
+								className='nav-item nav-link text-custom-color6 small'
 								id='cutting-tab'
 								data-toggle='tab'
 								role='tab'
@@ -279,7 +279,7 @@ const BWStats = ({
 								Cutting
 							</button>
 							<button
-								className='nav-item nav-link text-custom-color6'
+								className='nav-item nav-link text-custom-color6 small'
 								id='bulking-tab'
 								data-toggle='tab'
 								href='#bulking'
@@ -300,16 +300,16 @@ const BWStats = ({
 						<div className='col'>
 							<div className='card h-80 text-center'>
 								<div className='card-body bg-custom-color2'>
-									<p className='card-title'>
+									<p className='card-title small'>
 										<ins>Moderate Carb (30/35/35)</ins>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Protein: <b>{dailyMacro.moderateCarb.protein}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Fats: <b>{dailyMacro.moderateCarb.fats}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Carbs: <b>{dailyMacro.moderateCarb.carbs}g</b>
 									</p>
 								</div>
@@ -318,16 +318,16 @@ const BWStats = ({
 						<div className='col'>
 							<div className='card h-80 text-center'>
 								<div className='card-body bg-custom-color2'>
-									<p className='card-title'>
+									<p className='card-title small'>
 										<ins>Lower Carb (40/40/20)</ins>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Protein: <b>{dailyMacro.lowCarb.protein}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Fats: <b>{dailyMacro.lowCarb.fats}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Carbs: <b>{dailyMacro.lowCarb.carbs}g</b>
 									</p>
 								</div>
@@ -336,16 +336,16 @@ const BWStats = ({
 						<div className='col'>
 							<div className='card h-80 text-center'>
 								<div className='card-body bg-custom-color2'>
-									<p className='card-title'>
+									<p className='card-title small'>
 										<ins>Higher Carb (30/20/50)</ins>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Protein: <b>{dailyMacro.highCarb.protein}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Fats: <b>{dailyMacro.highCarb.fats}g</b>
 									</p>
-									<p className='card-text'>
+									<p className='card-text small'>
 										Carbs: <b>{dailyMacro.highCarb.carbs}g</b>
 									</p>
 								</div>

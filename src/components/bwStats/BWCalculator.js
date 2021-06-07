@@ -10,11 +10,11 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Gender
+								<small>Gender</small>
 							</span>
 							<select
 								name='gender'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								value={values.gender}
 								onChange={handleChange}
@@ -27,12 +27,12 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Age
+								<small>Age</small>
 							</span>
 							<input
 								type='number'
 								name='age'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-control small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								placeholder='Add Age'
 								value={values.age}
@@ -43,11 +43,11 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Unit
+								<small>Unit</small>
 							</span>
 							<select
 								name='unit'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								value={values.unit}
 								onChange={handleChange}
@@ -60,12 +60,15 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Weight({values.unit === 'Metric' ? 'kgs' : 'lbs'})
+								<small>Weight</small>
+								<small className='badge bg-custom-color2 text-custom-color6'>
+									{values.unit === 'Metric' ? 'kgs' : 'lbs'}
+								</small>
 							</span>
 							<input
 								type='number'
 								name='weight'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-control small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								placeholder='Add Weight'
 								value={values.weight}
@@ -76,12 +79,15 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Height({values.unit === 'Metric' ? 'cms' : 'ins'})
+								<small>Height</small>
+								<small className='badge bg-custom-color2 text-custom-color6'>
+									{values.unit === 'Metric' ? 'cms' : 'ins'}
+								</small>
 							</span>
 							<input
 								type='number'
 								name='height'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-control small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								placeholder='Add Height'
 								value={values.height}
@@ -92,11 +98,11 @@ const BWCalculator = ({ values, handleChange, onSubmit, onReset }) => {
 					<div className='form-group mb-2'>
 						<div className='input-group col-12'>
 							<span className='input-group-text col-4 bg-custom-color2 border-custom-color3 text-custom-color6'>
-								Activity
+								<small>Activity</small>
 							</span>
 							<select
 								name='activity'
-								className='form-control bg-custom-color4 border-custom-color3 text-custom-color1'
+								className='form-select small bg-custom-color4 border-custom-color3 text-custom-color1'
 								required
 								value={values.activity}
 								onChange={handleChange}

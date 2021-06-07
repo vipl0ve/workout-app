@@ -9,7 +9,9 @@ const CardBtnAutoPlay = ({ autoPlay, status, progression, onAction }) => {
 			<>
 				<div className='d-flex justify-content-center align-items-start'>
 					<label>
-						<span className='text-custom-color6'>AutoPlay</span>
+						<span className='text-custom-color6'>
+							<small>AutoPlay</small>
+						</span>
 					</label>
 					<Switch
 						onChange={onAction}
@@ -89,7 +91,9 @@ const CardBtnAutoPlay = ({ autoPlay, status, progression, onAction }) => {
 			<>
 				<div className='d-flex justify-content-center align-items-start'>
 					<label>
-						<span className='text-muted'>No AutoPlay</span>
+						<span className='text-muted'>
+							<small>No AutoPlay</small>
+						</span>
 					</label>
 					{progression && (
 						<>

@@ -161,71 +161,74 @@ const Breathe = () => {
 	}
 
 	return (
-		<div className='breathe' style={styles.breathe}>
-			<PageHeader text='Basic Meditation' />
-			<p className='text-custom-color6 mb-1'>
-				Total Duration:{' '}
-				<b>
-					<Timer data={totalDuration} className='text-custom-color6'></Timer>
-				</b>
-			</p>
-			<div className='d-flex flex-row justify-content-between align-items-start'>
-				<button
-					className='btn btn-custom-color4 text-custom-color1 mx-2'
-					onClick={() => setVolumeStatus(!volume)}
-				>
-					{/* {volume ? 'Audio Off' : 'Audio On'} */}
-					{volume && <FontAwesomeIcon icon={faVolumeUp} />}
-					{!volume && <FontAwesomeIcon icon={faVolumeMute} />}
-				</button>
-				<button
-					className='btn btn-custom-color4 text-custom-color1 mx-2'
-					onClick={() => setInstruction(!instruction)}
-				>
-					{instruction ? 'Hide Instructions' : 'Read Instructions'}
-				</button>
-			</div>
-			{instruction && (
-				<div className='text-justify text-custom-color6 mt-2'>
-					<ul>
-						<li>
-							<small>
-								<b>Get comfortable:</b> Prepare to sit still for a few minutes.
-							</small>
-						</li>
-						<li>
-							<small>
-								<b>Focus on your breath:</b> Keep your attention on your inhale
-								and exhale.
-							</small>
-						</li>
-						<li>
-							<small>
-								<b>Continue your breathing:</b> Take a deep inhale, expanding
-								your belly, and then exhale slowly, elongating the out-breath as
-								your belly contracts.
-							</small>
-						</li>
-					</ul>
-				</div>
-			)}
-			<div
-				className='svgContainer'
-				id='svgContainer'
-				ref={container}
-				style={styles.svgContainer}
-			>
-				<div className='circle' style={styles.circle}></div>
-				<p id='text' className='text-custom-color6'>
-					<b>{text}</b>
+		<div className='maincontainer container d-flex flex-column justify-content-start'>
+			<div className='breathe' style={styles.breathe}>
+				<PageHeader text='Basic Meditation' />
+				<p className='text-custom-color6 mb-1'>
+					Total Duration:{' '}
+					<b>
+						<Timer data={totalDuration} className='text-custom-color6'></Timer>
+					</b>
 				</p>
-				<div
-					className='pointer-svgContainer'
-					style={styles.pointersvgContainer}
-				>
-					<span style={styles.pointer}></span>
+				<div className='d-flex flex-row justify-content-between align-items-start'>
+					<button
+						className='btn btn-custom-color4 text-custom-color1 mx-2 small'
+						onClick={() => setVolumeStatus(!volume)}
+					>
+						{/* {volume ? 'Audio Off' : 'Audio On'} */}
+						{volume && <FontAwesomeIcon icon={faVolumeUp} />}
+						{!volume && <FontAwesomeIcon icon={faVolumeMute} />}
+					</button>
+					<button
+						className='btn btn-custom-color4 text-custom-color1 mx-2 small'
+						onClick={() => setInstruction(!instruction)}
+					>
+						{instruction ? 'Hide Instructions' : 'Read Instructions'}
+					</button>
 				</div>
-				<div className='gradient-circle'></div>
+				{instruction && (
+					<div className='text-justify text-custom-color6 mt-2 small'>
+						<ul>
+							<li>
+								<small>
+									<b>Get comfortable:</b> Prepare to sit still for a few
+									minutes.
+								</small>
+							</li>
+							<li>
+								<small>
+									<b>Focus on your breath:</b> Keep your attention on your
+									inhale and exhale.
+								</small>
+							</li>
+							<li>
+								<small>
+									<b>Continue your breathing:</b> Take a deep inhale, expanding
+									your belly, and then exhale slowly, elongating the out-breath
+									as your belly contracts.
+								</small>
+							</li>
+						</ul>
+					</div>
+				)}
+				<div
+					className='svgContainer'
+					id='svgContainer'
+					ref={container}
+					style={styles.svgContainer}
+				>
+					<div className='circle' style={styles.circle}></div>
+					<p id='text' className='text-custom-color6'>
+						<b>{text}</b>
+					</p>
+					<div
+						className='pointer-svgContainer'
+						style={styles.pointersvgContainer}
+					>
+						<span style={styles.pointer}></span>
+					</div>
+					<div className='gradient-circle'></div>
+				</div>
 			</div>
 		</div>
 	)

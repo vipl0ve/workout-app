@@ -7,7 +7,7 @@ import WorkoutCompleted from './WorkoutCompleted'
 import WorkoutAudio from './WorkoutAudio'
 import { useSpeechSynthesis } from 'react-speech-kit'
 import { useLocalStorage } from '../utils/useLocalStorage'
-import WorkoutInProgress from './WorkoutInProgress'
+import WorkoutIncomplete from './WorkoutIncomplete'
 import NoSleep from 'nosleep.js'
 
 const WorkoutProgress = (props) => {
@@ -18,15 +18,15 @@ const WorkoutProgress = (props) => {
 		{
 			status: false,
 			loaded: false,
-			exerciseCount: 0,
-			setCount: 1,
+			workoutName: '',
 			timer: 0,
-			play: false,
+			play: true,
 			autoPlay: true,
+			speakStatus: true,
 			curModule: -2,
 			fillerModule: true,
-			prevModule: false,
-			speakStatus: false,
+			exerciseCount: 1,
+			setCount: 1,
 			updatedDate: Date.now(),
 		}
 	)
@@ -56,7 +56,6 @@ const WorkoutProgress = (props) => {
 		setAutoPlay(workoutProgress.autoPlay)
 		setCurModule(workoutProgress.curModule)
 		setFillerModule(workoutProgress.fillerModule)
-		setPrevModule(workoutProgress.prevModule)
 		setSpeakStatus(workoutProgress.speakStatus)
 		setWorkoutProgress({
 			...workoutProgress,
@@ -70,15 +69,15 @@ const WorkoutProgress = (props) => {
 		setWorkoutProgress({
 			status: false,
 			loaded: false,
-			exerciseCount: 0,
-			setCount: 1,
+			workoutName: '',
 			timer: 0,
-			play: false,
+			play: true,
 			autoPlay: true,
+			speakStatus: true,
 			curModule: -2,
 			fillerModule: true,
-			prevModule: false,
-			speakStatus: false,
+			exerciseCount: 1,
+			setCount: 1,
 			updatedDate: Date.now(),
 		})
 	}
@@ -89,6 +88,7 @@ const WorkoutProgress = (props) => {
 				setTimer((timer) => timer + 1)
 				setWorkoutProgress({
 					...workoutProgress,
+					status: true,
 					timer: timer + 1,
 					updatedDate: Date.now(),
 				})
@@ -109,9 +109,8 @@ const WorkoutProgress = (props) => {
 			status: true,
 			loaded: false,
 			curModule: curModule - 1,
-			exerciseCount: 0,
+			exerciseCount: 1,
 			setCount: 1,
-			prevModule: true,
 			updatedDate: Date.now(),
 		})
 		noSleep.enable()
@@ -129,9 +128,8 @@ const WorkoutProgress = (props) => {
 			status: true,
 			loaded: false,
 			curModule: curModule + 1,
-			exerciseCount: 0,
+			exerciseCount: 1,
 			setCount: 1,
-			prevModule: false,
 			updatedDate: Date.now(),
 		})
 		noSleep.enable()
@@ -147,9 +145,8 @@ const WorkoutProgress = (props) => {
 			loaded: false,
 			play: false,
 			curModule: routine.exercises.length,
-			exerciseCount: 0,
+			exerciseCount: 1,
 			setCount: 1,
-			prevModule: false,
 			updatedDate: Date.now(),
 		})
 		noSleep.enable()
@@ -159,6 +156,8 @@ const WorkoutProgress = (props) => {
 		setPlay(status)
 		setWorkoutProgress({
 			...workoutProgress,
+			status: true,
+			loaded: false,
 			play: status,
 			updatedDate: Date.now(),
 		})
@@ -186,6 +185,8 @@ const WorkoutProgress = (props) => {
 		setAutoPlay(status)
 		setWorkoutProgress({
 			...workoutProgress,
+			status: true,
+			loaded: false,
 			autoPlay: status,
 			updatedDate: Date.now(),
 		})
@@ -211,6 +212,8 @@ const WorkoutProgress = (props) => {
 		setSpeakStatus(status)
 		setWorkoutProgress({
 			...workoutProgress,
+			status: true,
+			loaded: false,
 			speakStatus: status,
 			updatedDate: Date.now(),
 		})
@@ -219,7 +222,8 @@ const WorkoutProgress = (props) => {
 	if (curModule === -2) {
 		if (workoutProgress.status && !workoutProgress.loaded) {
 			return (
-				<WorkoutInProgress
+				<WorkoutIncomplete
+					workoutProgress={workoutProgress}
 					loadCurWorkout={loadCurWorkout}
 					loadDefaultWorkout={loadDefaultWorkout}
 				/>
@@ -240,7 +244,7 @@ const WorkoutProgress = (props) => {
 	} else if (curModule === -1) {
 		return (
 			<WorkoutStarted
-				routineInfo={routine}
+				routine={routine}
 				Speak={Speak}
 				speakStatus={speakStatus}
 				speakSettings={speakSettings}
